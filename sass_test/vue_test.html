@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="uft-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <title>VUE.js</title>
+
+  <body>
+    <div id="ex">
+      <input type="text" v-mode="con_name" />
+      <table>
+        <tbody>
+          <tr v-for="c in filter">
+            <td>{{c.no}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.cap}}</td>
+            <td>{{c.reg}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="jquery.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+      var model = {
+        con_name: "",
+        con: [{
+            no: 1,
+            name: 'Ame',
+            cap: 'Wo',
+            reg: 'a'
+          },
+          {
+            no: 2,
+            name: 'Fra',
+            cap: 'par',
+            reg: 'f'
+          },
+          {
+            no: 3,
+            name: 'Eng',
+            cap: 'lon',
+            reg: 'e'
+          },
+          {
+            no: 4,
+            name: 'Chi',
+            cap: 'bei',
+            reg: 'c'
+          },
+          {
+            no: 5,
+            name: 'Tai',
+            cap: 'Ban',
+            reg: 't'
+          },
+          {
+            no: 6,
+            name: 'Mor',
+            cap: 'rab',
+            reg: 'm'
+          },
+          {
+            no: 7,
+            name: 'Ame',
+            cap: 'Wo',
+            reg: 'a'
+          },
+          {
+            no: 8,
+            name: 'Rao',
+            cap: 'bien',
+            reg: 'r'
+          },
+          {
+            no: 9,
+            name: 'Ame',
+            cap: 'Wo',
+            reg: 'a'
+          },
+          {
+            no: 10,
+            name: 'Fra',
+            cap: 'par',
+            reg: 'f'
+          },
+          {
+            no: 11,
+            name: 'Eng',
+            cap: 'lon',
+            reg: 'e'
+          },
+          {
+            no: 12,
+            name: 'Chi',
+            cap: 'bei',
+            reg: 'c'
+          },
+          {
+            no: 13,
+            name: 'Tai',
+            cap: 'Ban',
+            reg: 't'
+          },
+          {
+            no: 14,
+            name: 'Mor',
+            cap: 'rab',
+            reg: 'm'
+          },
+          {
+            no: 15,
+            name: 'Ame',
+            cap: 'Wo',
+            reg: 'a'
+          },
+          {
+            no: 16,
+            name: 'Rao',
+            cap: 'bien',
+            reg: 'r'
+          }
+        ]
+      }
+      var ex = new Vue({
+        el: "#ex",
+        data: model,
+        computed: {
+          filter: function() {
+            var cname = this.con_name.trim();
+            return this.con.filter(function(item, index) {
+              if (item.name.indexOf(cname) > -1) {
+                return true;
+              }
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+
+</html>

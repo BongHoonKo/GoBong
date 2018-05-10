@@ -1,0 +1,7 @@
+
+@mixin display($mode){
+  display:#{$mode};
+}
+.wrap{
+  @include display('flex');
+}

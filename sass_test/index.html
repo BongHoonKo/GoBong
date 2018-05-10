@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="uft-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <title>VUE.js</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+
+    .table {
+      border-collapse: collapse;
+    }
+
+    table,
+    td,
+    th {
+      border: 1px solid #222;
+    }
+
+    td {
+      padding: 12px;
+    }
+
+    .divider {
+      background-color: #ddd;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .roadmap{
+      width:100%;
+      overflow:hidden;
+      position:relative;
+    }
+    .circle{
+      width:100px;
+      height:100px;
+      background-color:#fff;
+      border-radius: 50%;
+      border:2px solid #222;
+      position:absolute;
+      top:50px;
+      left:100px;
+
+    }
+    .border_test_1{
+      margin:0 auto;
+      width:70%;
+      height:100px;
+      border-bottom:2px dashed #999;
+      border-right:2px dashed #999;
+      border-radius: 0 0 30px 0;
+    }
+    .border_test_2{
+      margin:0 auto;
+      width:70%;
+      height:100px;
+      border-bottom:2px dashed #999;
+      border-left:2px dashed #999;
+      border-radius: 0 0 0 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="test" v-html="name" v-show="visible" v-cloak>
+  </div>
+  <div class='test_1'>
+    <input type="text" v-model="val" />
+    <h2 v-once>{{val}}</h2>
+    <p v-if="val<-1">NZ</p>
+    <p v-else-if="val==0">ZERO</p>
+    <p v-else>???</p>
+    <h2>{{val}}</h2>
+    <img v-bind:src="smile?image_1:image_2" :alt='title' :title="title" />
+    <input type="checkbox" v-model="smile" />
+  </div>
+  <ul class='nav'>
+    <li v-for="(li,index) in list"><a :href="index">{{li.text}}</a></li>
+  </ul>
+
+  <div class="on_test">
+    <p>{{value}}</p>
+    <button v-on:dblclick="inc">+</button>
+    <button @dblclick="dec">-</button>
+    <input type="checkbox" value="Apple" v-model="fruits" />A
+    <input type="checkbox" value="Banana" v-model="fruits" />B
+    <input type="checkbox" value="CCC" v-model="fruits" />C
+    <input type="checkbox" value="DDD" v-model="fruits" />D
+    <input type="checkbox" value="EC" v-model="fruits" />E
+    <p v-html="fruits"></p>
+  </div>
+  <select class="select">
+    <option disabled="disabled" selected>선택</option>
+    <option v-for="(val,key,index) in reg" :value="key">{{index+1}}:{{val}}</option>
+  </select>
+  <table class="table">
+    <tbody>
+      <template v-for="(con,index) in contacts">
+      <tr>
+        <td>{{con.no}}</td>
+        <td>{{con.name}}</td>
+        <td>{{con.tel}}</td>
+        <td>{{con.addr}}</td>
+     </tr>
+     <tr class="divider" v-if="index%5 === 4">
+       <td colspan="4"></td>
+     </tr>
+   </template>
+    </tbody>
+  </table>
+  <div class="ex">
+    <input type="number" v-model="num" />
+    <p>{{sum()}}</p>
+  </div>
+  <div class="roadmap">
+    <div class="border_test_1"></div>
+    <div class="circle"></div>
+    <div class="border_test_2"></div>
+  </div>
+
+  <script src="jquery.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script>
+    var sum = new Vue({
+      el: '.ex',
+      data: {
+        num: 0
+      },
+      methods: {
+        sum: function() {
+          var n = Number(this.num);
+          if (Number.isNaN(n) || n < 1) {
+            return 0;
+          } else {
+            return n * 5;
+          }
+        }
+      }
+    });
+
+
+
+
+
+
+
+    var table = new Vue({
+      el: '.table',
+      data: {
+        "contacts": [{
+            'no': 1,
+            'name': 'GoBong',
+            'tel': '01033039838',
+            'addr': 'Busan'
+          },
+          {
+            'no': 2,
+            'name': 'Eun',
+            'tel': '01022222222',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 3,
+            'name': 'Sung',
+            'tel': '01033333333',
+            'addr': 'GyeongGi'
+          },
+          {
+            'no': 4,
+            'name': 'Sora',
+            'tel': '01044444444',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 1,
+            'name': 'GoBong',
+            'tel': '01033039838',
+            'addr': 'Busan'
+          },
+          {
+            'no': 2,
+            'name': 'Eun',
+            'tel': '01022222222',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 3,
+            'name': 'Sung',
+            'tel': '01033333333',
+            'addr': 'GyeongGi'
+          },
+          {
+            'no': 4,
+            'name': 'Sora',
+            'tel': '01044444444',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 1,
+            'name': 'GoBong',
+            'tel': '01033039838',
+            'addr': 'Busan'
+          },
+          {
+            'no': 2,
+            'name': 'Eun',
+            'tel': '01022222222',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 3,
+            'name': 'Sung',
+            'tel': '01033333333',
+            'addr': 'GyeongGi'
+          },
+          {
+            'no': 4,
+            'name': 'Sora',
+            'tel': '01044444444',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 1,
+            'name': 'GoBong',
+            'tel': '01033039838',
+            'addr': 'Busan'
+          },
+          {
+            'no': 2,
+            'name': 'Eun',
+            'tel': '01022222222',
+            'addr': 'Seoul'
+          },
+          {
+            'no': 3,
+            'name': 'Sung',
+            'tel': '01033333333',
+            'addr': 'GyeongGi'
+          },
+          {
+            'no': 4,
+            'name': 'Sora',
+            'tel': '01044444444',
+            'addr': 'Seoul'
+          }
+
+        ]
+      }
+    });
+    var reg = {
+      "A": "Asia",
+      "B": "America",
+      "C": "Europe",
+      "D": "Africa",
+      "E": "Oceania"
+    };
+    var select = new Vue({
+      el: '.select',
+      data: {
+        reg: reg
+      }
+    });
+    var test = new Vue({
+      el: '.test',
+      data: {
+        name: '<b>test_text</b>',
+        visible: true
+      }
+    });
+    var on_test = new Vue({
+      el: '.on_test',
+      data: {
+        value: 0,
+        fruits: []
+      },
+      methods: {
+        inc: function() {
+          this.value++;
+        },
+        dec: function() {
+          this.value--;
+        }
+      }
+    });
+    var test_1 = new Vue({
+      el: '.test_1',
+      data: {
+        val: 0,
+        smile: true,
+        image_1: '200.png',
+        image_2: '250.png',
+        title: '200x200 Image'
+      }
+    });
+    var nav = new Vue({
+      el: '.nav',
+      data: {
+        list: [{
+            text: 'one'
+          },
+          {
+            text: 'two'
+          },
+          {
+            text: 'three'
+          },
+          {
+            text: 'four'
+          },
+          {
+            text: 'five'
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+
+</html>
