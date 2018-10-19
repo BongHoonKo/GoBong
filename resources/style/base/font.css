@@ -1,0 +1,77 @@
+﻿/*@font-face {
+    font-family: Nanum_Square_L;
+    src: url('../fonts/NanumSquareL.ttf');
+}
+@font-face {
+    font-family: Nanum_Square_R;
+    src: url('../fonts/NanumSquareR.ttf');
+}
+@font-face {
+    font-family: Nanum_Square_R_woff;
+    src: url('../fonts/NanumSquareR.woff');
+}
+@font-face {
+    font-family: Nanum_Square_R_eot;
+    src: url('../fonts/NanumSquareR.eot');
+}
+@font-face {
+    font-family: Nanum_Square_B;
+    src: url('../fonts/NanumSquareB.ttf');
+}
+@font-face {
+    font-family: Nanum_Square_B_woff;
+    src: url('../fonts/NanumSquareB.woff');
+}
+@font-face {
+    font-family: Nanum_Square_B_eot;
+    src: url('../fonts/NanumSquareB.eot');
+}
+@font-face {
+    font-family: Nanum_Square_EB;
+    src: url('../fonts/NanumSquareEB.ttf');
+}
+@font-face {
+    font-family: Nanum_Square_EB_woff;
+    src: url('../fonts/NanumSquareEB.woff');
+}
+@font-face {
+    font-family: Nanum_Square_EB_eot;
+    src: url('../fonts/NanumSquareEB.eot');
+}*/
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 300;
+  src: url(../../fonts/NanumSquareL.eot) format('eot'),
+       url(../../fonts/NanumSquareL.woff) format('woff'),
+       url(../../fonts/NanumSquareL.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../../fonts/NanumSquareR.eot) format('eot'),
+       url(../../fonts/NanumSquareR.woff) format('woff'),
+       url(../../fonts/NanumSquareR.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../../fonts/NanumSquareB.eot) format('eot'),
+       url(../../fonts/NanumSquareB.woff) format('woff'),
+       url(../../fonts/NanumSquareB.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumSquare';
+  font-style: normal;
+  font-weight: 900;
+  src: url(../../fonts/NanumSquareEB.eot) format('eot'),
+       url(../../fonts/NanumSquareEB.woff) format('woff'),
+       url(../../fonts/NanumSquareEB.ttf) format('truetype');
+}
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="uft-8"/>
+  <title>GoBong</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6B58A7">
+  <!--<link href="/assets/images/common/favi.ico" rel="shortcut icon">
+  <meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+  <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+  <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+  <meta name="author" content="KSTAR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KSTAR">
+  <meta property="og:description" content="KSTAR">
+  <meta property="og:url" content="https://www.kstar.tv">
+  <link rel="canonical" href="https://www.kstar.tv">-->
+  <link rel="stylesheet" href="resources/style/index.css"/>
+  <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="portfolio__wrap">
+  <header class="header">
+  </header>
+  <section class="layout main-top">
+    <h1 class="main__title">Portfolio</h1>
+    <article class="main__txt">
+      <h3 class="my-name">Bong Hoon<br/>Ko</h3>
+      <p class="my-position">Web Publisher</p>
+    </article>
+    <ariticle class="back-wrap">
+      <div class="back">
+        <div class="cover"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_5.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_4.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_3.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_2.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_11.png');"></div>
+      </div>
+    </ariticle>
+  </section>
+  <section class="layout main-content">
+
+  </section>
+  <footer class="footer"></footer>
+  <script>
+      $(document).scroll(function () {
+          var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
+          var $back = $('.back_1');
+          $back.eq(3).css({ 'top': (doc_pos) / 3 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 15000)) + ')' });
+          $back.eq(2).css({ 'top': (doc_pos) / 2.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 10000)) + ')' });
+          $back.eq(1).css({ 'top': (doc_pos) / 2 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8500)) + ')' });
+          $back.eq(0).css({ 'top': (doc_pos) / 1.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8000)) + ')' });
+      });
+  </script>
+</div>
+</body>
+</html>

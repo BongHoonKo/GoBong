@@ -1,0 +1,14 @@
+//utils
+@import "utils/_mixin";
+@import "utils/_var";
+
+// base
+@import "base/font.css";
+@import "base/_reset";
+
+//vendor
+@import "vendor/bootstrap.css";
+
+// pages
+@import "pages/_index";
+@import "pages/_details";

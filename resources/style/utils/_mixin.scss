@@ -1,0 +1,77 @@
+/** 
+ * Created by Eunjin Yang on 2018. 5. 15.
+ * Corp : Kstar Group
+ * Github : http://github.com/jinny920311
+ */
+
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+    // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+//ClearFix
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+//text-overflow
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//여러줄 text-overflow
+@mixin text-overflow-n($n) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: #{$n};
+  -webkit-box-orient: vertical;
+}
+
+//y-translate
+@mixin y-translate {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+//xy-translate
+@mixin xy-translate {
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+//transition-duration
+@mixin transition($ms) {
+  -webkit-transition-duration: #{$ms}ms;
+  -moz-transition-duration: #{$ms}ms;
+  -ms-transition-duration: #{$ms}ms;
+  -o-transition-duration: #{$ms}ms;
+  transition-duration: #{$ms}ms;
+}
