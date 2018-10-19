@@ -2,32 +2,29 @@
 <html>
 <head>
 <meta charset="uft-8"/>
-<title>VUE.js</title>
-<style>
-[v-cloak]{
-  display:none;
-}
-</style>
+<title>GoBong</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6B58A7">
+  <!--<link href="/assets/images/common/favi.ico" rel="shortcut icon">
+  <meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+  <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+  <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+  <meta name="author" content="KSTAR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KSTAR">
+  <meta property="og:description" content="KSTAR">
+  <meta property="og:url" content="https://www.kstar.tv">
+  <link rel="canonical" href="https://www.kstar.tv">-->
+  <link rel="stylesheet" href="resources/style/index.css"/>
+  <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-  <div class="test" v-html="name" v-show="visible" v-cloak></div>
-  <div class="test_1" v-if="val>-1">VISIBLE</div>
-  <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script>
-  var test = new Vue({
-    el:'.test',
-    data:{
-      name:'<b>test_text</b>',
-      visible:true
-    }
-  });
-
-  var test_1 = new Vue({
-    el:'.test_1',
-    data:{
-      val:0
-    }
-  });
-  </script>
+  <div class="portfolio__wrap">
+    <header class="header"></header>
+    <section class="layout"></section>
+    <footer class="footer"></footer>
+  </div>
 </body>
 </html>
