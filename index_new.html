@@ -21,9 +21,25 @@
   <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
 </head>
 <body>
+
+<!-- CURSOR -->
+<div class="cursor"></div>
+<div class="cursor_1"></div>
+
+<!-- PORTFOLIO 시작 -->
 <div class="portfolio__wrap">
+
+  <!-- HEADER -->
   <header class="header">
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Works</li>
+      <li>Contact</li>
+    </ul>
   </header>
+
+  <!-- TOP -->
   <section class="layout main-top">
     <h1 class="main__title">Portfolio</h1>
     <article class="main__txt">
@@ -45,19 +61,108 @@
       </div>
     </ariticle>
   </section>
+
+  <!-- Contents -->
   <section class="layout main-content">
 
+    <!-- ABOUT ME -->
+    <div class="container about-me">
+      <h1 class="title">ABOU<span>T</span></h1>
+      <div class="title-line"></div>
+      <h4 class="sub-title">- ABILITY -</h4>
+      <article class="row ability">
+        <div class="col-xs-4">
+          <div class="test-img"></div>
+          <h5 class="ability__title">CODING</h5>
+          <p class="ability__txt">
+            HTML5, CSS3, JavaScript, jQuery를 이용하여 디자인된 웹페이지를 코딩하여 브라우저에 구현시키는 프론트엔드 개발이 가능합니다.
+          </p>
+        </div>
+        <div class="col-xs-4">
+          <div class="test-img"></div>
+          <h5 class="ability__title">DESIGN</h5>
+          <p class="ability__txt">12 Column 그리드 시스템으로 깔끔한 웹페이지 디자인 및 포토샵, 일러스트레이터를 이용하여 웹페이지에 필요한 이미지 작업이 가능합니다.</p>
+        </div>
+        <div class="col-xs-4">
+          <div class="test-img"></div>
+          <h5 class="ability__title">DESIGN</h5>
+          <p class="ability__txt">12 Column 그리드 시스템으로 깔끔한 웹페이지 디자인 및 포토샵, 일러스트레이터를 이용하여 웹페이지에 필요한 이미지 작업이 가능합니다.</p>
+        </div>
+      </article>
+      <h4 class="sub-title">- HISTORY -</h4>
+      <article class="history"></article>
+    </div>
+
+    <!-- WORKS -->
+    <div class="container works">
+      <h1 class="title">WORK<span>S</span></h1>
+      <div class="title-line"></div>
+      <h4 class="sub-title">- WEBSITES -</h4>
+      <article class="row ability">
+        <div class="col-xs-3"></div>
+        <div class="col-xs-3"></div>
+        <div class="col-xs-3"></div>
+        <div class="col-xs-3"></div>
+      </article>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="container contact">
+      <h1 class="title">CONTAC<span>T</span></h1>
+      <div class="title-line"></div>
+      <h4 class="sub-title">- HOW to CONTACT -</h4>
+    </div>
+
   </section>
+
+  <!-- FOOTER -->
   <footer class="footer"></footer>
+
   <script>
+      /* background 스크롤 이벤트 */
       $(document).scroll(function () {
           var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
           var $back = $('.back_1');
-          $back.eq(3).css({ 'top': (doc_pos) / 3 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 15000)) + ')' });
-          $back.eq(2).css({ 'top': (doc_pos) / 2.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 10000)) + ')' });
-          $back.eq(1).css({ 'top': (doc_pos) / 2 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8500)) + ')' });
-          $back.eq(0).css({ 'top': (doc_pos) / 1.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8000)) + ')' });
+          var top_num, scale_num;
+          for (var i = 0; i <= 3; i++) {
+              switch (i) {
+                  case 3 :
+                      top_num = 3, scale_num = 15000;
+                      break;
+                  case 2 :
+                      top_num = 2.5, scale_num = 10000;
+                      break;
+                  case 1 :
+                      top_num = 2, scale_num = 8500;
+                      break;
+                  case 0 :
+                      top_num = 1.5, scale_num = 8000;
+                      break;
+              }
+              $back.eq(i).css({
+                  'top': (doc_pos) / top_num + 'px',
+                  'transform': 'scale(' + (1 + (doc_pos / scale_num)) + ')'
+              });
+          }
       });
+
+      /* cursor 이벤트 */
+      mouseX = 0, mouseY = 0;
+
+      function cursorfollow() {
+          var e = 0, s = 0;
+          setInterval(function () {
+              e += (mouseX - e) / 9;
+              s += (mouseY - s) / 9;
+              $('.cursor_1').css({left: e - 12, top: s - 12});
+              $('.cursor').css({left: mouseX, top: mouseY});
+          }, 16);
+      }
+
+      $(document).mousemove(function (e) {
+          mouseX = e.pageX, mouseY = e.pageY;
+      });
+      cursorfollow();
   </script>
 </div>
 </body>
