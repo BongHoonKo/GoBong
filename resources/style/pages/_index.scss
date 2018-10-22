@@ -157,6 +157,7 @@ html, body {
       @include y-translate;
       .my-name {
         font-size: 6rem;
+        text-shadow: 7px 7px 10px rgba(0,0,0,0.3);
         b {
           color: $white;
           font-size: 3rem;
