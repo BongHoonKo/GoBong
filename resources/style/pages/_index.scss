@@ -306,6 +306,9 @@ html, body {
   }
 
   .profiles {
+    .sub-title {
+      margin-bottom: 0;
+    }
     .profile {
       .skill-box {
         width: 900px;
@@ -323,6 +326,11 @@ html, body {
           position: absolute;
           top: -70px;
           left: -80px;
+          background-image: url('../../resources/images/gobong.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
         }
         .box-title {
           text-align: left;

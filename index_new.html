@@ -217,7 +217,7 @@
     <!-- PROFILE -->
     <div class="box-hidden container profiles">
       <h4 class="sub-title">- PROFILE -</h4>
-      <article class="box-hidden row profile">
+      <article class="row profile">
         <div class="skill-box">
           <div class="photo-box"></div>
           <h5 class="box-title">Education & Career</h5>
@@ -412,9 +412,16 @@
 
           $('.box-hidden').each(function(){
               var about_top = $(this).offset();
-              if(sc_top >= about_top.top - 400) {
+              if(sc_top >= about_top.top - 350) {
                   $(this).css({'animation-name':'box-hidden'});
                   $('.icon_svg').css('animation-name','offset');
+                  if($(this).index() == 1) {
+                      // gage
+                      $('.skill-gage__inner').each(function(){
+                          var gage = $(this).attr('data-gage');
+                          $(this).animate({'width' : gage + "%"},1000);
+                      });
+                  }
               }
           });
       });
@@ -449,12 +456,6 @@
               $cursor.removeClass('hide');
               $hb.css('cursor','none');
           }
-      });
-
-      // gage
-      $('.skill-gage__inner').each(function(){
-          var gage = $(this).attr('data-gage');
-          $(this).animate({'width' : gage + "%"},300);
       });
 
       // explorer 일 때 svg 대체
