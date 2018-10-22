@@ -1,3 +1,22 @@
+@keyframes box-hidden {
+  from {
+    -webkit-transform: translateY(10%);
+    -moz-transform: translateY(10%);
+    -ms-transform: translateY(10%);
+    -o-transform: translateY(10%);
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -13,6 +32,19 @@ html, body {
   height: 200px;
   background-color: #1f1f1f;
   margin: 0 auto;
+}
+
+.test-img-1 {
+  width: 100%;
+  height: 246.656px;
+  background-color: #1f1f1f;
+}
+
+.test-list {
+  width: 40px;
+  height: 40px;
+  float: left;
+  background-color: #383838;
 }
 
 //cursor
@@ -37,7 +69,14 @@ html, body {
       transform: translate(5px, 5px) scale(5);
     }
   }
+  &.hide {
+    display: none;
+    & ~ .cursor_1 {
+      display: none;
+    }
+  }
 }
+
 .cursor_1 {
   width: 20px;
   height: 20px;
@@ -55,21 +94,51 @@ html, body {
   z-index: 9998;
 }
 
-
 /* index 시작 */
 .portfolio__wrap {
   width: 100%;
   height: 100%;
+
+  .box-hidden {
+    opacity: 0;
+    animation-name: none;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    @include transition(350);
+  }
+
   // 헤더
   .header {
-    display: none;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 15px 0;
     z-index: 999;
+    @include transition(200);
+    &.scrolling {
+      background-color: rgba(0, 0, 0, 0.3);
+      border-bottom: 2px solid rgba(220, 220, 220, 0.1);
+    }
+    .logo {
+      float: left;
+      width: 50px;
+    }
+    ul {
+      float: right;
+      li {
+        color: $white;
+        font-size: 1.125rem;
+        float: left;
+        margin-right: 60px;
+        line-height: 50px;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
   }
   .main-top {
     width: 100%;
@@ -77,7 +146,8 @@ html, body {
     position: relative;
     overflow: hidden;
 
-    .main__title {}
+    .main__title {
+    }
     .main__txt {
       color: $white;
       position: absolute;
@@ -155,8 +225,15 @@ html, body {
     padding-top: 50px;
     background-color: #02020b;
     overflow: hidden;
-    //test
-    height: 1000px;
+
+    & > .container {
+      margin-bottom: 120px;
+      & > .row:not(:only-of-type) {
+        margin-bottom: 120px;
+      }
+    }
+
+    //TITLE
     .title {
       color: $white;
       font-size: 2.66rem;
@@ -167,7 +244,7 @@ html, body {
     .title-line {
       width: 20px;
       height: 3px;
-      background-color:#013a68;
+      background-color: #013a68;
       margin: 0 auto;
     }
     .sub-title {
@@ -176,7 +253,187 @@ html, body {
       font-weight: 500;
       text-align: center;
       letter-spacing: 0.5em;
-      margin-top: 50px;
+      margin: 50px 0;
+    }
+  }
+
+  .con-title {
+    color: #fafafa;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    max-width: 100%;
+    @include text-overflow;
+  }
+  .con-txt {
+    opacity: 0.7;
+    color: #fafafa;
+    font-size: 0.875rem;
+    margin: 0 auto;
+  }
+
+  // ABOUT
+  .about-me {
+    text-align: center;
+    .ability__title {
+    }
+    .ability__txt {
+      width: 80%;
+    }
+    .ability {
+      .icon_svg {
+        stroke-dasharray: 790px;
+        stroke-dashoffset: 790px;
+        animation-name: none;
+        animation-duration: 3.5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes offset {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .ability__img {
+        width: 45%;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+  }
+
+  .profiles {
+    .profile {
+      .skill-box {
+        width: 900px;
+        margin: 0 auto;
+        position: relative;
+        background-color: #232323;
+        box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 150px;
+        padding: 30px 15px 30px 380px;
+        @include clearfix;
+        .photo-box {
+          width: 400px;
+          height: 400px;
+          background-color: #454545;
+          position: absolute;
+          top: -70px;
+          left: -80px;
+        }
+        .box-title {
+          text-align: left;
+          color: $white;
+          clear: both;
+        }
+        ul {
+          text-align: left;
+          float: left;
+          li {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: $white;
+            opacity: 0.9;
+            line-height: 2.15;
+            span {
+              display: inline-block;
+            }
+          }
+          &.career-list {
+            margin: 0 0 20px 30px;
+          }
+          &.skill-list {
+            li {
+              float: left;
+              margin-right: 40px;
+              margin-bottom: 15px;
+              .skill-txt {
+                float: left;
+                margin-left: 15px;
+                .skill-gage {
+                  display: block;
+                  width: 150px;
+                  height: 3px;
+                  position: relative;
+                  background-color: #dfdfdf;
+                  .skill-gage__inner {
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: #2e6da4;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // WORKS
+  .works {
+    .website-work {
+      .work-list {
+        margin-bottom: 50px;
+        @include transition(200);
+        img {
+          @include transition(200);
+        }
+        &:nth-child(3n+1) {
+          clear: both;
+        }
+      }
+    }
+  }
+
+  // CONTACT
+  .contact {
+    margin-bottom: 30px;
+    .form-wrap {
+      form {
+        text-align: center;
+        input, textarea {
+          width: 900px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          outline: none;
+          border: none;
+        }
+        input {
+          height: 50px;
+          margin-bottom: 15px;
+          padding: 0 20px;
+        }
+        textarea {
+          display: block;
+          height: 350px;
+          padding: 20px;
+          margin: 0 auto;
+          margin-bottom: 15px;
+        }
+        .submit__btn {
+          color: $white;
+          padding: 5px 10px;
+          border: 1px solid $white;
+        }
+      }
+    }
+  }
+
+  // FOOTER
+  .footer {
+    text-align: center;
+    background-color: #1c1c27;
+    padding: 15px 0;
+    p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 }
