@@ -21,7 +21,7 @@ html, body {
   width: 100%;
   height: 100%;
   -ms-overflow-style: none;
-  cursor: none;
+  /*cursor: none;*/
   &::-webkit-scrollbar {
     display: none;
   }
@@ -45,6 +45,8 @@ html, body {
   height: 40px;
   float: left;
   background-color: #383838;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 //cursor

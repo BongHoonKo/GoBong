@@ -23,8 +23,8 @@
 <body>
 
 <!-- CURSOR -->
-<div class="cursor"></div>
-<div class="cursor_1"></div>
+<!--<div class="cursor"></div>
+<div class="cursor_1"></div>-->
 
 <!-- PORTFOLIO 시작 -->
 <div class="portfolio__wrap">
@@ -239,7 +239,7 @@
           <h5 class="box-title">Skills</h5>
           <ul class="skill-list">
             <li>
-              <div class="test-list"></div>
+              <div class="test-list" style="background-image: url('resources/images/html.png');"></div>
               <p class="skill-txt">
                 HTML & CSS
                 <mark class="skill-gage">
@@ -248,7 +248,7 @@
               </p>
             </li>
             <li>
-              <div class="test-list"></div>
+              <div class="test-list" style="background-image: url('resources/images/js.png');"></div>
               <p class="skill-txt">
                 JavaScript + jQuery
                 <mark class="skill-gage">
@@ -257,7 +257,7 @@
               </p>
             </li>
             <li>
-              <div class="test-list"></div>
+              <div class="test-list" style="background-image: url('resources/images/photoshop.png');"></div>
               <p class="skill-txt">
                 PhotoShop
                 <mark class="skill-gage">
@@ -266,7 +266,7 @@
               </p>
             </li>
             <li>
-              <div class="test-list"></div>
+              <div class="test-list" style="background-image: url('resources/images/illust.png');"></div>
               <p class="skill-txt">
                 Illustrator
                 <mark class="skill-gage">
@@ -275,7 +275,7 @@
               </p>
             </li>
             <li>
-              <div class="test-list"></div>
+              <div class="test-list" style="background-image: url('resources/images/sass.png');"></div>
               <p class="skill-txt">
                 Sass
                 <mark class="skill-gage">
@@ -284,7 +284,7 @@
               </p>
             </li>
             <li>
-              <div class="test-list"></div>
+              <div class="test-list" style="background-image: url('resources/images/php.png');"></div>
               <p class="skill-txt">
                 PHP + MySQL
                 <mark class="skill-gage">
@@ -375,7 +375,7 @@
 
   <script>
       /* background 스크롤 이벤트 */
-      $(document).scroll(function () {
+      $(document).on('ready scroll',function () {
           var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
           var $back = $('.back_1');
           var top_num, scale_num;
@@ -439,14 +439,14 @@
           }, 16);
       }
 
-      $(document).mousemove(function (e) {
+      $(document).on('mousemove scroll',function (e) {
           mouseX = e.pageX, mouseY = e.pageY;
       });
 
       cursorfollow();
 
       //
-      var forms = $('.form-wrap input, .form-wrap textarea'), $cursor = $('.cursor'), $hb = $('html,body');
+     /* var forms = $('.form-wrap input, .form-wrap textarea'), $cursor = $('.cursor'), $hb = $('html,body');
       $(forms).on({
           'mouseenter': function () {
               $cursor.addClass('hide');
@@ -456,7 +456,7 @@
               $cursor.removeClass('hide');
               $hb.css('cursor','none');
           }
-      });
+      });*/
 
       // explorer 일 때 svg 대체
       var agent = navigator.userAgent.toLowerCase();
