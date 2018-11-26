@@ -1,0 +1,563 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta property="og:title" content="GoBong's Portfolio Website" />
+    <meta property="og:url" content="http://www.webgobong.com/1/port.html" />
+    <meta property="og:image" content="images/brinia_og_image.jpg" />
+    <meta property="og:description" content="웹 퍼블리셔 고봉훈입니다." />
+    <title>GoBong</title>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <link rel="SHORTCUT ICON" href="favicon.png" />
+    <link rel="stylesheet" href="css/font.css" />
+    <script src="js/flip.js"></script>
+    <link rel="stylesheet" href="css/Normalize.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main_mq.css" />
+    <script src="js/jQuery.scrollSpeed.js"></script>
+    <style>
+        .content_wrap {
+            padding-bottom:0px;
+        }
+        @media screen and (max-width:768px) {
+            .menu {
+                display: none;
+            }
+
+            .menu_btn_wrap {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width:650px) {
+            .m {
+                background-position-x: 72%;
+            }
+        }
+
+        .icon_svg {
+            stroke-dasharray: 790px;
+            stroke-dashoffset: 790px;
+            animation-name: none;
+            animation-duration: 3.5s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes offset {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="m_m">
+        <div class="m_m_xbtn">
+            <img src="images/x_btn.png" />
+        </div>
+        <div class="m_m_wrap">
+            <ul class="m_ul">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">WORK</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <!--<li><a href="admin/bbs/login.php">로그인</a></li>-->
+        </ul>
+            </div>
+    </div>
+    <div class="container_wrap">
+        <div class="container">
+            <div id="scroll_header" class="row">
+                <div class="col-sm-1 col-xs-1 logo">
+                    <img src="images/my_logo_2.png" class="" />
+                </div>
+                <div class="col-sm-5"></div>
+                <div class="col-sm-6">
+                    <ul class="row menu">
+                        <li class="col-xs-3"><a href="#">Home</a></li>
+                        <li class="col-xs-3"><a href="#">About</a></li>
+                        <li class="col-xs-3"><a href="#">Work</a></li>
+                        <li class="col-xs-3"><a href="#">Contact</a></li>
+                    </ul>
+                    <div class="row menu_btn_wrap">
+                        <div class="col-xs-3 menu_btn">
+                            <div class="glyphicon glyphicon-th-large"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrap">
+        <div class="main_wrap">
+            <div class="container">
+                <div id="header" class="row">
+                    <div class="col-sm-1 col-xs-1 logo">
+                        <img src="images/my_logo_2.png" class="" />
+                    </div>
+                    <div class="col-sm-5"></div>
+                    <div class="col-sm-6">
+                        <ul class="row menu">
+                            <li class="col-xs-3"><a href="#">Home</a></li>
+                            <li class="col-xs-3"><a href="#">About</a></li>
+                            <li class="col-xs-3"><a href="#">Work</a></li>
+                            <li class="col-xs-3"><a href="#">Contact</a></li>
+                            <!--<li><a href="admin/bbs/login.php">로그인</a></li>-->
+                        </ul>
+                        <div class="row menu_btn_wrap">
+                            <div class="col-xs-3 menu_btn">
+                                <div class="glyphicon glyphicon-th-large"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_text_wrap">
+            <div class="main_text">
+                <h1>Hello,GoBong</h1>
+            </div>
+            <!--<div class="icon_wrap">
+                <div class="icons container">
+                    <div class="row">
+                        <div class="col-md-10"></div>
+                        <div class="col-md-2 col-xs-12 icon_img">
+                            <img class="icon" src="images/twitter.png" />
+                            <img class="icon" src="images/facebook.png" />
+                            <img class="icon" src="images/instagram.png" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <div class="back_wrap">
+            <div class="back">
+                <div class="cover"></div>
+                <div class="back_1" style="background-image: url(images/b_5.png);"></div>
+                <div class="back_1" style="background-image: url(images/b_4.png);"></div>
+                <div class="back_1" style="background-image: url(images/b_3.png);"></div>
+                <div class="back_1" style="background-image: url(images/b_2.png);"></div>
+                <div class="back_1 m" style="background-image: url(images/b_11.png);"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content_wrap">
+        <div class="content container" id="about">
+            <div class="row">
+                <div class="content_title col-xs-12">
+                    <h1 class="title">ABOU<span>T</span></h1>
+                    <div class="title_line"></div>
+                    <h4>ABILITY</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="cell">
+                        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                        <!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
+                        <svg class="icon_svg" version="1.1" id="Svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" width="35%" viewBox="0 0 63 51" enable-background="new 0 0 63 51" xml:space="preserve">
+                            <g>
+
+                                <rect x="1.682" y="1.957" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="59.637" height="37.79" />
+
+                                <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="31.5" y1="40.822" x2="31.5" y2="49.043" />
+
+                                <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="45.822" y1="49.043" x2="17.184" y2="49.043" />
+                                <g>
+
+                                    <rect x="6.834" y="6.601" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="49.332" height="5.334" />
+
+                                    <rect x="6.834" y="15.939" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="49.332" height="19.163" />
+
+                                    <rect x="6.834" y="15.939" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="14.707" height="19.163" />
+
+                                    <rect x="21.541" y="15.939" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="34.625" height="19.163" />
+                                    <g>
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="26.729" y1="20.316" x2="50.979" y2="20.316" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="26.729" y1="23.785" x2="50.979" y2="23.785" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="26.729" y1="27.254" x2="50.979" y2="27.254" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="26.729" y1="30.725" x2="41.385" y2="30.725" />
+                                    </g>
+
+                                    <circle fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" cx="14.188" cy="23.785" r="3.02" />
+                                    <g>
+                                        <path fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M20.715,33.609c0-3.604-2.922-6.525-6.527-6.525c-3.604,0-6.527,2.922-6.527,6.525c0,0.504,0.063,0.99,0.17,1.459h12.715
+				C20.652,34.6,20.715,34.113,20.715,33.609z" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <h3>DESIGN</h3>
+                        <p>
+                            12 Column 그리드 시스템으로 깔끔한 웹페이지 디자인 및 포토샵, 일러스트레이터를 이용하여 웹페이지에 필요한 이미지 작업이 가능합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="cell">
+                        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)
+                        <!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
+                        <svg class="icon_svg" version="1.1" id="�젅�씠�뼱_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" width="35%" viewBox="0 0 63 51" enable-background="new 0 0 63 51" xml:space="preserve">
+                            <g>
+
+                                <rect x="1.682" y="1.957" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="59.637" height="37.79" />
+
+                                <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="31.5" y1="40.822" x2="31.5" y2="49.043" />
+
+                                <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="45.822" y1="49.043" x2="17.184" y2="49.043" />
+                                <g>
+                                    <g>
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="21.359" y1="26.654" x2="15.557" y2="20.852" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="21.359" y1="15.05" x2="15.557" y2="20.852" />
+                                    </g>
+                                    <g>
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="41.643" y1="26.654" x2="47.445" y2="20.852" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="41.643" y1="15.05" x2="47.445" y2="20.852" />
+                                    </g>
+
+                                    <line fill="none" stroke="#4AA7C2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="35.008" y1="15.318" x2="30.859" y2="26.387" />
+                                </g>
+                            </g>
+                        </svg>
+
+
+                        <h3>CODING</h3>
+                        <p>
+                            HTML5, CSS3, JavaScript, jQuery를 이용하여 디자인된 웹페이지를 코딩하여 브라우저에 구현시키는 프론트엔드 개발이 가능합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="cell">
+                        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                        <!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
+                        <svg class="icon_svg" version="1.1" id="Svg2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                            y="0px" width="35%" viewBox="0 0 63 51" enable-background="new 0 0 63 51" xml:space="preserve">
+                            <g>
+
+                                <rect x="1.682" y="1.957" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="35.596" height="47.086" />
+
+                                <rect x="42.777" y="15.939" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="18.541" height="33.104" />
+                                <g>
+
+                                    <rect x="6.599" y="6.25" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="25.762" height="5.334" />
+
+                                    <rect x="6.599" y="15.315" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="25.762" height="29.435" />
+                                    <circle fill="none" stroke="#4AA7C2" stroke-miterlimit="10" cx="19.479" cy="20.357" r="1.815" />
+                                    <g>
+                                        <path fill="none" stroke="#4AA7C2" stroke-miterlimit="10" d="M23.403,26.262c0-2.166-1.757-3.922-3.924-3.922
+				s-3.924,1.757-3.924,3.922c0,0.305,0.038,0.596,0.103,0.877h7.643C23.365,26.857,23.403,26.566,23.403,26.262z" />
+                                    </g>
+
+                                    <rect x="6.599" y="15.315" fill="none" stroke="#4AA7C2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="25.762" height="11.824" />
+                                    <g>
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="11.122" y1="31.166" x2="28.123" y2="31.166" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="11.122" y1="34.426" x2="28.123" y2="34.426" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="11.122" y1="37.686" x2="28.123" y2="37.686" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="11.122" y1="40.949" x2="21.397" y2="40.949" />
+                                    </g>
+                                </g>
+                                <g>
+
+                                    <rect x="46.271" y="19.63" fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="11.553" height="2.666" />
+
+                                    <rect x="46.271" y="24.617" fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="11.553" height="20.737" />
+
+                                    <rect x="46.271" y="24.617" fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="11.553" height="7.87" />
+                                    <g>
+                                        <circle fill="none" stroke="#4AA7C2" stroke-miterlimit="10" cx="52.048" cy="28.021" r="1.222" />
+                                        <g>
+                                            <path fill="none" stroke="#4AA7C2" stroke-miterlimit="10" d="M54.69,31.998c0-1.459-1.184-2.641-2.643-2.641
+					s-2.643,1.182-2.643,2.641c0,0.205,0.026,0.4,0.069,0.59h5.146C54.664,32.398,54.69,32.203,54.69,31.998z" />
+                                        </g>
+                                    </g>
+                                    <g>
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="48.539" y1="34.984" x2="55.458" y2="34.984" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="48.539" y1="37.484" x2="55.458" y2="37.484" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="48.539" y1="39.984" x2="55.458" y2="39.984" />
+
+                                        <line fill="none" stroke="#4AA7C2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="48.539" y1="42.484" x2="52.721" y2="42.484" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <h3>RESPONSIVE</h3>
+                        <p>
+                            화면의 가로 해상도에 따라 요소들의 배치를 조절하여 패드 및 스마트폰에서도 깔끔하게 정리된 웹페이지를 이용할 수 있도록 반응형 웹 코딩이 가능합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="content_title col-xs-12">
+                    <div class="title_line"></div>
+                    <h4>ABOUT M<span>E</span></h4>
+                </div>
+                <div class="col-xs-12">
+                    <div class="box"></div>
+                </div>
+            </div>
+        </div>-->
+        <div class="content container" id="work">
+            <div class="row">
+                <div class="content_title col-xs-12">
+                    <h1 class="title">WOR<span>K</span></h1>
+                    <div class="title_line"></div>
+                    <h4>WEBSITE WORKS</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="web_content col-sm-6 col-xs-12">
+                    <div class="web_back_wrap_1">
+                        <img src="images/no_mockup_6.jpg" />
+                    </div>
+                    <div class="web_content_text col-xs-12">
+                        <h3>RAON</h3>
+                        <div class="title_line"></div>
+                        <p>처음으로 외주를 받아 제작한 윤활 펌프 국내 개발 업체 RAON의 웹페이지 입니다.</p>
+                        <p style="font-weight:700;opacity:0.85">(참여도 약 80%)</p>
+                        <a href="work_raon.html" class="content_btn">VIEW MORE</a>
+                    </div>
+                </div>
+                <div class="web_content col-sm-6 col-xs-12">
+                    <div class="web_back_wrap_1">
+                        <img src="images/opus_thumb.jpg" />
+                    </div>
+                    <div class="web_content_text col-xs-12">
+                        <h3>OPUS DESIGN</h3>
+                        <div class="title_line"></div>
+                        <p>외주를 받아 진행한 부산의 PT 전문 디자인업체 오퍼스 디자인의 웹페이지 입니다.</p>
+                        <p style="font-weight:700;opacity:0.85">(참여도 약 60%)</p>
+                        <a href="work_opus.html" class="content_btn">VIEW MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content container">
+            <div class="row">
+                <div class="content_title col-xs-12">
+                    <div class="title_line"></div>
+                    <h4>DESIGN WORK<span>S</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="design_content col-sm-4 col-xs-12">
+                    <div class="web_back_wrap">
+                        <div class="web_back_cover">
+                            <a href="work_bnk.html" class="web_back_cover_text">
+                                <h3>BNK BankBook</h3>
+                                <div class="title_line"></div>
+                                <p>click to view more</p>
+                            </a>
+                        </div>
+                        <div class="web_back" style="background-image: url(images/bnk1.jpg);"></div>
+                    </div>
+                </div>
+                <div class="design_content col-sm-4 col-xs-12">
+                    <div class="web_back_wrap">
+                        <div class="web_back_cover">
+                            <a href="work_leaflet.html" class="web_back_cover_text">
+                                <h3>Busan Tour Leaflet</h3>
+                                <div class="title_line"></div>
+                                <p>click to view more</p>
+                            </a>
+                        </div>
+                        <div class="web_back" style="background-image: url(images/leaflet1111.jpg);"></div>
+                    </div>
+                </div>
+                <div class="design_content col-sm-4 col-xs-12">
+                    <div class="web_back_wrap">
+                        <div class="web_back_cover">
+                            <a href="work_busan_icon.html" class="web_back_cover_text">
+                                <h3>BUSAN ICONS</h3>
+                                <div class="title_line"></div>
+                                <p>click to view more</p>
+                            </a>
+                        </div>
+                        <div class="web_back" style="background-image: url(images/busan_re.jpg);"></div>
+                    </div>
+                </div>
+                <!--<div class="design_content col-sm-4 col-xs-12">
+                    <div class="web_back_wrap">
+                        <div class="web_back_cover">
+                            <a href="#" class="web_back_cover_text">
+                                <h3>C1 Soju Label</h3>
+                                <div class="title_line"></div>
+                                <p>click to view more</p>
+                            </a>
+                        </div>
+                        <div class="web_back" style="background-image: url(images/c11.jpg);"></div>
+                    </div>
+                </div>-->
+                <div class="design_content col-sm-4 col-xs-12">
+                    <div class="web_back_wrap">
+                        <div class="web_back_cover">
+                            <a href="work_postcard.html" class="web_back_cover_text">
+                                <h3>POSTCARD</h3>
+                                <div class="title_line"></div>
+                                <p>click to view more</p>
+                            </a>
+                        </div>
+                        <div class="web_back" style="background-image: url(images/ill.jpg);"></div>
+                    </div>
+                </div>
+               <div class="design_content col-sm-4 col-xs-12">
+                    <div class="web_back_wrap">
+                        <div class="web_back_cover">
+                            <a href="work_illust.html" class="web_back_cover_text">
+                                <h3>Landscape Illust</h3>
+                                <div class="title_line"></div>
+                                <p>click to view more</p>
+                            </a>
+                        </div>
+                        <div class="web_back" style="background-image: url(images/illu_2.jpg);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content container" id="contact">
+            <div class="row">
+                <div class="content_title col-xs-12">
+                    <h1 class="title">CONTAC<span>T</span></h1>
+                    <div class="title_line"></div>
+                    <h4>How to Contac<span>t</span></h4>
+                </div>
+                <div class="contact_wrap col-xs-12 col-sm-8 col-sm-offset-2">
+                    <p>
+                        <span>E-mail :</span> fotrise@naver.com &nbsp;/&nbsp; <span>TEL :</span> 010-3303-9838
+                        <!--&nbsp;/&nbsp; <span>KaKaoTalk :</span> GoBong9838-->
+                    </p>
+                    <form method="post" action="submit.php">
+                        <input type="text" name="name" placeholder="이름" />
+                        <input type="text" name="contact" placeholder="연락처 or 이메일" />
+                        <textarea placeholder="메세지" name="msg" style="height: 300px; resize: none;"> </textarea>
+                        <button type="submit" class="content_btn">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container-fluid footer">
+        <p>2018 Bong-Hoon Ko. all rights reserved.</p>
+    </div>
+    <script>
+        /* $('html,body').scroll(function () {
+             var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
+             $('.back_1').eq(3).css({ 'top': (doc_pos) / 3 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 15000)) + ')'});
+             $('.back_1').eq(2).css({ 'top': (doc_pos) / 2.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 10000)) + ')'});
+             $('.back_1').eq(1).css({ 'top': (doc_pos) / 2 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8500)) + ')' });
+             $('.back_1').eq(0).css({ 'top': (doc_pos) / 1.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8000)) + ')' });
+             var content_offset = $('.content_wrap').offset();
+             if ($(window).scrollTop() > content_offset.top || $("body").scrollTop() > content_offset.top) {
+                 $('.icon_svg').css('animation-name', 'offset');
+             }
+         });*/
+        $(document).scroll(function () {
+            var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
+            $('.back_1').eq(3).css({ 'top': (doc_pos) / 3 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 15000)) + ')' });
+            $('.back_1').eq(2).css({ 'top': (doc_pos) / 2.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 10000)) + ')' });
+            $('.back_1').eq(1).css({ 'top': (doc_pos) / 2 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8500)) + ')' });
+            $('.back_1').eq(0).css({ 'top': (doc_pos) / 1.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8000)) + ')' });
+            var content_offset = $('.content_wrap').offset();
+            if ($(window).scrollTop() > content_offset.top - 200 || $("body").scrollTop() > content_offset.top - 200) {
+                $('.icon_svg').css('animation-name', 'offset');
+            }
+
+
+            var wrap_pos = $('#wrap').height() / 2;
+            if ($(window).scrollTop() > wrap_pos || $("body").scrollTop() > wrap_pos) {
+                $('.container_wrap').slideDown(300);
+            }
+            else {
+                $('.container_wrap').slideUp(300);
+            }
+        });
+        var agent = navigator.userAgent.toLowerCase();
+        if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1) || agent.indexOf("wow") != -1) {
+            $('body,html').css('font-size', '20px');
+            $('.icon_svg').css('display', 'none');
+            $('.cell').eq(0).prepend('<img src="images/code_1.png" style="width:45%;margin:0 auto"/>');
+            $('.cell').eq(1).prepend('<img src="images/design_1.png" style="width:45%;margin:0 auto"/>');
+            $('.cell').eq(2).prepend('<img src="images/responsive_1.png" style="width:45%;margin:0 auto"/>');
+        }
+
+
+        /**/
+        $('.web_back_wrap').on({
+            mouseover: function () {
+                $(this).find(".web_back_cover").stop().fadeIn(300);
+            },
+            mouseleave: function () {
+                $(this).find(".web_back_cover").stop().fadeOut(300);
+            }
+        });
+
+        /*auto scroll*/
+        $('.menu li:first-child').click(function () {
+            $('html,body').animate({'scrollTop':0},500);
+        });
+        $('.menu li:nth-child(2)').click(function () {
+            $('html,body').animate({ 'scrollTop': ($('#about').offset().top)-100 }, 500);
+        });
+        $('.menu li:nth-child(3)').click(function () {
+            $('html,body').animate({ 'scrollTop': ($('#work').offset().top)-100 }, 500);
+        });
+        $('.menu li:last-child').click(function () {
+            $('html,body').animate({ 'scrollTop': ($('#contact').offset().top)-100 }, 500);
+        });
+
+
+
+        $('.menu_btn').click(function () {
+            $('.m_m').slideDown(300);
+        });
+        $('.m_m_xbtn').click(function () {
+            $('.m_m').slideUp(300);
+        });
+        $('.m_ul li:first-child').click(function () {
+            $('html,body').animate({ 'scrollTop': 0 }, 300);
+            $('.m_m').slideUp(300);
+        });
+        $('.m_ul li:nth-child(2)').click(function () {
+            $('html,body').animate({ 'scrollTop': $('#about').offset().top }, 300);
+            $('.m_m').slideUp(300);
+        });
+        $('.m_ul li:nth-child(3)').click(function () {
+            $('html,body').animate({ 'scrollTop': $('#work').offset().top }, 300);
+            $('.m_m').slideUp(300);
+        });
+        $('.m_ul li:last-child').click(function () {
+            $('html,body').animate({ 'scrollTop': $('#contact').offset().top }, 300);
+            $('.m_m').slideUp(300);
+        });
+
+    </script>
+</body>
+</html>

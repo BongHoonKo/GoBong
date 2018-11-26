@@ -1,167 +1,82 @@
-﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta property="og:title" content="GoBong's Portfolio Website" />
-    <meta property="og:url" content="http://www.webgobong.com/1/port.html" />
-    <meta property="og:image" content="images/brinia_og_image.jpg" />
-    <meta property="og:description" content="웹 퍼블리셔 고봉훈입니다." />
-    <title>GoBong</title>
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <link rel="SHORTCUT ICON" href="favicon.png" />
-    <link rel="stylesheet" href="css/font.css" />
-    <script src="js/flip.js"></script>
-    <link rel="stylesheet" href="css/Normalize.css" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <script src="js/bootstrap.js"></script>
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/main_mq.css" />
-    <script src="js/jQuery.scrollSpeed.js"></script>
-    <style>
-        .content_wrap {
-            padding-bottom:0px;
-        }
-        @media screen and (max-width:768px) {
-            .menu {
-                display: none;
-            }
-
-            .menu_btn_wrap {
-                display: block;
-            }
-        }
-
-        @media screen and (max-width:650px) {
-            .m {
-                background-position-x: 72%;
-            }
-        }
-
-        .icon_svg {
-            stroke-dasharray: 790px;
-            stroke-dashoffset: 790px;
-            animation-name: none;
-            animation-duration: 3.5s;
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
-        }
-
-        @keyframes offset {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-    </style>
+  <meta charset="uft-8"/>
+  <title>GoBong</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6B58A7">
+  <!--<link href="/assets/images/common/favi.ico" rel="shortcut icon">
+  <meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+  <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+  <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+  <meta name="author" content="KSTAR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KSTAR">
+  <meta property="og:description" content="KSTAR">
+  <meta property="og:url" content="https://www.kstar.tv">
+  <link rel="canonical" href="https://www.kstar.tv">-->
+  <link rel="stylesheet" href="resources/style/index.css"/>
+  <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="resources/js/pages/index.js"></script>
 </head>
 <body>
-    <div class="m_m">
-        <div class="m_m_xbtn">
-            <img src="images/x_btn.png" />
-        </div>
-        <div class="m_m_wrap">
-            <ul class="m_ul">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">WORK</a></li>
-                <li><a href="#">CONTACT</a></li>
-                <!--<li><a href="admin/bbs/login.php">로그인</a></li>-->
-        </ul>
-            </div>
-    </div>
-    <div class="container_wrap">
-        <div class="container">
-            <div id="scroll_header" class="row">
-                <div class="col-sm-1 col-xs-1 logo">
-                    <img src="images/my_logo_2.png" class="" />
-                </div>
-                <div class="col-sm-5"></div>
-                <div class="col-sm-6">
-                    <ul class="row menu">
-                        <li class="col-xs-3"><a href="#">Home</a></li>
-                        <li class="col-xs-3"><a href="#">About</a></li>
-                        <li class="col-xs-3"><a href="#">Work</a></li>
-                        <li class="col-xs-3"><a href="#">Contact</a></li>
-                    </ul>
-                    <div class="row menu_btn_wrap">
-                        <div class="col-xs-3 menu_btn">
-                            <div class="glyphicon glyphicon-th-large"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="wrap">
-        <div class="main_wrap">
-            <div class="container">
-                <div id="header" class="row">
-                    <div class="col-sm-1 col-xs-1 logo">
-                        <img src="images/my_logo_2.png" class="" />
-                    </div>
-                    <div class="col-sm-5"></div>
-                    <div class="col-sm-6">
-                        <ul class="row menu">
-                            <li class="col-xs-3"><a href="#">Home</a></li>
-                            <li class="col-xs-3"><a href="#">About</a></li>
-                            <li class="col-xs-3"><a href="#">Work</a></li>
-                            <li class="col-xs-3"><a href="#">Contact</a></li>
-                            <!--<li><a href="admin/bbs/login.php">로그인</a></li>-->
-                        </ul>
-                        <div class="row menu_btn_wrap">
-                            <div class="col-xs-3 menu_btn">
-                                <div class="glyphicon glyphicon-th-large"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="main_text_wrap">
-            <div class="main_text">
-                <h1>Hello,GoBong</h1>
-            </div>
-            <!--<div class="icon_wrap">
-                <div class="icons container">
-                    <div class="row">
-                        <div class="col-md-10"></div>
-                        <div class="col-md-2 col-xs-12 icon_img">
-                            <img class="icon" src="images/twitter.png" />
-                            <img class="icon" src="images/facebook.png" />
-                            <img class="icon" src="images/instagram.png" />
-                        </div>
 
-                    </div>
-                </div>
-            </div>-->
-        </div>
-        <div class="back_wrap">
-            <div class="back">
-                <div class="cover"></div>
-                <div class="back_1" style="background-image: url(images/b_5.png);"></div>
-                <div class="back_1" style="background-image: url(images/b_4.png);"></div>
-                <div class="back_1" style="background-image: url(images/b_3.png);"></div>
-                <div class="back_1" style="background-image: url(images/b_2.png);"></div>
-                <div class="back_1 m" style="background-image: url(images/b_11.png);"></div>
-            </div>
-        </div>
-    </div>
-    <div class="content_wrap">
-        <div class="content container" id="about">
-            <div class="row">
-                <div class="content_title col-xs-12">
-                    <h1 class="title">ABOU<span>T</span></h1>
-                    <div class="title_line"></div>
-                    <h4>ABILITY</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 col-xs-12">
-                    <div class="cell">
-                        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                        <!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
-                        <svg class="icon_svg" version="1.1" id="Svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+<!-- CURSOR -->
+<!--<div class="cursor"></div>
+<div class="cursor_1"></div>-->
+
+<!-- PORTFOLIO 시작 -->
+<div class="portfolio__wrap">
+
+  <!-- HEADER -->
+  <header class="header">
+    <article class="hd-wrap container">
+      <img class="logo" src="resources/images/logo_1.png" alt="logo"/>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Works</li>
+        <li>Contact</li>
+      </ul>
+    </article>
+  </header>
+
+  <!-- TOP -->
+  <section class="layout main-top">
+    <h1 class="main__title">Portfolio</h1>
+    <article class="main__txt">
+      <h3 class="my-name">Bong Hoon<br/>Ko<!--<b>'s Portfolio</b>--></h3>
+      <div class="my-line">
+        <span></span>
+        <span></span>
+      </div>
+      <p class="my-position">Web Publisher</p>
+    </article>
+    <ariticle class="back-wrap">
+      <div class="back">
+        <div class="cover"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_5.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_4.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_3.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_2.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/b_11.png');"></div>
+      </div>
+    </ariticle>
+  </section>
+
+  <!-- Contents -->
+  <section class="layout main-content">
+
+    <!-- ABILITY -->
+    <div class="box-hidden container about-me">
+      <h1 class="title">ABOU<span>T</span></h1>
+      <div class="title-line"></div>
+      <h4 class="sub-title">- ABILITY -</h4>
+      <article class="row ability">
+        <div class="col-xs-12 col-md-4 ability-box">
+          <svg class="icon_svg" version="1.1" id="Svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                             y="0px" width="35%" viewBox="0 0 63 51" enable-background="new 0 0 63 51" xml:space="preserve">
                             <g>
 
@@ -199,17 +114,13 @@
                                 </g>
                             </g>
                         </svg>
-                        <h3>DESIGN</h3>
-                        <p>
-                            12 Column 그리드 시스템으로 깔끔한 웹페이지 디자인 및 포토샵, 일러스트레이터를 이용하여 웹페이지에 필요한 이미지 작업이 가능합니다.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-12">
-                    <div class="cell">
-                        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)
-                        <!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
-                        <svg class="icon_svg" version="1.1" id="�젅�씠�뼱_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+          <h5 class="con-title ability__title">CODING</h5>
+          <p class="con-txt ability__txt">
+            HTML5, CSS3, JavaScript, jQuery를 이용하여 디자인된 웹페이지를 코딩하여 브라우저에 구현시키는 프론트엔드 개발이 가능합니다.
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 ability-box">
+          <svg class="icon_svg" version="1.1" id="Svg2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                             y="0px" width="35%" viewBox="0 0 63 51" enable-background="new 0 0 63 51" xml:space="preserve">
                             <g>
 
@@ -236,19 +147,12 @@
                                 </g>
                             </g>
                         </svg>
-
-
-                        <h3>CODING</h3>
-                        <p>
-                            HTML5, CSS3, JavaScript, jQuery를 이용하여 디자인된 웹페이지를 코딩하여 브라우저에 구현시키는 프론트엔드 개발이 가능합니다.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4 col-xs-12">
-                    <div class="cell">
-                        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                        <!--<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">-->
-                        <svg class="icon_svg" version="1.1" id="Svg2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+          <h5 class="con-title ability__title">DESIGN</h5>
+          <p class="con-txt ability__txt">12 Column 그리드 시스템으로 깔끔한 웹페이지 디자인 및 포토샵, 일러스트레이터를 이용하여 웹페이지에 필요한 이미지 작업이
+            가능합니다.</p>
+        </div>
+        <div class="col-xs-12 col-md-4 ability-box">
+          <svg class="icon_svg" version="1.1" id="Svg3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                             y="0px" width="35%" viewBox="0 0 63 51" enable-background="new 0 0 63 51" xml:space="preserve">
                             <g>
 
@@ -305,259 +209,328 @@
                                 </g>
                             </g>
                         </svg>
-                        <h3>RESPONSIVE</h3>
-                        <p>
-                            화면의 가로 해상도에 따라 요소들의 배치를 조절하여 패드 및 스마트폰에서도 깔끔하게 정리된 웹페이지를 이용할 수 있도록 반응형 웹 코딩이 가능합니다.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--<div class="row">
-                <div class="content_title col-xs-12">
-                    <div class="title_line"></div>
-                    <h4>ABOUT M<span>E</span></h4>
-                </div>
-                <div class="col-xs-12">
-                    <div class="box"></div>
-                </div>
-            </div>
-        </div>-->
-        <div class="content container" id="work">
-            <div class="row">
-                <div class="content_title col-xs-12">
-                    <h1 class="title">WOR<span>K</span></h1>
-                    <div class="title_line"></div>
-                    <h4>WEBSITE WORKS</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="web_content col-sm-6 col-xs-12">
-                    <div class="web_back_wrap_1">
-                        <img src="images/no_mockup_6.jpg" />
-                    </div>
-                    <div class="web_content_text col-xs-12">
-                        <h3>RAON</h3>
-                        <div class="title_line"></div>
-                        <p>처음으로 외주를 받아 제작한 윤활 펌프 국내 개발 업체 RAON의 웹페이지 입니다.</p>
-                        <p style="font-weight:700;opacity:0.85">(참여도 약 80%)</p>
-                        <a href="work_raon.html" class="content_btn">VIEW MORE</a>
-                    </div>
-                </div>
-                <div class="web_content col-sm-6 col-xs-12">
-                    <div class="web_back_wrap_1">
-                        <img src="images/opus_thumb.jpg" />
-                    </div>
-                    <div class="web_content_text col-xs-12">
-                        <h3>OPUS DESIGN</h3>
-                        <div class="title_line"></div>
-                        <p>외주를 받아 진행한 부산의 PT 전문 디자인업체 오퍼스 디자인의 웹페이지 입니다.</p>
-                        <p style="font-weight:700;opacity:0.85">(참여도 약 60%)</p>
-                        <a href="work_opus.html" class="content_btn">VIEW MORE</a>
-                    </div>
-                </div>
-            </div>
+          <h5 class="con-title ability__title">Maintenance</h5>
+          <p class="con-txt ability__txt">Sass & Git을 이용하여 유지/보수에 용이한 웹페이지 구성이 가능합니다.</p>
         </div>
-
-        <div class="content container">
-            <div class="row">
-                <div class="content_title col-xs-12">
-                    <div class="title_line"></div>
-                    <h4>DESIGN WORK<span>S</span></h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="design_content col-sm-4 col-xs-12">
-                    <div class="web_back_wrap">
-                        <div class="web_back_cover">
-                            <a href="work_bnk.html" class="web_back_cover_text">
-                                <h3>BNK BankBook</h3>
-                                <div class="title_line"></div>
-                                <p>click to view more</p>
-                            </a>
-                        </div>
-                        <div class="web_back" style="background-image: url(images/bnk1.jpg);"></div>
-                    </div>
-                </div>
-                <div class="design_content col-sm-4 col-xs-12">
-                    <div class="web_back_wrap">
-                        <div class="web_back_cover">
-                            <a href="work_leaflet.html" class="web_back_cover_text">
-                                <h3>Busan Tour Leaflet</h3>
-                                <div class="title_line"></div>
-                                <p>click to view more</p>
-                            </a>
-                        </div>
-                        <div class="web_back" style="background-image: url(images/leaflet1111.jpg);"></div>
-                    </div>
-                </div>
-                <div class="design_content col-sm-4 col-xs-12">
-                    <div class="web_back_wrap">
-                        <div class="web_back_cover">
-                            <a href="work_busan_icon.html" class="web_back_cover_text">
-                                <h3>BUSAN ICONS</h3>
-                                <div class="title_line"></div>
-                                <p>click to view more</p>
-                            </a>
-                        </div>
-                        <div class="web_back" style="background-image: url(images/busan_re.jpg);"></div>
-                    </div>
-                </div>
-                <!--<div class="design_content col-sm-4 col-xs-12">
-                    <div class="web_back_wrap">
-                        <div class="web_back_cover">
-                            <a href="#" class="web_back_cover_text">
-                                <h3>C1 Soju Label</h3>
-                                <div class="title_line"></div>
-                                <p>click to view more</p>
-                            </a>
-                        </div>
-                        <div class="web_back" style="background-image: url(images/c11.jpg);"></div>
-                    </div>
-                </div>-->
-                <div class="design_content col-sm-4 col-xs-12">
-                    <div class="web_back_wrap">
-                        <div class="web_back_cover">
-                            <a href="work_postcard.html" class="web_back_cover_text">
-                                <h3>POSTCARD</h3>
-                                <div class="title_line"></div>
-                                <p>click to view more</p>
-                            </a>
-                        </div>
-                        <div class="web_back" style="background-image: url(images/ill.jpg);"></div>
-                    </div>
-                </div>
-               <div class="design_content col-sm-4 col-xs-12">
-                    <div class="web_back_wrap">
-                        <div class="web_back_cover">
-                            <a href="work_illust.html" class="web_back_cover_text">
-                                <h3>Landscape Illust</h3>
-                                <div class="title_line"></div>
-                                <p>click to view more</p>
-                            </a>
-                        </div>
-                        <div class="web_back" style="background-image: url(images/illu_2.jpg);"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="content container" id="contact">
-            <div class="row">
-                <div class="content_title col-xs-12">
-                    <h1 class="title">CONTAC<span>T</span></h1>
-                    <div class="title_line"></div>
-                    <h4>How to Contac<span>t</span></h4>
-                </div>
-                <div class="contact_wrap col-xs-12 col-sm-8 col-sm-offset-2">
-                    <p>
-                        <span>E-mail :</span> fotrise@naver.com &nbsp;/&nbsp; <span>TEL :</span> 010-3303-9838
-                        <!--&nbsp;/&nbsp; <span>KaKaoTalk :</span> GoBong9838-->
-                    </p>
-                    <form method="post" action="submit.php">
-                        <input type="text" name="name" placeholder="이름" />
-                        <input type="text" name="contact" placeholder="연락처 or 이메일" />
-                        <textarea placeholder="메세지" name="msg" style="height: 300px; resize: none;"> </textarea>
-                        <button type="submit" class="content_btn">SUBMIT</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
+      </article>
     </div>
-    <div class="container-fluid footer">
-        <p>2018 Bong-Hoon Ko. all rights reserved.</p>
+
+    <!-- PROFILE -->
+    <div class="box-hidden container profiles">
+      <h4 class="sub-title">- PROFILE -</h4>
+      <article class="row profile">
+        <div class="skill-box">
+          <div class="photo-box"></div>
+          <h5 class="box-title">Education & Career</h5>
+          <ul class="date-list">
+            <li>2009. 02</li>
+            <li>2018. 02</li>
+            <li>2017. 12</li>
+            <li>2018. 01</li>
+            <li>2018. 05 ~ </li>
+          </ul>
+          <ul class="career-list">
+            <li>동래고등학교 졸업</li>
+            <li>부산대학교 디자인학과 시각디자인전공(학사)</li>
+            <li>(주) RAON 홈페이지 퍼블리싱</li>
+            <li>(주) OPUS DESIGN 홈페이지 제작</li>
+            <li>(주) KSTARPAY 웹퍼블리시팀 매니저</li>
+          </ul>
+
+          <h5 class="box-title">Skills</h5>
+          <ul class="skill-list">
+            <li>
+              <div class="test-list" style="background-image: url('resources/images/html.png');"></div>
+              <p class="skill-txt">
+                HTML & CSS
+                <mark class="skill-gage">
+                  <span class="skill-gage__inner" data-gage="90"></span>
+                </mark>
+              </p>
+            </li>
+            <li>
+              <div class="test-list" style="background-image: url('resources/images/js.png');"></div>
+              <p class="skill-txt">
+                JavaScript + jQuery
+                <mark class="skill-gage">
+                  <span class="skill-gage__inner" data-gage="60"></span>
+                </mark>
+              </p>
+            </li>
+            <li>
+              <div class="test-list" style="background-image: url('resources/images/photoshop.png');"></div>
+              <p class="skill-txt">
+                PhotoShop
+                <mark class="skill-gage">
+                  <span class="skill-gage__inner" data-gage="50"></span>
+                </mark>
+              </p>
+            </li>
+            <li>
+              <div class="test-list" style="background-image: url('resources/images/illust.png');"></div>
+              <p class="skill-txt">
+                Illustrator
+                <mark class="skill-gage">
+                  <span class="skill-gage__inner" data-gage="55"></span>
+                </mark>
+              </p>
+            </li>
+            <li>
+              <div class="test-list" style="background-image: url('resources/images/sass.png');"></div>
+              <p class="skill-txt">
+                Sass
+                <mark class="skill-gage">
+                  <span class="skill-gage__inner" data-gage="75"></span>
+                </mark>
+              </p>
+            </li>
+            <li>
+              <div class="test-list" style="background-image: url('resources/images/php.png');"></div>
+              <p class="skill-txt">
+                PHP + MySQL
+                <mark class="skill-gage">
+                  <span class="skill-gage__inner" data-gage="30"></span>
+                </mark>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
     </div>
-    <script>
-        /* $('html,body').scroll(function () {
-             var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
-             $('.back_1').eq(3).css({ 'top': (doc_pos) / 3 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 15000)) + ')'});
-             $('.back_1').eq(2).css({ 'top': (doc_pos) / 2.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 10000)) + ')'});
-             $('.back_1').eq(1).css({ 'top': (doc_pos) / 2 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8500)) + ')' });
-             $('.back_1').eq(0).css({ 'top': (doc_pos) / 1.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8000)) + ')' });
-             var content_offset = $('.content_wrap').offset();
-             if ($(window).scrollTop() > content_offset.top || $("body").scrollTop() > content_offset.top) {
-                 $('.icon_svg').css('animation-name', 'offset');
-             }
-         });*/
-        $(document).scroll(function () {
-            var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
-            $('.back_1').eq(3).css({ 'top': (doc_pos) / 3 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 15000)) + ')' });
-            $('.back_1').eq(2).css({ 'top': (doc_pos) / 2.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 10000)) + ')' });
-            $('.back_1').eq(1).css({ 'top': (doc_pos) / 2 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8500)) + ')' });
-            $('.back_1').eq(0).css({ 'top': (doc_pos) / 1.5 + 'px', 'transform': 'scale(' + (1 + (doc_pos / 8000)) + ')' });
-            var content_offset = $('.content_wrap').offset();
-            if ($(window).scrollTop() > content_offset.top - 200 || $("body").scrollTop() > content_offset.top - 200) {
-                $('.icon_svg').css('animation-name', 'offset');
-            }
 
+    <!-- WORKS -->
+    <div class="box-hidden container works">
+      <h1 class="title">WORK<span>S</span></h1>
+      <div class="title-line"></div>
+      <h4 class="sub-title">- WEBSITES -</h4>
+      <article class="row website-work">
 
-            var wrap_pos = $('#wrap').height() / 2;
-            if ($(window).scrollTop() > wrap_pos || $("body").scrollTop() > wrap_pos) {
-                $('.container_wrap').slideDown(300);
-            }
-            else {
-                $('.container_wrap').slideUp(300);
-            }
-        });
-        var agent = navigator.userAgent.toLowerCase();
-        if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1) || agent.indexOf("wow") != -1) {
-            $('body,html').css('font-size', '20px');
-            $('.icon_svg').css('display', 'none');
-            $('.cell').eq(0).prepend('<img src="images/code_1.png" style="width:45%;margin:0 auto"/>');
-            $('.cell').eq(1).prepend('<img src="images/design_1.png" style="width:45%;margin:0 auto"/>');
-            $('.cell').eq(2).prepend('<img src="images/responsive_1.png" style="width:45%;margin:0 auto"/>');
-        }
+<!--        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/raon_thumb.jpg" alt="raon thumbnail"/>
+          <h5 class="con-title">RAON</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/opus_thumb.jpg" alt="opus-design thumbnail"/>
+          <h5 class="con-title">OPUS DESIGN</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/kstar2.0.jpg" alt="kstar2.0 thumbnail"/>
+          <h5 class="con-title">KSTAR 2.0</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/kstar2.51.jpg" alt="kstar2.5 thumbnail"/>
+          <h5 class="con-title">KSTAR 2.5</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/pay.jpg" alt="starpay thumbnail"/>
+          <h5 class="con-title">STARPAY Main</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/starcoin.jpg" alt="starcoin thumbnail"/>
+          <h5 class="con-title">STARCOIN Main</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/sponday.jpg" alt="kstar sponsor day thumbnail"/>
+          <h5 class="con-title">KSTAR SponsorDay</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>
+        <a href="#" class="work-list col-xs-6">
+          <div class="work-list-dimmer">
+            <p class="dimmer-txt">
+              <span>자세히 보기 ></span>
+            </p>
+          </div>
+          <img src="resources/images/condeal_intro.jpg" alt="condeal intro thumbnail"/>
+          <h5 class="con-title">Condeal Intro</h5>
+          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
+        </a>-->
+      </article>
+    </div>
 
+    <!-- CONTACT -->
+    <div class="box-hidden container contact">
+      <h1 class="title">CONTAC<span>T</span></h1>
+      <div class="title-line"></div>
+      <h4 class="sub-title">- HOW to CONTACT -</h4>
+      <article class="form-wrap">
+        <form method="post" action="contact.php">
+          <input type="text" name="name" placeholder="이름 or 회사명" autocomplete="off"/>
+          <input type="text" name="contact" placeholder="연락처" autocomplete="off"/>
+          <textarea name="content"></textarea>
+          <button class="submit__btn" type="submit">SUBMIT</button>
+        </form>
+      </article>
+    </div>
 
-        /**/
-        $('.web_back_wrap').on({
-            mouseover: function () {
-                $(this).find(".web_back_cover").stop().fadeIn(300);
-            },
-            mouseleave: function () {
-                $(this).find(".web_back_cover").stop().fadeOut(300);
-            }
-        });
+  </section>
 
-        /*auto scroll*/
-        $('.menu li:first-child').click(function () {
-            $('html,body').animate({'scrollTop':0},500);
-        });
-        $('.menu li:nth-child(2)').click(function () {
-            $('html,body').animate({ 'scrollTop': ($('#about').offset().top)-100 }, 500);
-        });
-        $('.menu li:nth-child(3)').click(function () {
-            $('html,body').animate({ 'scrollTop': ($('#work').offset().top)-100 }, 500);
-        });
-        $('.menu li:last-child').click(function () {
-            $('html,body').animate({ 'scrollTop': ($('#contact').offset().top)-100 }, 500);
-        });
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>2018 Bong-Hoon Ko. all rights reserved.</p>
+  </footer>
 
+  <script>
+    $(window).on('load resize',function(){
+        setTimeout(function(){
+            var workListImg = $('.work-list img').height();
+            $('.work-list-dimmer').height(workListImg);
+        },100);
+    });
+      /* background 스크롤 이벤트 */
+      $(document).on('ready scroll',function () {
+          var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
+          var $back = $('.back_1');
+          var top_num, scale_num;
+          for (var i = 0; i <= 3; i++) {
+              switch (i) {
+                  case 3 :
+                      top_num = 3, scale_num = 15000;
+                      break;
+                  case 2 :
+                      top_num = 2.5, scale_num = 10000;
+                      break;
+                  case 1 :
+                      top_num = 2, scale_num = 8500;
+                      break;
+                  case 0 :
+                      top_num = 1.5, scale_num = 8000;
+                      break;
+              }
+              $back.eq(i).css({
+                  'top': (doc_pos) / top_num + 'px',
+                  'transform': 'scale(' + (1 + (doc_pos / scale_num)) + ')'
+              });
+          }
 
+          // header
+          var win_height = $(window).height() / 5;
+          var sc_top = $(document).scrollTop();
+          if(sc_top >= win_height) {
+              $('.header').addClass('scrolling');
+          }
+          else {
+              $('header').removeClass('scrolling');
+          }
 
-        $('.menu_btn').click(function () {
-            $('.m_m').slideDown(300);
-        });
-        $('.m_m_xbtn').click(function () {
-            $('.m_m').slideUp(300);
-        });
-        $('.m_ul li:first-child').click(function () {
-            $('html,body').animate({ 'scrollTop': 0 }, 300);
-            $('.m_m').slideUp(300);
-        });
-        $('.m_ul li:nth-child(2)').click(function () {
-            $('html,body').animate({ 'scrollTop': $('#about').offset().top }, 300);
-            $('.m_m').slideUp(300);
-        });
-        $('.m_ul li:nth-child(3)').click(function () {
-            $('html,body').animate({ 'scrollTop': $('#work').offset().top }, 300);
-            $('.m_m').slideUp(300);
-        });
-        $('.m_ul li:last-child').click(function () {
-            $('html,body').animate({ 'scrollTop': $('#contact').offset().top }, 300);
-            $('.m_m').slideUp(300);
-        });
+          $('.box-hidden').each(function(){
+              var about_top = $(this).offset();
+              if(sc_top >= about_top.top - 350) {
+                  $(this).css({'animation-name':'box-hidden'});
+                  $('.icon_svg').css('animation-name','offset');
+                  if($(this).index() == 1) {
+                      // gage
+                      $('.skill-gage__inner').each(function(){
+                          var gage = $(this).attr('data-gage');
+                          $(this).animate({'width' : gage + "%"},1000);
+                      });
+                  }
+              }
+          });
+      });
 
-    </script>
+      /* cursor 이벤트 */
+      mouseX = 0, mouseY = 0;
+
+      function cursorfollow() {
+          var e = 0, s = 0;
+          setInterval(function () {
+              e += (mouseX - e) / 9;
+              s += (mouseY - s) / 9;
+              $('.cursor_1').css({left: e - 12, top: s - 12});
+              $('.cursor').css({left: mouseX, top: mouseY});
+          }, 16);
+      }
+
+      $(document).on('mousemove scroll',function (e) {
+          mouseX = e.pageX, mouseY = e.pageY;
+      });
+
+      cursorfollow();
+
+      //
+     /* var forms = $('.form-wrap input, .form-wrap textarea'), $cursor = $('.cursor'), $hb = $('html,body');
+      $(forms).on({
+          'mouseenter': function () {
+              $cursor.addClass('hide');
+              $hb.css('cursor','normal');
+          },
+          'mouseleave': function () {
+              $cursor.removeClass('hide');
+              $hb.css('cursor','none');
+          }
+      });*/
+
+      // explorer 일 때 svg 대체
+      var agent = navigator.userAgent.toLowerCase();
+      var $ab_box = $('.ability-box');
+      if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1) || agent.indexOf("wow") != -1) {
+         /* $('body,html').css('font-size', '20px');*/
+          $('.icon_svg').css('display', 'none');
+          for(var i=0; i<=2; i++) {
+              $ab_box.eq(i).prepend('<img class="ability__img" src="resources/images/ability_'+i+'.png"/>');
+          }
+      }
+
+      setTimeout(function(){
+          $('.work-list').on({
+              'mouseenter' : function(){
+                  $(this).find('.work-list-dimmer').fadeIn(200);
+                  $(this).find('.dimmer-txt').animate({'width':'100%'},200);
+              } ,
+              'mouseleave' : function(){
+                  $(this).find('.work-list-dimmer').fadeOut(200);
+                  $(this).find('.dimmer-txt').animate({'width':'0'},200);
+              }
+          });
+
+          $('.work-list').each(function(){
+              var index_num = $(this).index() + 1;
+              $(this).attr('data-num', index_num);
+              $(this).attr('href', "/details.php?page="+index_num);
+          });
+      },100);
+  </script>
+</div>
 </body>
 </html>
