@@ -227,7 +227,7 @@
             <li>2018. 02</li>
             <li>2017. 12</li>
             <li>2018. 01</li>
-            <li>2018. 05 ~ </li>
+            <li>2018. 05 ~</li>
           </ul>
           <ul class="career-list">
             <li>동래고등학교 졸업</li>
@@ -304,87 +304,7 @@
       <div class="title-line"></div>
       <h4 class="sub-title">- WEBSITES -</h4>
       <article class="row website-work">
-
-<!--        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/raon_thumb.jpg" alt="raon thumbnail"/>
-          <h5 class="con-title">RAON</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/opus_thumb.jpg" alt="opus-design thumbnail"/>
-          <h5 class="con-title">OPUS DESIGN</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/kstar2.0.jpg" alt="kstar2.0 thumbnail"/>
-          <h5 class="con-title">KSTAR 2.0</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/kstar2.51.jpg" alt="kstar2.5 thumbnail"/>
-          <h5 class="con-title">KSTAR 2.5</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/pay.jpg" alt="starpay thumbnail"/>
-          <h5 class="con-title">STARPAY Main</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/starcoin.jpg" alt="starcoin thumbnail"/>
-          <h5 class="con-title">STARCOIN Main</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/sponday.jpg" alt="kstar sponsor day thumbnail"/>
-          <h5 class="con-title">KSTAR SponsorDay</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>
-        <a href="#" class="work-list col-xs-6">
-          <div class="work-list-dimmer">
-            <p class="dimmer-txt">
-              <span>자세히 보기 ></span>
-            </p>
-          </div>
-          <img src="resources/images/condeal_intro.jpg" alt="condeal intro thumbnail"/>
-          <h5 class="con-title">Condeal Intro</h5>
-          <p class="con-txt">다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.</p>
-        </a>-->
+        <!-- WORK LISTS -->
       </article>
     </div>
 
@@ -411,14 +331,14 @@
   </footer>
 
   <script>
-    $(window).on('load resize',function(){
-        setTimeout(function(){
-            var workListImg = $('.work-list img').height();
-            $('.work-list-dimmer').height(workListImg);
-        },100);
-    });
+      $(window).on('load resize', function () {
+          setTimeout(function () {
+              var workListImg = $('.work-list img').height();
+              $('.work-list-dimmer').height(workListImg);
+          }, 100);
+      });
       /* background 스크롤 이벤트 */
-      $(document).on('ready scroll',function () {
+      $(document).on('ready scroll', function () {
           var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());
           var $back = $('.back_1');
           var top_num, scale_num;
@@ -446,23 +366,23 @@
           // header
           var win_height = $(window).height() / 5;
           var sc_top = $(document).scrollTop();
-          if(sc_top >= win_height) {
+          if (sc_top >= win_height) {
               $('.header').addClass('scrolling');
           }
           else {
               $('header').removeClass('scrolling');
           }
 
-          $('.box-hidden').each(function(){
+          $('.box-hidden').each(function () {
               var about_top = $(this).offset();
-              if(sc_top >= about_top.top - 350) {
-                  $(this).css({'animation-name':'box-hidden'});
-                  $('.icon_svg').css('animation-name','offset');
-                  if($(this).index() == 1) {
+              if (sc_top >= about_top.top - 350) {
+                  $(this).css({'animation-name': 'box-hidden'});
+                  $('.icon_svg').css('animation-name', 'offset');
+                  if ($(this).index() == 1) {
                       // gage
-                      $('.skill-gage__inner').each(function(){
+                      $('.skill-gage__inner').each(function () {
                           var gage = $(this).attr('data-gage');
-                          $(this).animate({'width' : gage + "%"},1000);
+                          $(this).animate({'width': gage + "%"}, 1000);
                       });
                   }
               }
@@ -482,54 +402,54 @@
           }, 16);
       }
 
-      $(document).on('mousemove scroll',function (e) {
+      $(document).on('mousemove scroll', function (e) {
           mouseX = e.pageX, mouseY = e.pageY;
       });
 
       cursorfollow();
 
       //
-     /* var forms = $('.form-wrap input, .form-wrap textarea'), $cursor = $('.cursor'), $hb = $('html,body');
-      $(forms).on({
-          'mouseenter': function () {
-              $cursor.addClass('hide');
-              $hb.css('cursor','normal');
-          },
-          'mouseleave': function () {
-              $cursor.removeClass('hide');
-              $hb.css('cursor','none');
-          }
-      });*/
+      /* var forms = $('.form-wrap input, .form-wrap textarea'), $cursor = $('.cursor'), $hb = $('html,body');
+       $(forms).on({
+           'mouseenter': function () {
+               $cursor.addClass('hide');
+               $hb.css('cursor','normal');
+           },
+           'mouseleave': function () {
+               $cursor.removeClass('hide');
+               $hb.css('cursor','none');
+           }
+       });*/
 
       // explorer 일 때 svg 대체
       var agent = navigator.userAgent.toLowerCase();
       var $ab_box = $('.ability-box');
       if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1) || agent.indexOf("wow") != -1) {
-         /* $('body,html').css('font-size', '20px');*/
+          /* $('body,html').css('font-size', '20px');*/
           $('.icon_svg').css('display', 'none');
-          for(var i=0; i<=2; i++) {
-              $ab_box.eq(i).prepend('<img class="ability__img" src="resources/images/ability_'+i+'.png"/>');
+          for (var i = 0; i <= 2; i++) {
+              $ab_box.eq(i).prepend('<img class="ability__img" src="resources/images/ability_' + i + '.png"/>');
           }
       }
 
-      setTimeout(function(){
+      setTimeout(function () {
           $('.work-list').on({
-              'mouseenter' : function(){
+              'mouseenter': function () {
                   $(this).find('.work-list-dimmer').fadeIn(200);
-                  $(this).find('.dimmer-txt').animate({'width':'100%'},200);
-              } ,
-              'mouseleave' : function(){
+                  $(this).find('.dimmer-txt').animate({'width': '100%'}, 200);
+              },
+              'mouseleave': function () {
                   $(this).find('.work-list-dimmer').fadeOut(200);
-                  $(this).find('.dimmer-txt').animate({'width':'0'},200);
+                  $(this).find('.dimmer-txt').animate({'width': '0'}, 200);
               }
           });
 
-          $('.work-list').each(function(){
+          $('.work-list').each(function () {
               var index_num = $(this).index() + 1;
               $(this).attr('data-num', index_num);
-              $(this).attr('href', "/details.php?page="+index_num);
+              $(this).attr('href', "/details.php?page=work" + index_num);
           });
-      },100);
+      }, 100);
   </script>
 </div>
 </body>
