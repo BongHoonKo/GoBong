@@ -1,4 +1,13 @@
 $(function () {
+
+    var back = "b";
+    $('.my-name').click(function(){
+        if(back == "b") {
+            
+            back = "c";
+        }
+    });
+
     var conLength = Object.keys(work_lists).length;
 
     for (props in work_lists) {
