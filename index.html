@@ -57,12 +57,12 @@
     <ariticle class="back-wrap">
       <div class="back">
         <div class="cover"></div>
-        <div class="back_1 back6" style="background-image: url('resources/images/c_6.png'); background-position: center;"></div>
-        <div class="back_1 back5" style="background-image: url('resources/images/c_5.png');"></div>
-        <div class="back_1 back4" style="background-image: url('resources/images/c_4.png');"></div>
-        <div class="back_1 back3" style="background-image: url('resources/images/c_3.png');"></div>
-        <div class="back_1 back2" style="background-image: url('resources/images/c_2.png');"></div>
-        <div class="back_1 back1" style="background-image: url('resources/images/c_1.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/c_1.png'); background-position: center;"></div>
+        <div class="back_1" style="background-image: url('resources/images/c_2.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/c_3.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/c_4.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/c_5.png');"></div>
+        <div class="back_1" style="background-image: url('resources/images/c_6.png');"></div>
       </div>
     </ariticle>
   </section>
@@ -305,7 +305,7 @@
       <div class="title-line"></div>
       <h4 class="sub-title">- WEBSITES -</h4>
       <article class="row website-work">
-        <!-- WORK LISTS -->
+        <!-- TODO : WORK LISTS FOR IN -->
       </article>
     </div>
 
@@ -338,6 +338,7 @@
               $('.work-list-dimmer').height(workListImg);
           }, 100);
       });
+
       /* background 스크롤 이벤트 */
       $(document).on('ready scroll', function () {
           var doc_pos = ($(window).scrollTop() || $("body").scrollTop() || $(document).scrollTop());

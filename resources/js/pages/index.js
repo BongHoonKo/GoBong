@@ -3,8 +3,18 @@ $(function () {
     var back = "b";
     $('.my-name').click(function(){
         if(back == "b") {
-            
+            $('.back_1').each(function(){
+                var back_index = $(this).index();
+                $(this).css('background-image','url("resources/images/' + back + '_' + back_index + '.png")');
+            });
             back = "c";
+        }
+        else {
+            $('.back_1').each(function(){
+                var back_index = $(this).index();
+                $(this).css('background-image','url("resources/images/' + back + '_' + back_index + '.png")');
+            });
+            back = "b";
         }
     });
 
@@ -18,9 +28,9 @@ $(function () {
             '       <span>자세히 보기 ></span>' +
             '     </p>' +
             '   </div>' +
-            '   <img src="resources/images/'+ work_lists[props].conImg +'" alt="'+work_lists[props].conAlt+'"/>' +
-            '   <h5 class="con-title">'+work_lists[props].conTitle+'</h5>' +
-            '   <p class="con-txt">'+work_lists[props].conTxt+'</p>' +
+            '   <img src="resources/images/' + work_lists[props].conImg +'" alt="'+work_lists[props].conAlt + '"/>' +
+            '   <h5 class="con-title">' + work_lists[props].conTitle + '</h5>' +
+            '   <p class="con-txt">' + work_lists[props].conTxt + '</p>' +
             '</a>'
         );
     }
