@@ -1,5 +1,16 @@
 $(function () {
 
+    $(window).on('load resize',function(){
+        var win_width = $(window).width();
+        var main_height = win_width * 0.75;
+        if(win_width <= 992) {
+            $('.main-top').height(main_height);
+        }
+        else {
+            $('.main-top').height('100%');
+        }
+    })
+
     var back = "b";
     $('.my-name').click(function(){
         if(back == "b") {
@@ -28,7 +39,7 @@ $(function () {
             '       <span>자세히 보기 ></span>' +
             '     </p>' +
             '   </div>' +
-            '   <img src="resources/images/' + work_lists[props].conImg +'" alt="'+work_lists[props].conAlt + '"/>' +
+            '   <img src="resources/images/' + work_lists[props].conImg +'" alt="'+ work_lists[props].conAlt + '"/>' +
             '   <h5 class="con-title">' + work_lists[props].conTitle + '</h5>' +
             '   <p class="con-txt">' + work_lists[props].conTxt + '</p>' +
             '</a>'

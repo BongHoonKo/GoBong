@@ -73,6 +73,9 @@
     }
     ul {
       float: right;
+      @media all and (max-width: 992px) {
+        display: none;
+      }
       li {
         color: $white;
         font-size: 1.125rem;
@@ -100,9 +103,24 @@
       left: 20%;
       z-index: 100;
       @include y-translate;
+      @media all and (max-width: 992px) {
+        top: 45%;
+        left: 0;
+        width: 100%;
+      }
       .my-name {
         font-size: 6rem;
         text-shadow: 7px 7px 10px rgba(0,0,0,0.3);
+        @media all and (max-width: 992px) {
+          font-size: 4rem;
+          text-align: center;
+        }
+        @media all and (max-width: 450px) {
+          font-size: 3rem;
+          br {
+            display: none;
+          }
+        }
         b {
           color: $white;
           font-size: 3rem;
@@ -111,9 +129,19 @@
       }
       .my-position {
         font-size: 2rem;
+        @media all and (max-width: 992px) {
+          font-size: 1.85rem;
+          text-align: center;
+        }
+        @media all and (max-width: 450px) {
+          font-size: 1.5rem;
+        }
       }
       .my-line {
         margin: 1rem 0;
+        @media all and (max-width: 450px) {
+          display: none;
+        }
         span {
           display: block;
           width: 5rem;
@@ -159,6 +187,10 @@
           background-position: center bottom;
           background-repeat: no-repeat;
           background-size: cover;
+          @media all and (max-width: 992px) {
+            background-position: center bottom !important;
+            background-size: 135%;
+          }
         }
       }
     }
@@ -174,6 +206,9 @@
 
     & > .container {
       margin-bottom: 120px;
+      @media all and (max-width: 992px) {
+        margin-bottom: 60px;
+      }
       & > .row:not(:only-of-type) {
         margin-bottom: 120px;
       }
@@ -203,8 +238,18 @@
     }
     .ability__txt {
       width: 80%;
+      @media all and (max-width: 992px) {
+        margin-bottom: 60px;
+      }
     }
     .ability {
+      .ability-box {
+        &:last-of-type {
+          .ability__txt {
+            margin-bottom: 0;
+          }
+        }
+      }
       .icon_svg {
         stroke-dasharray: 790px;
         stroke-dashoffset: 790px;
@@ -242,6 +287,14 @@
         margin-top: 150px;
         padding: 30px 15px 30px 380px;
         @include clearfix;
+        @media all and (max-width: 992px) {
+          width: calc(100% - 30px);
+          padding: 380px 15px 30px 15px;
+          margin-top: 100px;
+        }
+        @media all and (max-width: 450px) {
+          padding-top: 280px;
+        }
         .photo-box {
           width: 400px;
           height: 400px;
@@ -254,6 +307,23 @@
           background-position: center;
           background-repeat: no-repeat;
           box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2);
+          @media all and (max-width: 992px) {
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            transform: translateX(-50%);
+          }
+          @media all and (max-width: 450px) {
+            width: 300px;
+            height: 300px;
+          }
+        }
+        .txt-box {
+          @include clearfix;
+          @media all and (max-width: 992px) {
+          }
         }
         .box-title {
           text-align: left;
@@ -278,10 +348,12 @@
           }
           &.skill-list {
             li {
+              width: 100%;
               float: left;
               margin-right: 40px;
               margin-bottom: 15px;
               .skill-txt {
+                width: calc(100% - 55px);
                 float: left;
                 margin-left: 15px;
                 .skill-gage {
@@ -290,6 +362,9 @@
                   height: 3px;
                   position: relative;
                   background-color: #dfdfdf;
+                  @media all and (max-width: 992px) {
+                    width: 100%;
+                  }
                   .skill-gage__inner {
                     height: 100%;
                     position: absolute;
@@ -359,6 +434,9 @@
           border-radius: 4px;
           outline: none;
           border: none;
+          @media all and (max-width: 992px) {
+            width: 100%;
+          }
         }
         input {
           height: 50px;
@@ -373,6 +451,9 @@
           margin: 0 auto;
           margin-bottom: 15px;
           background-color: rgba(255,255,255,0.9);
+          @media all and (max-width: 992px) {
+            height: 250px;
+          }
         }
         .submit__btn {
           color: $white;
