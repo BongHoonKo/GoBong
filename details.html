@@ -29,9 +29,16 @@
   </header>
 
   <section class="layout details-content">
-    <h1 class="title">ABOU<span>T</span></h1>
+    <h1 class="title"></h1>
     <div class="title-line"></div>
-    <h4 class="sub-title">- ABILITY -</h4>
+    <p class="details__txt"></p>
+
+    <img class="details__img notebook" src="" alt=""/>
+    <img class="details__img full mobile" src="" alt=""/>
+    <img class="details__img full mobile" src="" alt=""/>
+    <img class="details__img full mobile" src="" alt=""/>
+    <img class="details__img full mobile" src="" alt=""/>
+    <img class="details__img full mobile" src="" alt=""/>
   </section>
 
   <!-- FOOTER -->
@@ -40,5 +47,13 @@
   </footer>
 </section>
 
+<script>
+  var page = localStorage.getItem("pageNum");
+$('.details-content .title').html(work_lists[page].conTitle);
+$('.details-content .sub-title').html(work_lists[page].conSubTitle);
+$('.details-content .details__txt').html(work_lists[page].conTxt);
+$('.details__img.notebook').attr('src', 'resources/images/' + work_lists[page].details.noteBook);
+$('.details__img.mobile').attr('src', 'resources/images/' + work_lists[page].details.mobile);
+</script>
 </body>
 </html>

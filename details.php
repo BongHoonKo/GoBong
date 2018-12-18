@@ -43,14 +43,14 @@
   </footer>
 </section>
 <?php
-echo "<script>var page = '".$_GET['page']."';</script>";
+echo "<script>var page = '" . $_GET['page'] . "';</script>";
 ?>
 <script>
-  $('.details-content .title').html(work_lists[page].conTitle);
-  $('.details-content .sub-title').html(work_lists[page].conSubTitle);
-  $('.details-content .details__txt').html(work_lists[page].conTxt);
-  $('.details__img.notebook').attr('src','resources/images/'+work_lists[page].details.noteBook);
-  $('.details__img.mobile').attr('src','resources/images/'+work_lists[page].details.mobile);
+    $('.details-content .title').html(work_lists[page].conTitle);
+    $('.details-content .sub-title').html(work_lists[page].conSubTitle);
+    $('.details-content .details__txt').html(work_lists[page].conTxt);
+    $('.details__img.notebook').attr('src', 'resources/images/' + work_lists[page].details.noteBook);
+    $('.details__img.mobile').attr('src', 'resources/images/' + work_lists[page].details.mobile);
 </script>
 </body>
 </html>
