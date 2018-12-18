@@ -17,7 +17,7 @@ $(function () {
             $('.back_1').each(function(){
                 var back_index = $(this).index();
                 $(this).css('background-image','url("resources/images/' + back + '_' + back_index + '.png")');
-                $('.main-content').css('background-color','#13051c');
+                $('.main-content, html, body').css('background-color','#02020b');
             });
             back = "c";
         }
@@ -25,7 +25,7 @@ $(function () {
             $('.back_1').each(function(){
                 var back_index = $(this).index();
                 $(this).css('background-image','url("resources/images/' + back + '_' + back_index + '.png")');
-                $('.main-content').css('background-color','#02020b');
+                $('.main-content, html, body').css('background-color','#13051c');
             });
             back = "b";
         }
