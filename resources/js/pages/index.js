@@ -35,7 +35,7 @@ $(function () {
 
     for (props in work_lists) {
         $('.website-work').append(
-            '<a class="work-list col-md-6 col-xs-12" onclick="pageNum(&#39;'+ props +'&#39;)">' +
+            '<a class="work-list col-md-4 col-xs-12" onclick="pageNum(&#39;'+ props +'&#39;)">' +
             '   <div class="work-list-dimmer">' +
             '     <p class="dimmer-txt">' +
             '       <span>자세히 보기 ></span>' +
@@ -51,27 +51,6 @@ $(function () {
 
 
 var work_lists = {
-    "Raon": {
-        "conTitle"    : "RAON",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.0",
-        "conImg"      : "raon_thumb.jpg",
-        "conAlt"      : "raon thumbnail",
-    },
-    "Opus": {
-        "conTitle"    : "OPUS DESIGN",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.1",
-        "conImg"      : "opus_thumb.jpg",
-        "conAlt"      : "opus-design thumbnail"
-    },
-    "Kstar2_0": {
-        "conTitle"    : "KSTAR <span class='inherit__txt'>2.0</span>",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.2",
-        "conImg"      : "kstar2.0.jpg",
-        "conAlt"      : "kstar2.0 thumbnail"
-    },
     "Kstar2_5": {
         "conTitle"    : "KSTAR <span class='inherit__txt'>2.5</span>",
         "conSubTitle" : "",
@@ -82,6 +61,27 @@ var work_lists = {
             "noteBook"  : "kstar2.5_nb.png",
             "mobile"    : "kstar2.5Mobile_3.jpg"
         }
+    },
+    "Condeal": {
+        "conTitle"    : "Condeal Intro",
+        "conSubTitle" : "",
+        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.7",
+        "conImg"      : "condeal_intro.jpg",
+        "conAlt"      : "condeal intro thumbnail"
+    },
+    "KstarDay": {
+        "conTitle"    : "KSTAR SponsorDay",
+        "conSubTitle" : "",
+        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.6",
+        "conImg"      : "sponday.jpg",
+        "conAlt"      : "kstar sponsor day thumbnail"
+    },
+    "Kstar2_0": {
+        "conTitle"    : "KSTAR <span class='inherit__txt'>2.0</span>",
+        "conSubTitle" : "",
+        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.2",
+        "conImg"      : "kstar2.0.jpg",
+        "conAlt"      : "kstar2.0 thumbnail"
     },
     "StarPay": {
         "conTitle"    : "STARPAY Main",
@@ -97,20 +97,20 @@ var work_lists = {
         "conImg"      : "starcoin.jpg",
         "conAlt"      : "starcoin thumbnail"
     },
-    "KstarDay": {
-        "conTitle"    : "KSTAR SponsorDay",
+    "Opus": {
+        "conTitle"    : "OPUS DESIGN",
         "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.6",
-        "conImg"      : "sponday.jpg",
-        "conAlt"      : "kstar sponsor day thumbnail"
+        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.1",
+        "conImg"      : "opus_thumb.jpg",
+        "conAlt"      : "opus-design thumbnail"
     },
-    "Condeal": {
-        "conTitle"    : "Condeal Intro",
+    "Raon": {
+        "conTitle"    : "RAON",
         "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.7",
-        "conImg"      : "condeal_intro.jpg",
-        "conAlt"      : "condeal intro thumbnail"
-    }
+        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.0",
+        "conImg"      : "raon_thumb.jpg",
+        "conAlt"      : "raon thumbnail",
+    },
 }
 
 

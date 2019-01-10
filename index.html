@@ -384,7 +384,7 @@
 
           $('.box-hidden').each(function () {
               var about_top = $(this).offset();
-              if (sc_top >= about_top.top - 400) {
+              if (sc_top >= about_top.top - 500) {
                   $(this).css({'animation-name': 'box-hidden'});
                   $('.icon_svg').css('animation-name', 'offset');
                   if ($(this).index() == 1) {
@@ -396,6 +396,7 @@
                   }
               }
           });
+
       });
 
       /* cursor 이벤트 */
