@@ -22,7 +22,12 @@
   <script type="text/javascript" src="resources/js/pages/index.js"></script>
 </head>
 <body>
-<div class="bmic__wrap"></div>
+<section class="main-content">
+  <p></p>
+</section>
+
+<section class="lang-select__wrap">
+  <div class="bmic__wrap"></div>
   <section class="select-lang">
     <!--<img class="bmi-logo" src="resources/images/bmi-logo-1.png"/>-->
     <article class="select-lang__box">
@@ -34,7 +39,11 @@
       </ul>
     </article>
   </section>
+  <button class="enter__btn">Go</button>
+  <p class="bottom__txt">COPYRIGHT(C) BMI. ALL RIGHTS RESERVED</p>
+</section>
 <script>
+    var currentLang;
     var toggleNum = 0;
     $('.select-lang__box p').click(function () {
         if (toggleNum == 0) {
@@ -53,6 +62,12 @@
         $('.select-lang__box p').text(lang);
         $('.lang-dropdown').slideUp(200);
         toggleNum = 0;
+        currentLang = $(this).attr('data-lang');
+    });
+
+    $('.enter__btn').click(function(){
+        $('.lang-select__wrap').fadeOut(200);
+        $('.main-content p').text(currentLang);
     });
 </script>
 </body>
