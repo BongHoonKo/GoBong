@@ -25,7 +25,7 @@
 <section class="details__wrap">
   <!-- HEADER -->
   <header class="details__hd">
-    <a href="index.html">Back To Home</a>
+    <a href="index.html">홈으로 가기</a>
   </header>
 
   <section class="layout details-content">

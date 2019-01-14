@@ -34,11 +34,11 @@
   <header class="header">
     <article class="hd-wrap container">
       <img class="logo" src="resources/images/logo_1.png" alt="logo"/>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Works</li>
-        <li>Contact</li>
+      <ul class="main-nav">
+        <li data-target="home">Home</li>
+        <li data-target="about-me">About</li>
+        <li data-target="works">Works</li>
+        <li data-target="contact">Contact</li>
       </ul>
     </article>
   </header>
@@ -57,8 +57,7 @@
     <ariticle class="back-wrap">
       <div class="back">
         <div class="cover"></div>
-        <div class="back_1 all-back"
-             style="background-image: url('resources/images/b_1.png'); background-position: center;"></div>
+        <div class="back_1 all-back" style="background-image: url('resources/images/b_1.png'); background-position: center;"></div>
         <div class="back_1" style="background-image: url('resources/images/b_2.png');"></div>
         <div class="back_1" style="background-image: url('resources/images/b_3.png');"></div>
         <div class="back_1" style="background-image: url('resources/images/b_4.png');"></div>
@@ -331,7 +330,7 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>2018 Bong-Hoon Ko. all rights reserved.</p>
+    <p>2019 Bong-Hoon Ko. all rights reserved.</p>
   </footer>
 
   <script>
@@ -382,7 +381,7 @@
               $('.box-hidden').css({'animation-name': 'box-hidden'});
           }
 
-          $('.box-hidden').each(function () {
+          $('.box-hidden').each(function ()  {
               var about_top = $(this).offset();
               if (sc_top >= about_top.top - 500) {
                   $(this).css({'animation-name': 'box-hidden'});
@@ -396,7 +395,6 @@
                   }
               }
           });
-
       });
 
       /* cursor 이벤트 */

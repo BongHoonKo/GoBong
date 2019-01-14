@@ -9,9 +9,20 @@ $(function () {
         else {
             $('.main-top').height('100%');
         }
-    })
+    });
 
-    var back = "c";
+    $('.main-nav li').click(function(){
+        var thisTarget = $(this).attr('data-target');
+        if(thisTarget == 'home') {
+            $('html,body').animate({'scrollTop' : '0'},300);
+        }
+        else {
+            var targetOffset = $('.' + thisTarget).offset();
+            $('html,body').animate({'scrollTop' : (targetOffset.top - 82) + 'px'},300);
+        }
+    });
+
+    /*var back = "c";
     $('.my-name').click(function(){
         if(back == "b") {
             $('.back_1').each(function(){
@@ -29,13 +40,13 @@ $(function () {
             });
             back = "b";
         }
-    });
+    });*/
 
     var conLength = Object.keys(work_lists).length;
 
     for (props in work_lists) {
         $('.website-work').append(
-            '<a class="work-list col-md-4 col-xs-12" onclick="pageNum(&#39;'+ props +'&#39;)">' +
+            '<a href="javascript:void(0);" class="work-list col-md-4 col-xs-12" onclick="pageNum(&#39;'+ props +'&#39;)">' +
             '   <div class="work-list-dimmer">' +
             '     <p class="dimmer-txt">' +
             '       <span>자세히 보기 ></span>' +
@@ -43,7 +54,7 @@ $(function () {
             '   </div>' +
             '   <img src="resources/images/' + work_lists[props].conImg +'" alt="'+ work_lists[props].conAlt + '"/>' +
             '   <h5 class="con-title">' + work_lists[props].conTitle + '</h5>' +
-            '   <p class="con-txt">' + work_lists[props].conTxt + '</p>' +
+            '   <p class="con-txt">' + work_lists[props].conSubTitle + '</p>' +
             '</a>'
         );
     }
@@ -51,10 +62,10 @@ $(function () {
 
 
 var work_lists = {
-    "Kstar2_5": {
-        "conTitle"    : "KSTAR <span class='inherit__txt'>2.5</span>",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.3",
+    "Kstar3_0": {
+        "conTitle"    : "KSTAR <span class='inherit__txt'>3.0</span>",
+        "conSubTitle" : "KSTARGROUP의 공연 티켓팅 플랫폼 : KSTAR 3.0 버전의 퍼블리싱을 전담 하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "kstar2.51.jpg",
         "conAlt"      : "kstar2.5 thumbnail",
         "details"     : {
@@ -63,51 +74,51 @@ var work_lists = {
         }
     },
     "Condeal": {
-        "conTitle"    : "Condeal Intro",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.7",
+        "conTitle"    : "Contenst Deal Intro",
+        "conSubTitle" : "블록체인 기술을 이용한 컨텐츠 거래소 플랫폼 : Contents Deal의 소개 페이지 퍼블리싱에 참여하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "condeal_intro.jpg",
         "conAlt"      : "condeal intro thumbnail"
     },
     "KstarDay": {
         "conTitle"    : "KSTAR SponsorDay",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.6",
+        "conSubTitle" : "KSTARGROUP과 현대울산축구단의 스폰서십 체결 기념 경기의 이벤트 페이지 : KSTAR Day 이벤트 페이지 퍼블리싱을 전담하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "sponday.jpg",
         "conAlt"      : "kstar sponsor day thumbnail"
     },
     "Kstar2_0": {
         "conTitle"    : "KSTAR <span class='inherit__txt'>2.0</span>",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.2",
+        "conSubTitle" : "KSTARGROUP의 공연 티켓팅 플랫폼 : KSTAR 2.0 버전의 퍼블리싱에 참여하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "kstar2.0.jpg",
         "conAlt"      : "kstar2.0 thumbnail"
     },
     "StarPay": {
         "conTitle"    : "STARPAY Main",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.4",
+        "conSubTitle" : "KSTARGROUP의 결제수단인 STAR의 충전 및 결제가 가능한 홈페이지 : STARPAY.tv의 메인 퍼블리싱을 담당하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "pay.jpg",
         "conAlt"      : "starpay thumbnail"
     },
     "StarCoin": {
         "conTitle"    : "STARCOIN Main",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.5",
+        "conSubTitle" : "KSTARGROUP의 암호화폐 KST에 관한 정보와 소식을 전달하는 홈페이지 : STARCOIN.tv의 메인 퍼블리싱을 담당하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "starcoin.jpg",
         "conAlt"      : "starcoin thumbnail"
     },
     "Opus": {
         "conTitle"    : "OPUS DESIGN",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.1",
+        "conSubTitle" : "부산의 PT 전문 디자인 업체 : OPUS DESIGN의 홈페이지 제작을 전담하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "opus_thumb.jpg",
         "conAlt"      : "opus-design thumbnail"
     },
     "Raon": {
         "conTitle"    : "RAON",
-        "conSubTitle" : "",
-        "conTxt"      : "다 계절이 불러 사람들의 그러나 이국 언덕 봅니다. 위에 지나고 아름다운 경, 내린 거외다.0",
+        "conSubTitle" : "국내최초 윤활장비 제조업체 : RAON의 홈페이지 퍼블리싱을 전담하였습니다.",
+        "conTxt"      : "",
         "conImg"      : "raon_thumb.jpg",
         "conAlt"      : "raon thumbnail",
     },
@@ -116,7 +127,6 @@ var work_lists = {
 
 //상세페이지 이동
 function pageNum(pn) {
-    pageNum = pn;
-    localStorage.setItem('pageNum', pageNum);
+    localStorage.setItem('pageNum', pn);
     location.href = 'details.html';
 }
