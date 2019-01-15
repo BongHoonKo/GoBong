@@ -46,16 +46,21 @@ $(function () {
 
     for (props in work_lists) {
         $('.website-work').append(
-            '<a href="javascript:void(0);" class="work-list col-md-4 col-xs-12" onclick="pageNum(&#39;'+ props +'&#39;)">' +
-            '   <div class="work-list-dimmer">' +
-            '     <p class="dimmer-txt">' +
-            '       <span>자세히 보기 ></span>' +
-            '     </p>' +
-            '   </div>' +
-            '   <img src="resources/images/' + work_lists[props].conImg +'" alt="'+ work_lists[props].conAlt + '"/>' +
-            '   <h5 class="con-title">' + work_lists[props].conTitle + '</h5>' +
-            '   <p class="con-txt">' + work_lists[props].conSubTitle + '</p>' +
-            '</a>'
+            '<div class="col-md-4 col-xs-12 work-list">' +
+            /*'<a href="javascript:void(0);" class="work-list col-md-4 col-xs-12" onclick="pageNum(&#39;'+ props +'&#39;)">' +*/
+            '  <a href="javascript:void(0);" class="work-detail" onclick="alert(&#39;준비 중 입니다!&#39;)">' +
+            '     <div class="work-list-dimmer">' +
+            '       <p class="dimmer-txt">' +
+            '         <span>자세히 보기 ></span>' +
+            '       </p>' +
+            '     </div>' +
+            '     <img src="resources/images/' + work_lists[props].conImg +'" alt="'+ work_lists[props].conAlt + '"/>' +
+            '     <h5 class="con-title">' + work_lists[props].conTitle + '</h5>' +
+            '     <p class="con-txt">' + work_lists[props].conSubTitle + '</p>' +
+            '  </a>' +
+            '     <p onclick="window.open(&#39;'+ work_lists[props].conLink +'&#39,&#39;_blank&#39;);" class="con-link">홈페이지 바로가기 -></p>' +
+            '</>'
+
         );
     }
 });
@@ -71,49 +76,55 @@ var work_lists = {
         "details"     : {
             "noteBook"  : "kstar2.5_nb.png",
             "mobile"    : "kstar2.5Mobile_3.jpg"
-        }
+        },
+        "conLink"     : "#"
     },
     "Condeal": {
         "conTitle"    : "Contenst Deal Intro",
         "conSubTitle" : "블록체인 기술을 이용한 컨텐츠 거래소 플랫폼 : Contents Deal의 소개 페이지 퍼블리싱에 참여하였습니다.",
         "conTxt"      : "",
         "conImg"      : "condeal_intro.jpg",
-        "conAlt"      : "condeal intro thumbnail"
+        "conAlt"      : "condeal intro thumbnail",
+        "conLink"     : "http://contentsdeal.net/#/condeal"
     },
     "KstarDay": {
         "conTitle"    : "KSTAR SponsorDay",
         "conSubTitle" : "KSTARGROUP과 현대울산축구단의 스폰서십 체결 기념 경기의 이벤트 페이지 : KSTAR Day 이벤트 페이지 퍼블리싱을 전담하였습니다.",
         "conTxt"      : "",
         "conImg"      : "sponday.jpg",
-        "conAlt"      : "kstar sponsor day thumbnail"
+        "conAlt"      : "kstar sponsor day thumbnail",
+        "conLink"     : "#"
     },
     "Kstar2_0": {
         "conTitle"    : "KSTAR <span class='inherit__txt'>2.0</span>",
         "conSubTitle" : "KSTARGROUP의 공연 티켓팅 플랫폼 : KSTAR 2.0 버전의 퍼블리싱에 참여하였습니다.",
         "conTxt"      : "",
         "conImg"      : "kstar2.0.jpg",
-        "conAlt"      : "kstar2.0 thumbnail"
+        "conAlt"      : "kstar2.0 thumbnail",
+        "conLink"     : "https://www.kstar.tv"
     },
     "StarPay": {
         "conTitle"    : "STARPAY Main",
         "conSubTitle" : "KSTARGROUP의 결제수단인 STAR의 충전 및 결제가 가능한 홈페이지 : STARPAY.tv의 메인 퍼블리싱을 담당하였습니다.",
         "conTxt"      : "",
         "conImg"      : "pay.jpg",
-        "conAlt"      : "starpay thumbnail"
+        "conAlt"      : "starpay thumbnail",
+        "conLink"     : "https://www.starpay.tv/"
     },
     "StarCoin": {
         "conTitle"    : "STARCOIN Main",
         "conSubTitle" : "KSTARGROUP의 암호화폐 KST에 관한 정보와 소식을 전달하는 홈페이지 : STARCOIN.tv의 메인 퍼블리싱을 담당하였습니다.",
         "conTxt"      : "",
         "conImg"      : "starcoin.jpg",
-        "conAlt"      : "starcoin thumbnail"
+        "conLink"     : "https://www.starcoin.tv/"
     },
     "Opus": {
         "conTitle"    : "OPUS DESIGN",
         "conSubTitle" : "부산의 PT 전문 디자인 업체 : OPUS DESIGN의 홈페이지 제작을 전담하였습니다.",
         "conTxt"      : "",
         "conImg"      : "opus_thumb.jpg",
-        "conAlt"      : "opus-design thumbnail"
+        "conAlt"      : "opus-design thumbnail",
+        "conLink"     : "http://opusdesign.kr/"
     },
     "Raon": {
         "conTitle"    : "RAON",
@@ -121,6 +132,7 @@ var work_lists = {
         "conTxt"      : "",
         "conImg"      : "raon_thumb.jpg",
         "conAlt"      : "raon thumbnail",
+        "conLink"     : "http://raonco.kr/"
     },
 }
 
