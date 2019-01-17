@@ -52,6 +52,10 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     @include transition(350);
+    @media screen and (max-width: 768px) {
+      animation-name: none !important;
+      opacity: 1 !important;
+    }
   }
 
   // 헤더
@@ -63,6 +67,15 @@
     padding: 15px 0;
     z-index: 999;
     @include transition(200);
+    @media all and (max-width: 768px) {
+      position: absolute;
+      .logo {
+        width: 60px !important;
+        display: block;
+        margin: 0 auto;
+        float: none !important;
+      }
+    }
     &.scrolling {
       background-color: rgba(0, 0, 0, 0.3);
       border-bottom: 2px solid rgba(220, 220, 220, 0.1);
