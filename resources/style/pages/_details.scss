@@ -74,6 +74,24 @@
   }
 }
 
+.details__btn {
+  display: inline-block;
+  color: $white;
+  padding: 20px 40px 16px 40px;
+  background-color: $main-color;
+  border-radius: 5px;
+  clear: both;
+  @media all and (max-width: 768px) {
+    padding: 10px 25px 8px 25px;
+  }
+  @include transition(300);
+  &:hover {
+    color: $main-color;
+    background-color: $white;
+    @include transition(300);
+  }
+}
+
 .other-project {
   max-width: 1920px;
   padding-left: 30px;

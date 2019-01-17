@@ -44,6 +44,10 @@
 
     <h2 class="sub-title details-sub__title">- FONT -</h2>
     <img class="details__img font" src="" alt=""/>
+
+    <div class="details-btn__wrap">
+      <a href="" class="details__btn">홈페이지 바로가기</a>
+    </div>
   </section>
 
   <h2 class="sub-title details-sub__title">- Other Projects -</h2>
@@ -68,14 +72,15 @@
     $('.details__img.notebook').attr('src', 'resources/images/' + work_lists[page].details.noteBook);
     $('.details__img.mobile').attr('src', 'resources/images/' + work_lists[page].details.mobile);
     $('.details__img.font').attr('src', 'resources/images/' + work_lists[page].details.font);
+    $('.details__btn').attr('href', work_lists[page].conLink);
 
     // 프로젝트 슬라이드
-    setTimeout(function(){
+    setTimeout(function () {
         var project_slide = new Swiper('.other-project', {
             slidesPerView: 3.5,
             spaceBetween: 30,
-            breakpoints : {
-                768 : {
+            breakpoints: {
+                768: {
                     slidesPerView: 2.25,
                     spaceBetween: 15
                 }
@@ -85,7 +90,7 @@
             },*/
 
         });
-    },200);
+    }, 200);
 
 
 </script>

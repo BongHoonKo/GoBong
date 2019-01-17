@@ -108,7 +108,7 @@ var work_lists = {
         "conSubTitle": "KSTARGROUP과 울산현대축구단의 스폰서십 체결 기념 경기의 이벤트 페이지 : KSTAR Day 이벤트 페이지 퍼블리싱을 전담하였습니다.",
         "conTxt": "KSTARGROUP과 울산현대축구단의 스폰서십 체결 기념 경기의 이벤트 페이지 퍼블리싱을 전담하였습니다.<br/>" +
         "이 페이지를 이용하여 실제 울산현대 경기관중을 대상으로 투표 및 추첨 이벤트를 진행하였습니다.<br/><br/>" +
-        "참여율 : 100%<br/><a class='con-txt__link' href='/spondor-day/index.html' target='_blank'>KSTAR DAY 이벤트 페이지 바로가기</a>",
+        "참여율 : 100%<br/><a class='con-txt__link' href='/sponsor-day/index.html' target='_blank'>KSTAR DAY 이벤트 페이지 바로가기</a>",
         "conImg": "sponday.jpg",
         "conAlt": "kstar sponsor day thumbnail",
         "details": {
