@@ -79,7 +79,7 @@ var work_lists = {
         "conTitle": "KSTAR <span class='inherit__txt'>3.0</span>",
         "conSubTitle": "KSTARGROUP의 공연 티켓팅 플랫폼 : KSTAR 3.0 버전의 퍼블리싱을 전담 하였습니다.",
         "conTxt": "KSTARGROUP의 공연 티켓팅 플랫폼 Kstar.tv의 3.0버전 퍼블리싱을 전담하였습니다.<br/>처음으로 PC / Mobile 분리형 웹으로 작업하였고, KSTAR 2.0을 보완하고 웹접근성을 고려하여 제작하였습니다.<br/>" +
-        "<br/>참여율 : 100%<br/> <a class='con-txt__link' href='#' target='_blank'>KSTAR 3.0 바로가기</a>",
+        "<br/>참여율 : 100%<br/> <a class='con-txt__link' href='/kstar3.0/kstar3.0_Mobile/m_index.html' target='_blank'>KSTAR 3.0 바로가기</a>",
         "conImg": "kstar2.51.jpg",
         "conAlt": "kstar2.5 thumbnail",
         "details": {
@@ -87,7 +87,7 @@ var work_lists = {
             "mobile": "kstar2.5Mobile.jpg",
             "font": "font_noto_sans.png"
         },
-        "conLink": "#"
+        "conLink": "/kstar3.0/kstar3.0_Mobile/m_index.html"
     },
     "Condeal": {
         "conTitle": "Contenst Deal Intro",
