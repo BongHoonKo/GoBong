@@ -45,6 +45,7 @@ $(function () {
     var conLength = Object.keys(work_lists).length;
 
     for (props in work_lists) {
+        // 메인 Work List 출력
         $('.website-work').append(
             '<div class="col-md-4 col-xs-12 work-list">' +
             '<a href="javascript:void(0);" class="work-detail" onclick="pageNum(&#39;' + props + '&#39;)">' +
@@ -61,6 +62,8 @@ $(function () {
             '     <p onclick="window.open(&#39;' + work_lists[props].conLink + '&#39,&#39;_blank&#39;);" class="con-link">홈페이지 바로가기 -></p>' +
             '</div>'
         );
+        
+        // 상세 하단 다른 프로젝트 출력
             $('.other-project .swiper-wrapper').append(
                 '<div class="swiper-slide" data-slide="'+props+'">' +
                 '<a href="javascript:void(0);" onclick="pageNum(&#39;' + props + '&#39;)">' +

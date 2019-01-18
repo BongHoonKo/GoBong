@@ -1,0 +1,53 @@
+<?php
+require_once('config.php');
+require_once('config_2.php');
+$conn = db_init($config['host'],$config['duser'],$config['dpw'],$config['dname']);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="uft-8"/>
+  <title>GoBong</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#6B58A7">
+  <!--<link href="/assets/images/common/favi.ico" rel="shortcut icon">
+  <meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+  <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+  <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+  <meta name="author" content="KSTAR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KSTAR">
+  <meta property="og:description" content="KSTAR">
+  <meta property="og:url" content="https://www.kstar.tv">
+  <link rel="canonical" href="https://www.kstar.tv">-->
+  <link rel="stylesheet" href="resources/style/index.css"/>
+  <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="resources/js/pages/index.js"></script>
+</head>
+<body>
+<?php
+                        $sql = 'select*from `g5_board_file` where bo_table = "test_board" && bf_no = 0  order by `wr_id` DESC';
+                        $result = mysqli_query($conn,$sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                        ?>
+<div style="float: left; margin-right: 15px;">
+<img src="http://fotrise3.cafe24.com/admin/data/file/test_board/<?php echo $row['bf_file']; ?>"/>
+
+<?php
+                        $sql1 = 'select*from `g5_write_test_board` where `wr_id`='.$row["wr_id"].' order by `wr_id` DESC';
+                        $result1 = mysqli_query($conn,$sql1);
+                        while($row1 = mysqli_fetch_assoc($result1)){
+                        ?>
+<p style="color:#fff;"><?php echo $row1['wr_subject']; ?></p>
+
+<?php
+                        }
+                        ?>
+</div>
+<?php
+                        }
+                        ?>
+</body>
+</html>
