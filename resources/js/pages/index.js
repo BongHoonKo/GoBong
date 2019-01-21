@@ -119,7 +119,7 @@ var work_lists = {
             "mobile": "kstarday_mobile.jpg",
             "font": "font_noto_sans.png"
         },
-        "conLink": "#"
+        "conLink": "/sponsor-day/index.html"
     },
     "Kstar2_0": {
         "conTitle": "KSTAR <span class='inherit__txt'>2.0</span>",
