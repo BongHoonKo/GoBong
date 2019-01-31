@@ -96,7 +96,7 @@ var work_lists = {
         "conTitle": "Contenst Deal Intro",
         "conSubTitle": "블록체인 기술을 이용한 컨텐츠 거래소 플랫폼 : Contents Deal의 소개 페이지 퍼블리싱에 참여하였습니다.",
         "conTxt": "블록체인 기술을 이용한 컨텐츠 거래소 플랫폼인 Contents Deal의 소개 페이지에 일부 참여하였습니다.<br/>반응형 웹으로 제작되었고, 처음으로 VUE.js 개발환경에서 퍼블리싱을 진행한 프로젝트입니다.<br/>" +
-        "<br/>참여율 : 약 50% <br/>(CONTENTSDEAL / DEAL / STRUCTURE / SCENARIO / PARTNERS 페이지 참여)<br/> <a class='con-txt__link' href='http://contentsdeal.net/#/condeal' target='_blank'>Contents Deal Intro 바로가기</a>",
+        "<br/>참여율 : 약 50% <br/>(CONTENTSDEAL / DEAL / STRUCTURE / SCENARIO / PARTNERS 페이지 참여)<br/> <a class='con-txt__link' href='/condeal_Intro/condeal.html' target='_blank'>Contents Deal Intro 바로가기</a>",
         "conImg": "condeal_intro.jpg",
         "conAlt": "condeal intro thumbnail",
         "details": {
@@ -104,7 +104,7 @@ var work_lists = {
             "mobile": "condeal_mobile.jpg",
             "font": "font_noto_sans.png"
         },
-        "conLink": "http://contentsdeal.net/#/condeal"
+        "conLink": "/condeal_Intro/condeal.html"
     },
     "KstarDay": {
         "conTitle": "KSTAR SponsorDay",
