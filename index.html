@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="theme-color" content="#6B58A7">
-  <!--<link href="/assets/images/common/favi.ico" rel="shortcut icon">
-  <meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+  <link href="favicon.png" rel="shortcut icon">
+  <!--<meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
   <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
   <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
   <meta name="author" content="KSTAR">
@@ -229,7 +229,7 @@
               <li>2018. 02</li>
               <li>2017. 12</li>
               <li>2018. 01</li>
-              <li>2018. 05 ~</li>
+              <li>2018. 05 <br/>~  2019. 01</li>
             </ul>
             <ul class="career-list">
               <li>동래고등학교 졸업</li>
@@ -338,7 +338,7 @@
           setTimeout(function () {
               var workListImg = $('.work-list img').height();
               $('.work-list-dimmer').height(workListImg);
-          }, 100);
+          }, 200);
       });
 
       /* background 스크롤 이벤트 */
@@ -441,7 +441,7 @@
       }
 
       setTimeout(function () {
-          $('.work-list').on({
+          $('.work-list .work-detail').on({
               'mouseenter': function () {
                   $(this).find('.work-list-dimmer').fadeIn(200);
                   $(this).find('.dimmer-txt').animate({'width': '100%'}, 200);

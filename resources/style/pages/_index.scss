@@ -17,6 +17,12 @@
   }
 }
 
+.container {
+  @media all and (min-width: 1600px) {
+    width: 1600px;
+  }
+}
+
 .test-img {
   width: 200px;
   height: 200px;
@@ -52,7 +58,7 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     @include transition(350);
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 992px) {
       animation-name: none !important;
       opacity: 1 !important;
     }
@@ -67,7 +73,10 @@
     padding: 15px 0;
     z-index: 999;
     @include transition(200);
-    @media all and (max-width: 768px) {
+    .hd-wrap {
+      padding: 0 30px;
+    }
+    @media all and (max-width: 992px) {
       position: absolute;
       .logo {
         width: 60px !important;
@@ -142,12 +151,12 @@
         @media all and (max-width: 992px) {
           font-size: 4rem;
           text-align: center;
-        }
-        @media all and (max-width: 450px) {
-          font-size: 3rem;
           br {
             display: none;
           }
+        }
+        @media all and (max-width: 450px) {
+          font-size: 3rem;
         }
         b {
           color: $white;
@@ -167,7 +176,7 @@
       }
       .my-line {
         margin: 1rem 0;
-        @media all and (max-width: 450px) {
+        @media all and (max-width: 992px) {
           display: none;
         }
         span {
@@ -270,7 +279,7 @@
   .con-txt {
     opacity: 0.7;
     color: #fafafa;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     margin: 0 auto;
   }
 
@@ -280,7 +289,7 @@
     .ability__title {
     }
     .ability__txt {
-      width: 80%;
+      width: 65%;
       @media all and (max-width: 992px) {
         margin-bottom: 60px;
       }
@@ -381,13 +390,14 @@
             font-weight: 300;
             color: $white;
             opacity: 0.9;
-            line-height: 2.15;
+            line-height: 1.35;
+            margin-bottom: 1rem;
             span {
               display: inline-block;
             }
           }
           &.career-list {
-            margin: 0 0 20px 30px;
+            margin: 0 0 35px 30px;
           }
           &.skill-list {
             li {
@@ -434,6 +444,9 @@
         position: relative;
         overflow: hidden;
         @include transition(200);
+        .work-detail {
+          display: block;
+        }
         img {
           @include transition(200);
         }
