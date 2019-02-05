@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8"/>
+    <title>GoBong</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#6B58A7">
+    <link href="favicon.png" rel="shortcut icon">
+    <!--<meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+    <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+    <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+    <meta name="author" content="KSTAR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KSTAR">
+    <meta property="og:description" content="KSTAR">
+    <meta property="og:url" content="https://www.kstar.tv">
+    <link rel="canonical" href="https://www.kstar.tv">-->
+    <link rel="stylesheet" href="resources/style/vendor/swiper.css"/>
+    <link rel="stylesheet" href="resources/style/index.css"/>
+    <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="resources/js/vendor/swiper.js"></script>
+    <script src="resources/js/vendor/vue.js"></script>
+    <script type="text/javascript" src="resources/js/pages/index.js"></script>
+    <style>
+        * {
+            color: #fff;
+        }
+        input {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    {{ msg }}
+</div>
+
+<div id="app-2">
+    <p v-bind:title="msg" v-if="seen">
+        Title Binding
+    </p>
+</div>
+
+<ul class="vue-list">
+    <li v-for="lists in todo" class="vue-list__li">
+        {{lists.text}}
+    </li>
+</ul>
+
+<div id="app-3">
+    <p>{{ msg }}</p>
+    <button v-on:click="reverseText">Reverse!</button>
+</div>
+
+<div id="app-4">
+    <p>{{ msg }}</p>
+    <input type="text" v-model="msg"/>
+</div>
+
+<ul id="todo-item">
+    <todo-item></todo-item>
+</ul>
+<!--
+<ul id="todo-item-2">
+    <todo-item-2 v-for="item in todo" v-bind:todo="item" v-bind:key="item.text"></todo-item-2>
+</ul>-->
+
+<ul id="todo-item-2">
+    <todo-item-2 v-for="item in todos" v-bind:todos="item"></todo-item-2>
+</ul>
+
+<script src="resources/js/pages/vueTest.js"></script>
+</body>
+</html>
