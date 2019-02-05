@@ -1,71 +1,89 @@
+Vue.component('item-list', {
+    props: ['items'],
+    template: "<li>{{items.id}} : {{items.text}}</li>"
+});
+
+var count = 0;
+var path = "resources/images/"
+
+var imgAlt = {
+    testImg : {
+        ko: "테스트이미지",
+        en: "Test IMG",
+        zh: "듕귁"
+    }
+}
+
+
 var app = new Vue({
-    el: '#app',
-    data : {
-        msg : "Hello GoBong"
-    }
-});
-
-var app2 = new Vue({
-    el: "#app-2",
+    el: ".app",
     data: {
-        msg : '이 페이지는' + new Date() + '에 로드되었습니다.',
-        seen : true
-    }
-});
-
-var vueList = new Vue({
-    el: ".vue-list",
-    data: {
-        todo: [
-            {text: "Vue.js 공부하기"},
-            {text: "입사지원 하기"},
-            {text: "지으니한테 잘하기"},
-            {text: "돈 받아내기"},
-            {text: "돈 모으기"}
-        ]
-    }
-});
-
-var vueClick = new Vue({
-    el: "#app-3",
-    data: {
-        msg: "Vue.js를 공부중입니다."
+        msg: "Test",
+        rawHTML: "<span style='color:blue'>rawHTML!!</span>",
+        items: [
+            {id: 0, text: "0000"},
+            {id: 1, text: "1111"},
+            {id: 2, text: "2222"},
+            {id: 3, text: "3333"},
+            {id: 4, text: "4444"}
+        ],
+        title: "ffff",
+        seen: true,
+        href: "http://www.naver.com",
+        imgSrc: path + "js.png",
+        imgAlt: imgAlt.testImg.ko,
+        isDisabled: true
+    },
+    created: function () {
+        var color = $('.app p').css('color');
+        console.log(color);
     },
     methods: {
-        reverseText: function(){
+        /* msg 변경 */
+        reverseText: function () {
             this.msg = this.msg.split('').reverse().join('');
+            if (count == 0) {
+                $('.app p').css('color', 'red');
+                count = 1;
+            } else {
+                $('.app p').css('color', '#fff');
+                count = 0;
+            }
+        },
+        
+        /* 리스트 뒤에 요소 추가 */
+        pushItem: function () {
+            var text = $('.inputs').val();
+            var length = this.items.length;
+            this.items.push({id: length, text: text});
+        },
+        
+        /* 리스트 앞에 요소 추가 */
+        unshiftItem: function () {
+            var text = $('.inputs').val();
+            for (var i = 0; i <= this.items.length - 1; i++) {
+                this.items[i].id = this.items[i].id + 1;
+            }
+            this.items.unshift({id: 0, text: text});
+        },
+        
+        /* img Alt 값 다국어 처리 */
+        changeLang: function(){
+            var thisLang = $('.select-lang').val();
+            app.imgAlt = eval('imgAlt.testImg.' + thisLang);
         }
     }
 });
 
-var vModel = new Vue({
-    el: "#app-4",
-    data: {
-        msg: "Vue.js 공부중입니다."
-    }
+app.title = app.msg;
+
+obj = {msg: "FREEZE"}
+/*Object.freeze(obj);*/
+var app2 = new Vue({
+    el: ".app-2",
+    data: obj
 });
 
-Vue.component('todo-item', {
-    template: '<li>할일 항목 하나입니다.11</li>'
-});
-
-var todoItem = new Vue({
-    el: "#todo-item"
-});
-
-
-Vue.component('todo-item-2',{
-    props: ['todos'],
-    template: '<li>{{todos.id}} : {{ todos.text }}</li>'
-});
-
-var todoItem2 = new Vue({
-    el: "#todo-item-2",
-    data: {
-        todos: [
-            {id: 3,text: "1"},
-            {id: 2,text: "2"},
-            {id: 1,text: "3"},
-        ]
-    }
+app2.$watch('msg', function (newVal, oldVal) {
+    console.log(newVal + " / " + oldVal);
 });

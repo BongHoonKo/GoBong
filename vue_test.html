@@ -27,49 +27,43 @@
         * {
             color: #fff;
         }
+
         input {
+            color: #333;
+        }
+        select option {
             color: #333;
         }
     </style>
 </head>
 <body>
-<div id="app">
-    {{ msg }}
-</div>
+<div class="app">
+    <select @change="changeLang" class="select-lang" style="color: #333; width:200px;">
+        <option value="ko" selected>KOR</option>
+        <option value="en">ENG</option>
+        <option value="zh">CHI</option>
+    </select>
+    {{rawHTML}}
+    <p :title="title" v-if="seen">{{ msg }}</p>
+    <span v-html="rawHTML"></span>
+    <ul>
+        <item-list v-for="list in items" :items="list"></item-list>
+    </ul>
 
-<div id="app-2">
-    <p v-bind:title="msg" v-if="seen">
-        Title Binding
-    </p>
-</div>
-
-<ul class="vue-list">
-    <li v-for="lists in todo" class="vue-list__li">
-        {{lists.text}}
-    </li>
-</ul>
-
-<div id="app-3">
-    <p>{{ msg }}</p>
-    <button v-on:click="reverseText">Reverse!</button>
-</div>
-
-<div id="app-4">
-    <p>{{ msg }}</p>
     <input type="text" v-model="msg"/>
+    <button @click="reverseText">Click</button>
+    <input class="inputs" type="text"/>
+    <button @click="pushItem">Push</button>
+    <button :disabled="isDisabled" @click="unshiftItem">{{ isDisabled ? 'Disabled' : 'Unshift' }}</button>
+
+    <a href="#" :href="href" target="_blank">LINK</a>
+    <img :src="imgSrc" :alt="imgAlt"/>
 </div>
-
-<ul id="todo-item">
-    <todo-item></todo-item>
-</ul>
-<!--
-<ul id="todo-item-2">
-    <todo-item-2 v-for="item in todo" v-bind:todo="item" v-bind:key="item.text"></todo-item-2>
-</ul>-->
-
-<ul id="todo-item-2">
-    <todo-item-2 v-for="item in todos" v-bind:todos="item"></todo-item-2>
-</ul>
+<br/><br/><br/><br/><br/>
+<div class="app-2">
+    <p>{{ msg }}</p>
+    <button @click="msg='ddddddd'">change</button>
+</div>
 
 <script src="resources/js/pages/vueTest.js"></script>
 </body>
