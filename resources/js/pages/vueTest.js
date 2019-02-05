@@ -7,7 +7,7 @@ var count = 0;
 var path = "resources/images/"
 
 var imgAlt = {
-    testImg : {
+    testImg: {
         ko: "테스트이미지",
         en: "Test IMG",
         zh: "듕귁"
@@ -32,13 +32,41 @@ var app = new Vue({
         href: "http://www.naver.com",
         imgSrc: path + "js.png",
         imgAlt: imgAlt.testImg.ko,
-        isDisabled: true
+        isDisabled: true,
+        users: [],
+        users1: []
     },
     created: function () {
         var color = $('.app p').css('color');
         console.log(color);
     },
+    mounted: function () {
+        this.getAllUsers();
+        this.getSubject();
+    },
     methods: {
+        getAllUsers: function () {
+            axios.get("http://fotrise3.cafe24.com/api.php?action=read")
+                .then(function (response) {
+                    if (response.data.error) {
+                        console.log('Database error');
+                    } else {
+                        app.users = response.data.g5;
+                        console.log(response);
+                    }
+                });
+        },
+        getSubject: function(){
+            axios.get("http://fotrise3.cafe24.com/api.php?action=subject")
+                .then(function (response) {
+                    if (response.data.error) {
+                        console.log('Database error');
+                    } else {
+                        app.users1 = response.data.g51;
+                        console.log(response);
+                    }
+                });
+        },
         /* msg 변경 */
         reverseText: function () {
             this.msg = this.msg.split('').reverse().join('');
@@ -50,14 +78,14 @@ var app = new Vue({
                 count = 0;
             }
         },
-        
+
         /* 리스트 뒤에 요소 추가 */
         pushItem: function () {
             var text = $('.inputs').val();
             var length = this.items.length;
             this.items.push({id: length, text: text});
         },
-        
+
         /* 리스트 앞에 요소 추가 */
         unshiftItem: function () {
             var text = $('.inputs').val();
@@ -66,9 +94,9 @@ var app = new Vue({
             }
             this.items.unshift({id: 0, text: text});
         },
-        
+
         /* img Alt 값 다국어 처리 */
-        changeLang: function(){
+        changeLang: function () {
             var thisLang = $('.select-lang').val();
             app.imgAlt = eval('imgAlt.testImg.' + thisLang);
         }

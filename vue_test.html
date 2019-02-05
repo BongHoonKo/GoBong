@@ -21,8 +21,6 @@
     <link rel="stylesheet" href="resources/style/index.css"/>
     <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="resources/js/vendor/swiper.js"></script>
-    <script src="resources/js/vendor/vue.js"></script>
-    <script type="text/javascript" src="resources/js/pages/index.js"></script>
     <style>
         * {
             color: #fff;
@@ -31,6 +29,7 @@
         input {
             color: #333;
         }
+
         select option {
             color: #333;
         }
@@ -58,6 +57,20 @@
 
     <a href="#" :href="href" target="_blank">LINK</a>
     <img :src="imgSrc" :alt="imgAlt"/>
+
+
+    <!-- -->
+
+    <ul class="database">
+        <li v-for="user in users">
+            <span>{{user.wr_id}} // </span>
+            <span v-for="user1 in users1">
+                <span>{{user1.wr_subject}}</span>
+            </span>
+            <img :src="'http://fotrise3.cafe24.com/admin/data/file/test_board/'+ user.bf_file"/>
+        </li>
+    </ul>
+
 </div>
 <br/><br/><br/><br/><br/>
 <div class="app-2">
@@ -65,6 +78,9 @@
     <button @click="msg='ddddddd'">change</button>
 </div>
 
+<script src="resources/js/vendor/vue.js"></script>
+<script type="text/javascript" src="resources/js/pages/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 <script src="resources/js/pages/vueTest.js"></script>
 </body>
 </html>
