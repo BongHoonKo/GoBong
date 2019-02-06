@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8"/>
+    <title>GoBong</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#6B58A7">
+    <link href="favicon.png" rel="shortcut icon">
+    <!--<meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+    <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+    <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+    <meta name="author" content="KSTAR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KSTAR">
+    <meta property="og:description" content="KSTAR">
+    <meta property="og:url" content="https://www.kstar.tv">
+    <link rel="canonical" href="https://www.kstar.tv">-->
+    <link rel="stylesheet" href="resources/style/vendor/swiper.css"/>
+    <link rel="stylesheet" href="resources/style/list.css"/>
+    <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="dimmer"></div>
+<section class="my-list__wrap">
+    <header class="my-list__hd">
+        <h1 class="my-list__title">Test List & Memo</h1>
+    </header>
+    <article class="my-list__body">
+        <ul class="my-list__list">
+            <li class="swiper-container my-list__li" v-for="list in lists" :class="{ active : active_el == list.id && inActive == true }">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide delete-slide" @click="selectUser(list);deleteModal=true"></div>
+                    <div class="swiper-slide">
+                        <div class="list-top" @click="activate(list.id)">
+                            <div class="blue-line"></div>
+                            <h2 class="list__title">{{list.title}}</h2>
+                            <h3 class="list__date">{{list.created}}</h3>
+                        </div>
+                        <div class="list-content">
+                            <p class="list__txt" v-html="list.description"></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </article>
+
+    <footer class="my-list__ft">
+        <button class="my-list__btn" @click="seen = true">작성하기</button>
+    </footer>
+
+    <section class="delete__modal" v-if="deleteModal">
+        <div class="modal__wrap">
+            <button class="ok__btn" @click="deleteList();deleteModal=false">삭제</button>
+            <button class="no__btn" @click="deleteModal=false">취소</button>
+        </div>
+    </section>
+
+    <section class="list-form__wrap" v-if="seen">
+        <form class="my-list__form" method="post" action="list.php?action=create">
+            <i class="form-close__btn" @click="seen = false"></i>
+            <input class="my-list__input" type="text" name="title"/>
+            <textarea class="my-list__textarea" name="description"></textarea>
+            <button class="my-list__submit" type="submit">등록</button>
+        </form>
+    </section>
+</section>
+<script type="text/javascript" src="resources/js/vendor/swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container');
+</script>
+<script src="resources/js/vendor/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="resources/js/pages/list.js"></script>
+</body>
+</html>
