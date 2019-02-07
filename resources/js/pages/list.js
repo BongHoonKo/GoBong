@@ -19,7 +19,6 @@ $(function () {
 
 });
 
-
 var myList = new Vue({
     el: ".my-list__wrap",
     data: {
@@ -28,7 +27,8 @@ var myList = new Vue({
         active_el: 0,
         clickedUser: {},
         deleteModal: false,
-        inActive: false
+        inActive: false,
+        password: ""
     },
     mounted: function () {
         this.getTestList();
@@ -41,7 +41,7 @@ var myList = new Vue({
                         console.log('Database error');
                     } else {
                         myList.lists = response.data.list;
-                        /*console.log(response);*/
+                        console.log(response);
                         var swiper = new Swiper('.swiper-container');
                         setTimeout(function () {
                             var swiper = new Swiper('.swiper-container', {
@@ -54,20 +54,22 @@ var myList = new Vue({
                     }
                 });
         },
-        deleteList: function () {
+        deleteList: function (pw) {
             //console.log(app.newUser);
             var formData = myList.toFormData(myList.clickedUser);
+            console.log(myList.clickedUser);
 
-            axios.post("http://fotrise3.cafe24.com/list.php?action=delete", formData)
+            axios.post("http://fotrise3.cafe24.com/list.php?action=delete&password="+this.password, formData)
                 .then(function (response) {
                     myList.clickedUser = {};
                     if (response.data.error) {
                     } else {
+                        console.log(response);
                         myList.getTestList();
                     }
                 });
         },
-        selectUser(list) {
+        selectUser: function(list) {
             myList.clickedUser = list;
             console.log(list);
         },

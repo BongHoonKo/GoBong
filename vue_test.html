@@ -71,6 +71,10 @@
         </li>
     </ul>
 
+    <!--  -->
+    <p>Method : {{methodTest()}}</p>
+    <p>Computed : {{computedTest}} {{fullName}}</p>
+
 </div>
 <br/><br/><br/><br/><br/>
 <div class="app-2">
@@ -78,9 +82,55 @@
     <button @click="msg='ddddddd'">change</button>
 </div>
 
+<!-- -->
+<div class="watch">
+    <p :class="{active : isActive && toggle}">질문하세요.</p>
+    <input type="text" v-model="question"/>
+    <p>{{answer}}</p>
+
+    <my-comp class="jieun" :class="[isActive ? 'active' : 'deactive']"></my-comp>
+    <p :style="fontStyle">G</p>
+
+    <h1 v-if="ok">YES</h1>
+    <h1 v-else>No</h1>
+
+    <template v-if="ok == 'ok'">
+        <h1>Title</h1>
+        <h2>SubTitle</h2>
+        <p>Text</p>
+    </template>
+    <template v-else-if="ok == 'maybe'">
+        <h1>GoBong</h1>
+    </template>
+    <template v-else>
+        <h1>1</h1>
+        <h2>2</h2>
+        <p>3</p>
+    </template>
+
+    <template v-if="loginType === 'username'">
+        <label>사용자 이름</label>
+        <input placeholder="사용자 이름을 입력하세요" key="us">
+    </template>
+    <template v-else>
+        <label>이메일</label>
+        <input placeholder="이메일 주소를 입력하세요" key="em">
+    </template>
+    <button @click="changeType()">change</button>
+
+    <p v-for="(item,index) in items">
+        {{item.msg}} - {{index}}
+    </p>
+    <p v-for="(val,key,index) in obj">
+        {{index}} : {{key}} : {{val}}
+    </p>
+</div>
+
 <script src="resources/js/vendor/vue.js"></script>
 <script type="text/javascript" src="resources/js/pages/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
 <script src="resources/js/pages/vueTest.js"></script>
 </body>
 </html>

@@ -24,12 +24,17 @@
 <body>
 <div class="dimmer"></div>
 <section class="my-list__wrap">
+
+    <!-- Header -->
     <header class="my-list__hd">
         <h1 class="my-list__title">Test List & Memo</h1>
     </header>
+
+    <!-- List -->
     <article class="my-list__body">
         <ul class="my-list__list">
-            <li class="swiper-container my-list__li" v-for="list in lists" :class="{ active : active_el == list.id && inActive == true }">
+            <li class="swiper-container my-list__li" v-for="list in lists"
+                :class="{ active : active_el == list.id && inActive == true }">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide delete-slide" @click="selectUser(list);deleteModal=true"></div>
                     <div class="swiper-slide">
@@ -39,7 +44,7 @@
                             <h3 class="list__date">{{list.created}}</h3>
                         </div>
                         <div class="list-content">
-                            <p class="list__txt" v-html="list.description"></p>
+                            <p class="list__txt">{{list.description}}</p>
                         </div>
                     </div>
                 </div>
@@ -47,22 +52,27 @@
         </ul>
     </article>
 
+    <!-- Footer -->
     <footer class="my-list__ft">
         <button class="my-list__btn" @click="seen = true">작성하기</button>
     </footer>
 
+    <!-- 글 삭제 모달 -->
     <section class="delete__modal" v-if="deleteModal">
         <div class="modal__wrap">
-            <button class="ok__btn" @click="deleteList();deleteModal=false">삭제</button>
-            <button class="no__btn" @click="deleteModal=false">취소</button>
+            <input type="password" name="password" v-model="password" style="color:#333;"/>
+            <button class="ok__btn" @click="deleteList(password);deleteModal=false;password=''">삭제</button>
+            <button class="no__btn" @click="deleteModal=false;password=''">취소</button>
         </div>
     </section>
 
+    <!-- 글 작성 Form -->
     <section class="list-form__wrap" v-if="seen">
         <form class="my-list__form" method="post" action="list.php?action=create">
             <i class="form-close__btn" @click="seen = false"></i>
-            <input class="my-list__input" type="text" name="title"/>
-            <textarea class="my-list__textarea" name="description"></textarea>
+            <input class="my-list__input" type="text" name="title" placeholder="제목"/>
+            <input class="my-list__input" type="password" name="password" placeholder="비밀번호"/>
+            <textarea class="my-list__textarea" name="description" placeholder="내용"></textarea>
             <button class="my-list__submit" type="submit">등록</button>
         </form>
     </section>
@@ -72,7 +82,12 @@
     var swiper = new Swiper('.swiper-container');
 </script>
 <script src="resources/js/vendor/vue.js"></script>
+
+<!-- IE에서 axios promise 가 undefined 뜨는 문제 해결 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>-->
 <script src="resources/js/pages/list.js"></script>
 </body>
 </html>
