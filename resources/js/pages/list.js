@@ -16,7 +16,6 @@ $(function () {
             $(this).height(listHeight);
         });
     });
-
 });
 
 var myList = new Vue({
@@ -24,14 +23,22 @@ var myList = new Vue({
     data: {
         lists: [],
         seen: false,
-        active_el: 0,
+        active_el: -1,
         clickedUser: {},
         deleteModal: false,
         inActive: false,
-        password: ""
+        password: "",
+        isName: localStorage.getItem('localName'),
+        isName1: "",
+        isUserOk: false
     },
     mounted: function () {
         this.getTestList();
+    },
+    watch: {
+        isName : function(val) {
+            localStorage.setItem('localName',val);
+        }
     },
     methods: {
         getTestList: function () {
@@ -59,7 +66,7 @@ var myList = new Vue({
             var formData = myList.toFormData(myList.clickedUser);
             console.log(myList.clickedUser);
 
-            axios.post("http://fotrise3.cafe24.com/list.php?action=delete&password="+this.password, formData)
+            axios.post("http://fotrise3.cafe24.com/list.php?action=delete&password=" + this.password, formData)
                 .then(function (response) {
                     myList.clickedUser = {};
                     if (response.data.error) {
@@ -69,7 +76,7 @@ var myList = new Vue({
                     }
                 });
         },
-        selectUser: function(list) {
+        selectUser: function (list) {
             myList.clickedUser = list;
             console.log(list);
         },
@@ -83,13 +90,35 @@ var myList = new Vue({
         },
 
         activate: function (el) {
-            if(this.inActive == false) {
+            if (this.active_el == el) {
+                this.active_el = -1;
+                console.log(this.active_el);
+            } else {
+                this.active_el = el;
+                console.log(this.active_el);
+            }
+            /*if(this.inActive == false) {
                 this.inActive = true;
             }
             else {
                 this.inActive = false;
+            }*/
+        },
+
+        inputUser: function () {
+            if(this.isName1 == "") {
+                alert('입력값이 없음!');
             }
-            this.active_el = el;
+            else {
+                localStorage.setItem('localName', this.isName1);
+                this.isName = localStorage.getItem('localName');
+                this.isName1 = "";
+            }
+        },
+
+        logOut: function(){
+            this.isName = "";
+            location.reload();
         }
     }
 });

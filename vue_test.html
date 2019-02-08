@@ -37,7 +37,8 @@
 </head>
 <body>
 <div class="app">
-    <select @change="changeLang" class="select-lang" style="color: #333; width:200px;">
+    <h1>{{LANG}}</h1>
+    <select @change="changeLangs" v-model="selected" class="select-lang" style="color: #333; width:200px;">
         <option value="ko" selected>KOR</option>
         <option value="en">ENG</option>
         <option value="zh">CHI</option>

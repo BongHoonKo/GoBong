@@ -38,6 +38,13 @@ var app = new Vue({
         users1: [],
         firstName: "BongHoon",
         lastName: "Ko",
+        selected: "ko",
+        LANG: "한국어",
+        lang: {
+            ko : "한국어",
+            en : "English",
+            zh : "듕귁"
+        }
     },
     created: function () {
         var color = $('.app p').css('color');
@@ -56,6 +63,9 @@ var app = new Vue({
         }
     },
     methods: {
+        changeLangs: function(){
+            this.LANG = this.lang[this.selected];
+        },
         getAllUsers: function () {
             axios.get("http://fotrise3.cafe24.com/api.php?action=read")
                 .then(function (response) {

@@ -22,6 +22,62 @@ html, body {
   z-index: 1000;
 }
 
+.user-input {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0,0,0,0.7);
+  .user-input__wrap {
+    width: 20rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+
+    .user-input__txt {
+      color: $white;
+      font-size: 1.15rem;
+      font-weight: bold;
+      letter-spacing: -0.025em;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .user-input__btn {
+      display: block;
+      width: 50%;
+      height: 4rem;
+      line-height: 4rem;
+      color: $white;
+      font-size: 1.25rem;
+      letter-spacing: -0.05em;
+      font-weight: normal;
+      background-color: #2761dc;
+      margin: 0 auto;
+    }
+    .user-input__input {
+      width: 100%;
+      font-size: 1.2rem;
+      color: $black;
+      letter-spacing: -0.05em;
+      font-weight: normal;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1rem;
+      margin-bottom: 0.75rem;
+      background-color: #efefef;
+      outline: 0;
+      border: 1px solid #aeaeae;
+    }
+  }
+}
+
 /* TEST LIST 시작 */
 .my-list__wrap {
   width: 100%;
@@ -44,12 +100,24 @@ html, body {
   .my-list__hd {
     width: 100%;
     padding: 1.5rem 0;
+    position: relative;
 
     .my-list__title {
       font-size: 1.5rem;
       font-weight: bold;
       letter-spacing: -0.025em;
       color: $black;
+    }
+
+    .user-box {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
     }
   }
 

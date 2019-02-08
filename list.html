@@ -25,23 +25,37 @@
 <div class="dimmer"></div>
 <section class="my-list__wrap">
 
+    <div class="user-input" v-if="isName == '' || isName == null">
+        <div class="user-input__wrap">
+            <p class="user-input__txt">이름을 입력해주세요.</p>
+            <input class="user-input__input" type="text" v-model="isName1"/>
+            <button class="user-input__btn" @click="inputUser(isName1)">확인</button>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="my-list__hd">
         <h1 class="my-list__title">Test List & Memo</h1>
+        <div class="user-box" v-if="isName != '' && isName != null">
+            <p>{{isName}}</p>
+            <button @click="logOut">로그아웃</button>
+        </div>
     </header>
 
     <!-- List -->
     <article class="my-list__body">
         <ul class="my-list__list">
             <li class="swiper-container my-list__li" v-for="list in lists"
-                :class="{ active : active_el == list.id && inActive == true }">
+                :class="{ active : active_el == list.id }">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide delete-slide" @click="selectUser(list);deleteModal=true"></div>
                     <div class="swiper-slide">
                         <div class="list-top" @click="activate(list.id)">
                             <div class="blue-line"></div>
                             <h2 class="list__title">{{list.title}}</h2>
-                            <h3 class="list__date">{{list.created}}</h3>
+                            <h3 class="list__date">
+                                작성자 : {{list.user}} / {{list.created}}
+                            </h3>
                         </div>
                         <div class="list-content">
                             <p class="list__txt">{{list.description}}</p>
@@ -68,7 +82,7 @@
 
     <!-- 글 작성 Form -->
     <section class="list-form__wrap" v-if="seen">
-        <form class="my-list__form" method="post" action="list.php?action=create">
+        <form class="my-list__form" method="post" :action="'list.php?action=create&name='+isName">
             <i class="form-close__btn" @click="seen = false"></i>
             <input class="my-list__input" type="text" name="title" placeholder="제목"/>
             <input class="my-list__input" type="password" name="password" placeholder="비밀번호"/>
