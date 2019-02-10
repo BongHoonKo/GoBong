@@ -22,6 +22,9 @@ var myList = new Vue({
     el: ".my-list__wrap",
     data: {
         lists: [],
+        comments: [],
+        newList: {title: "", description: "", password: "", created:"", name: ""},
+        newComment: {text:"", name:"", created:"", test_id:""},
         seen: false,
         active_el: -1,
         clickedUser: {},
@@ -30,10 +33,16 @@ var myList = new Vue({
         password: "",
         isName: localStorage.getItem('localName'),
         isName1: "",
-        isUserOk: false
+        isUserOk: false,
+        userInputAlert: false
     },
     mounted: function () {
-        this.getTestList();
+        /*if(this.isName != '' && this.isName != null) {*/
+            this.getTestList();
+        /*}*/
+        setTimeout(function () {
+            $('.top-dimmer').fadeOut(200);
+        }, 300);
     },
     watch: {
         isName : function(val) {
@@ -48,7 +57,8 @@ var myList = new Vue({
                         console.log('Database error');
                     } else {
                         myList.lists = response.data.list;
-                        console.log(response);
+                        myList.comments = response.data.comment;
+                       /* console.log(response);*/
                         var swiper = new Swiper('.swiper-container');
                         setTimeout(function () {
                             var swiper = new Swiper('.swiper-container', {
@@ -58,6 +68,38 @@ var myList = new Vue({
                         setTimeout(function () {
                             $('.dimmer').fadeOut(200);
                         }, 500);
+                    }
+                });
+        },
+        createList: function(name){
+            //console.log(app.newUser);
+            var formData = myList.toFormData(myList.newList);
+
+            axios.post("http://fotrise3.cafe24.com/list.php?action=create&name="+name, formData)
+                .then(function(response){
+
+                    myList.newList = {title: "", description: "", password: "", created:"", name: ""};
+
+                    if(response.data.error){
+
+                    } else{
+                        myList.getTestList();
+                    }
+                });
+        },
+        commentList: function(name,test_id){
+            //console.log(app.newUser);
+            var formData = myList.toFormData(myList.newComment);
+
+            axios.post("http://fotrise3.cafe24.com/list.php?action=comment&name="+name+"&test_id="+test_id, formData)
+                .then(function(response){
+
+                    myList.newComment = {text:"", name:"", created:"",test_id:""};
+
+                    if(response.data.error){
+
+                    } else{
+                        myList.getTestList();
                     }
                 });
         },
@@ -107,18 +149,22 @@ var myList = new Vue({
 
         inputUser: function () {
             if(this.isName1 == "") {
-                alert('입력값이 없음!');
+                this.userInputAlert = true;
             }
             else {
                 localStorage.setItem('localName', this.isName1);
                 this.isName = localStorage.getItem('localName');
                 this.isName1 = "";
+                this.userInputAlert = false;
+                myList.getTestList();
             }
         },
 
         logOut: function(){
             this.isName = "";
-            location.reload();
+            setTimeout(function(){
+                location.reload();
+            },100);
         }
     }
 });

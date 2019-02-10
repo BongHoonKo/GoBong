@@ -50,6 +50,10 @@ fieldset {
   border: 0;
 }
 
+input[type="password"] {
+  font-family: sans-serif !important;
+}
+
 button {
   cursor: pointer;
   border: 0;

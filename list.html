@@ -22,6 +22,7 @@
     <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
 </head>
 <body>
+<div class="top-dimmer"></div>
 <div class="dimmer"></div>
 <section class="my-list__wrap">
 
@@ -29,6 +30,7 @@
         <div class="user-input__wrap">
             <p class="user-input__txt">이름을 입력해주세요.</p>
             <input class="user-input__input" type="text" v-model="isName1"/>
+            <p class="user-input__alert" v-if="userInputAlert">입력값이 없음!</p>
             <button class="user-input__btn" @click="inputUser(isName1)">확인</button>
         </div>
     </div>
@@ -60,6 +62,15 @@
                         <div class="list-content">
                             <p class="list__txt">{{list.description}}</p>
                         </div>
+                        <div class="comment-box">
+                            <div class="comment__form">
+                                <input class="comment__input" type="text" v-model="newComment.text"
+                                       placeholder="댓글을 입력하세요."/>
+                                <button class="comment__btn" @click="commentList(isName,list.id)">등록</button>
+                            </div>
+                            <p class="comment__txt" v-if="list.id == comment.test_id" v-for="comment in comments">
+                                {{comment.text}} <span class="comment__span"> - {{comment.user}} / {{comment.created}}</span></p>
+                        </div>
                     </div>
                 </div>
             </li>
@@ -82,13 +93,15 @@
 
     <!-- 글 작성 Form -->
     <section class="list-form__wrap" v-if="seen">
-        <form class="my-list__form" method="post" :action="'list.php?action=create&name='+isName">
+        <div class="my-list__form">
             <i class="form-close__btn" @click="seen = false"></i>
-            <input class="my-list__input" type="text" name="title" placeholder="제목"/>
-            <input class="my-list__input" type="password" name="password" placeholder="비밀번호"/>
-            <textarea class="my-list__textarea" name="description" placeholder="내용"></textarea>
-            <button class="my-list__submit" type="submit">등록</button>
-        </form>
+            <input class="my-list__input" type="text" name="title" v-model="newList.title" placeholder="제목"/>
+            <input class="my-list__input" type="password" name="password" v-model="newList.password"
+                   placeholder="비밀번호"/>
+            <textarea class="my-list__textarea" name="description" v-model="newList.description"
+                      placeholder="내용"></textarea>
+            <button class="my-list__submit" @click="createList(isName);seen=false">등록</button>
+        </div>
     </section>
 </section>
 <script type="text/javascript" src="resources/js/vendor/swiper.js"></script>
