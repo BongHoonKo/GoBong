@@ -35,43 +35,57 @@
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="my-list__hd">
-        <h1 class="my-list__title">Test List & Memo</h1>
+    <!-- Side Menu -->
+    <div class="sidemenu__dimmer" :class="{active : sideMenuActive}" @click="sideMenu('close');"></div>
+    <article class="my-list__sidemenu" :class="{active : sideMenuActive}">
         <div class="user-box" v-if="isName != '' && isName != null">
             <p>{{isName}}</p>
             <button @click="logOut">로그아웃</button>
         </div>
+        <div class="color-box">
+            <i class="theme-color" v-for="color in bColor" :style="'background-color:' + color" @click="changeTheme(color);"></i>
+        </div>
+    </article>
+
+    <!-- Header -->
+    <header class="my-list__hd">
+        <img class="list-menu__btn" src="resources/images/ico_menu.png" alt="메뉴버튼" @click="sideMenu('open');"/>
+        <h1 class="my-list__title">MEMO</h1>
+        <img class="list-refresh__btn" src="resources/images/ico_refresh.png" alt="새로고침" @click="pageRefresh()"/>
     </header>
 
     <!-- List -->
     <article class="my-list__body">
         <ul class="my-list__list">
-            <li class="swiper-container my-list__li" v-for="list in lists"
-                :class="{ active : active_el == list.id }">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide delete-slide" @click="selectUser(list);deleteModal=true"></div>
-                    <div class="swiper-slide">
-                        <div class="list-top" @click="activate(list.id)">
-                            <div class="blue-line"></div>
-                            <h2 class="list__title">{{list.title}}</h2>
-                            <h3 class="list__date">
-                                작성자 : {{list.user}} / {{list.created}}
-                            </h3>
-                        </div>
-                        <div class="list-content">
-                            <p class="list__txt">{{list.description}}</p>
-                        </div>
-                        <div class="comment-box">
-                            <div class="comment__form">
-                                <input class="comment__input" type="text" v-model="newComment.text"
-                                       placeholder="댓글을 입력하세요."/>
-                                <button class="comment__btn" @click="commentList(isName,list.id)">등록</button>
-                            </div>
-                            <p class="comment__txt" v-if="list.id == comment.test_id" v-for="comment in comments">
-                                {{comment.text}} <span class="comment__span"> - {{comment.user}} / {{comment.created}}</span></p>
+            <li class="my-list__li" v-for="list in lists">
+                <div class="list-top" @click="activate(list.id)" :class="{ active : active_el == list.id }">
+                    <h2 class="list__title">{{list.title}}</h2>
+                    <h3 class="list__date">
+                        {{list.user}} / {{list.created}}
+                    </h3>
+                </div>
+                <div class="list-bottom" :class="{ active : active_el == list.id }">
+                    <div class="list-content">
+                        <p class="list__txt">{{list.description}}</p>
+                        <div class="list-content__btns">
+                            <button class="list-content__btn modify__btn">수정</button>
+                            <button class="list-content__btn delete__btn" @click="selectUser(list);deleteModal=true">
+                                삭제
+                            </button>
                         </div>
                     </div>
+                    <div class="comment-box" :class="{ active : active_el == list.id }">
+                        <div class="comment__form">
+                            <input class="comment__input" type="text" v-model="newComment.text"
+                                   placeholder="댓글을 입력하세요."/>
+                            <button class="comment__btn" @click="commentList(isName,list.id)">등록</button>
+                        </div>
+                        <div class="comment-txt__box" v-if="list.id == comment.test_id" v-for="comment in comments">
+                            <p class="comment__txt">{{comment.text}}</p>
+                            <p class="comment__date">{{comment.user}} / {{comment.created}}</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
             </li>
         </ul>
@@ -79,7 +93,7 @@
 
     <!-- Footer -->
     <footer class="my-list__ft">
-        <button class="my-list__btn" @click="seen = true">작성하기</button>
+        <button class="my-list__btn" @click="seen = true"></button>
     </footer>
 
     <!-- 글 삭제 모달 -->
@@ -100,7 +114,7 @@
                    placeholder="비밀번호"/>
             <textarea class="my-list__textarea" name="description" v-model="newList.description"
                       placeholder="내용"></textarea>
-            <button class="my-list__submit" @click="createList(isName);seen=false">등록</button>
+            <button class="my-list__submit" @click="createList(isName);">등록</button>
         </div>
     </section>
 </section>

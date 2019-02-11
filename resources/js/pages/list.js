@@ -3,7 +3,7 @@ $(function () {
     $(window).on('load resize', function () {
         var win_width = $(window).width();
         if (win_width < 1080) {
-            $('html, body').css('font-size', (win_width / 1080) * 30 + 1 + "px");
+            $('html, body').css('font-size', (win_width / 1080) * 30 + "px");
             if (win_width <= 320) {
                 $('html, body').css('font-size', "10px");
             }
@@ -11,10 +11,10 @@ $(function () {
             $('html, body').css('font-size', "25px");
         }
 
-        $('.list-content').each(function () {
+        /*$('.list-content').each(function () {
             var listHeight = $(this).outerHeight();
             $(this).height(listHeight);
-        });
+        });*/
     });
 });
 
@@ -23,8 +23,8 @@ var myList = new Vue({
     data: {
         lists: [],
         comments: [],
-        newList: {title: "", description: "", password: "", created:"", name: ""},
-        newComment: {text:"", name:"", created:"", test_id:""},
+        newList: {title: "", description: "", password: "", created: "", name: ""},
+        newComment: {text: "", name: "", created: "", test_id: ""},
         seen: false,
         active_el: -1,
         clickedUser: {},
@@ -34,19 +34,21 @@ var myList = new Vue({
         isName: localStorage.getItem('localName'),
         isName1: "",
         isUserOk: false,
-        userInputAlert: false
+        userInputAlert: false,
+        sideMenuActive: false,
+        bColor: {main: '#b5e3e5', pink: '#ff8d8d', yellow: '#ffdcaf'}
     },
     mounted: function () {
-        /*if(this.isName != '' && this.isName != null) {*/
+        if (this.isName != '' && this.isName != null) {
             this.getTestList();
-        /*}*/
+        }
         setTimeout(function () {
-            $('.top-dimmer').fadeOut(200);
-        }, 300);
+            $('.top-dimmer').fadeOut(100);
+        }, 100);
     },
     watch: {
-        isName : function(val) {
-            localStorage.setItem('localName',val);
+        isName: function (val) {
+            localStorage.setItem('localName', val);
         }
     },
     methods: {
@@ -58,50 +60,60 @@ var myList = new Vue({
                     } else {
                         myList.lists = response.data.list;
                         myList.comments = response.data.comment;
-                       /* console.log(response);*/
-                        var swiper = new Swiper('.swiper-container');
-                        setTimeout(function () {
-                            var swiper = new Swiper('.swiper-container', {
-                                initialSlide: 1
-                            });
-                        }, 300);
+                        var listLength = myList.lists.length;
+                        setTimeout(function(){
+                            for (var i = 0; i <= listLength; i++) {
+                                $('.my-list__li').addClass('list-animation');
+                                $('.my-list__li').eq(i).css({'animation-delay': i/10 + 's'});
+                            }
+                            $('.my-list__ft').css('animation-name','buttonUp');
+                        },100);
                         setTimeout(function () {
                             $('.dimmer').fadeOut(200);
                         }, 500);
                     }
                 });
         },
-        createList: function(name){
-            //console.log(app.newUser);
+        createList: function (name) {
             var formData = myList.toFormData(myList.newList);
 
-            axios.post("http://fotrise3.cafe24.com/list.php?action=create&name="+name, formData)
-                .then(function(response){
+            if (this.newList.title != "" && this.newList.description != "" && this.newList.password != "") {
+                axios.post("http://fotrise3.cafe24.com/list.php?action=create&name=" + name, formData)
+                    .then(function (response) {
 
-                    myList.newList = {title: "", description: "", password: "", created:"", name: ""};
+                        myList.newList = {title: "", description: "", password: "", created: "", name: ""};
 
-                    if(response.data.error){
+                        if (response.data.error) {
 
-                    } else{
-                        myList.getTestList();
-                    }
-                });
+                        } else {
+                            myList.getTestList();
+                            myList.seen = false;
+                        }
+                    });
+            } else {
+                alert('입력되지 않은 칸이 있습니다.');
+            }
+
         },
-        commentList: function(name,test_id){
+        commentList: function (name, test_id) {
             //console.log(app.newUser);
             var formData = myList.toFormData(myList.newComment);
 
-            axios.post("http://fotrise3.cafe24.com/list.php?action=comment&name="+name+"&test_id="+test_id, formData)
-                .then(function(response){
+            if (this.newComment.text != "") {
+                axios.post("http://fotrise3.cafe24.com/list.php?action=comment&name=" + name + "&test_id=" + test_id, formData)
+                    .then(function (response) {
 
-                    myList.newComment = {text:"", name:"", created:"",test_id:""};
+                        myList.newComment = {text: "", name: "", created: "", test_id: ""};
 
-                    if(response.data.error){
+                        if (response.data.error) {
 
-                    } else{
-                        myList.getTestList();
-                    }
-                });
+                        } else {
+                            myList.getTestList();
+                        }
+                    });
+            } else {
+                alert('댓글을 입력해주세요.');
+            }
         },
         deleteList: function (pw) {
             //console.log(app.newUser);
@@ -137,6 +149,7 @@ var myList = new Vue({
                 console.log(this.active_el);
             } else {
                 this.active_el = el;
+                this.newComment.text = "";
                 console.log(this.active_el);
             }
             /*if(this.inActive == false) {
@@ -148,10 +161,9 @@ var myList = new Vue({
         },
 
         inputUser: function () {
-            if(this.isName1 == "") {
+            if (this.isName1 == "") {
                 this.userInputAlert = true;
-            }
-            else {
+            } else {
                 localStorage.setItem('localName', this.isName1);
                 this.isName = localStorage.getItem('localName');
                 this.isName1 = "";
@@ -160,11 +172,31 @@ var myList = new Vue({
             }
         },
 
-        logOut: function(){
+        logOut: function () {
             this.isName = "";
-            setTimeout(function(){
+            setTimeout(function () {
                 location.reload();
-            },100);
+            }, 100);
+        },
+
+        sideMenu: function (status) {
+            if (status == 'open') {
+                this.sideMenuActive = true;
+            } else {
+                this.sideMenuActive = false;
+            }
+        },
+
+        changeTheme: function (color) {
+            this.sideMenuActive = false;
+            $('.my-list__wrap').css('background-color', color);
+        },
+
+        pageRefresh: function () {
+            $('.my-list__li').removeAttr('style').removeClass('list-animation');
+            $('.my-list__wrap').scrollTop(0);
+            this.active_el = -1;
+            myList.getTestList();
         }
     }
 });
