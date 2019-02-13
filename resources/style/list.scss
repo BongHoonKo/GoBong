@@ -45,28 +45,103 @@ html, body {
 }
 
 .top-dimmer {
+  z-index: 9999;
+}
+
+.sign-up__wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
   z-index: 1000;
+  background-color: $white;
+  display: none;
+  &.active {
+    display: block;
+  }
+
+  .form-close__btn {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url('../../resources/images/ico-close.png');
+    background-position: center;
+    background-size: 1.25rem;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .sign-up__form {
+    margin-top: 3rem;
+  }
+  label {
+    margin-left: 1rem;
+  }
+  .sign-up__input {
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    height: 3rem;
+    line-height: 3rem;
+  }
+  .sign-up__btns {
+    display: block;
+    width: 70%;
+    height: 3rem;
+    background-color: $main-color;
+    color: $white;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
 }
 
 .user-input {
   width: 100%;
+  max-width: 1080px;
   height: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.7);
+  overflow-y: auto;
+  background-image: url('../../resources/images/test_back.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  padding-top: 10rem;
+
+  .user-input__top {
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+    margin-bottom: 15rem;
+    .user-input__logo {
+      width: 8.5rem;
+    }
+    .user-input__title {
+      font-size: 1.85rem;
+      color: $white;
+      font-weight: normal;
+      margin-top: 0.65rem;
+    }
+  }
 
   .user-input__wrap {
-    width: 20rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -o-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    width: calc(100% - 2rem);
+    position: relative;
+    margin-left: 1rem;
+    z-index: 10;
 
     .user-input__txt {
       color: $white;
@@ -88,30 +163,57 @@ html, body {
 
     .user-input__btn {
       display: block;
-      width: 50%;
-      height: 4rem;
-      line-height: 4rem;
+      width: 100%;
+      height: 6rem;
+      line-height: 6rem;
       color: $white;
-      font-size: 1.25rem;
+      font-size: 1.65rem;
       letter-spacing: -0.05em;
       font-weight: normal;
-      background-color: #2761dc;
+      background-color: $main-color;
       margin: 0 auto;
+      -webkit-border-radius: 300rem;
+      -moz-border-radius: 300rem;
+      border-radius: 300rem;
     }
 
     .user-input__input {
       width: 100%;
-      font-size: 1.2rem;
-      color: $black;
+      font-size: 1.85rem;
+      color: $white;
       letter-spacing: -0.05em;
       font-weight: normal;
-      height: 3rem;
-      line-height: 3rem;
+      height: 6rem;
+      line-height: 6rem;
       padding: 0 1rem;
       margin-bottom: 0.75rem;
-      background-color: #efefef;
+      background-color: rgba(255,255,255,0.25);
       outline: 0;
-      border: 1px solid #aeaeae;
+      -webkit-border-radius: 300rem;
+      -moz-border-radius: 300rem;
+      border-radius: 300rem;
+      border: 0;
+      padding-left: 6rem;
+      background-size: 3.5rem;
+      background-position: 1.5rem center;
+      background-repeat: no-repeat;
+      &.input-id {
+        background-image: url('../../resources/images/ico_id.png');
+      }
+      &.input-pw {
+        background-image: url('../../resources/images/ico_pw.png');
+      }
+    }
+
+    .sign-up__btn {
+      display: block;
+      text-align: center;
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: $white;
+      letter-spacing: -0.025em;
+      font-weight: 300;
+      padding: 1rem 0;
     }
   }
 }

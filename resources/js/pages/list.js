@@ -23,23 +23,27 @@ var myList = new Vue({
     data: {
         lists: [],
         comments: [],
-        newList: {title: "", description: "", password: "", created: "", name: ""},
+        sessions: [],
+        newList: {title: "", description: "", created: "", name: ""},
         newComment: {text: "", name: "", created: "", test_id: ""},
+        loginForm: {id: "", pw: ""},
         seen: false,
         active_el: -1,
         clickedUser: {},
         deleteModal: false,
         inActive: false,
-        password: "",
-        isName: localStorage.getItem('localName'),
-        isName1: "",
+        isLogged: localStorage.getItem('isLogged'),
+        myID: localStorage.getItem('myID'),
+        myNickname: localStorage.getItem('myNickname'),
+        myPw: localStorage.getItem('myPw'),
         isUserOk: false,
         userInputAlert: false,
         sideMenuActive: false,
+        signUpFormActive: false,
         bColor: {main: '#b5e3e5', pink: '#ff8d8d', yellow: '#ffdcaf'}
     },
     mounted: function () {
-        if (this.isName != '' && this.isName != null) {
+        if (this.isLogged == 'YES') {
             this.getTestList();
         }
         setTimeout(function () {
@@ -47,11 +51,21 @@ var myList = new Vue({
         }, 100);
     },
     watch: {
-        isName: function (val) {
-            localStorage.setItem('localName', val);
-        }
+        isLogged: function (val) {
+            localStorage.setItem('isLogged', val);
+        },
+        myID: function (val) {
+            localStorage.setItem('myID', val);
+        },
+        myNickname: function (val) {
+            localStorage.setItem('myNickname', val);
+        },
+        myPw: function (val) {
+            localStorage.setItem('myPw', val);
+        },
     },
     methods: {
+        /* 메모 리스트 데이터 불러오기 */
         getTestList: function () {
             axios.get("http://fotrise3.cafe24.com/list.php?action=read")
                 .then(function (response) {
@@ -61,27 +75,52 @@ var myList = new Vue({
                         myList.lists = response.data.list;
                         myList.comments = response.data.comment;
                         var listLength = myList.lists.length;
-                        setTimeout(function(){
+                        setTimeout(function () {
                             for (var i = 0; i <= listLength; i++) {
                                 $('.my-list__li').addClass('list-animation');
-                                $('.my-list__li').eq(i).css({'animation-delay': i/10 + 's'});
+                                $('.my-list__li').eq(i).css({'animation-delay': i / 10 + 's'});
                             }
-                            $('.my-list__ft').css('animation-name','buttonUp');
-                        },100);
+                            $('.my-list__ft').css('animation-name', 'buttonUp');
+                        }, 100);
                         setTimeout(function () {
                             $('.dimmer').fadeOut(200);
                         }, 500);
                     }
                 });
         },
+
+        /* 로그인 데이터 불러오기 */
+        login: function () {
+            var formData = myList.toFormData(myList.loginForm);
+
+            axios.post("http://fotrise3.cafe24.com/list.php?action=login", formData)
+                .then(function (response) {
+                    myList.loginForm = {id: "", pw: ""};
+
+                    if (response.data.error) {
+                        console.log('Database error');
+                    } else {
+                        myList.sessions = response.data.session;
+                        setTimeout(function () {
+                            localStorage.setItem('isLogged', myList.sessions[0]);
+                            localStorage.setItem('myID', myList.sessions[1]);
+                            localStorage.setItem('myNickname', myList.sessions[2]);
+                            localStorage.setItem('myPw', myList.sessions[3]);
+                            location.reload();
+                        }, 300)
+                    }
+                });
+        },
+
+        /* 메모 리스트 생성하기 */
         createList: function (name) {
             var formData = myList.toFormData(myList.newList);
 
-            if (this.newList.title != "" && this.newList.description != "" && this.newList.password != "") {
+            if (this.newList.title != "" && this.newList.description != "") {
                 axios.post("http://fotrise3.cafe24.com/list.php?action=create&name=" + name, formData)
                     .then(function (response) {
 
-                        myList.newList = {title: "", description: "", password: "", created: "", name: ""};
+                        myList.newList = {title: "", description: "", created: "", name: ""};
 
                         if (response.data.error) {
 
@@ -93,8 +132,9 @@ var myList = new Vue({
             } else {
                 alert('입력되지 않은 칸이 있습니다.');
             }
-
         },
+
+        /* 메모 리스트 댓글 불러오기 */
         commentList: function (name, test_id) {
             //console.log(app.newUser);
             var formData = myList.toFormData(myList.newComment);
@@ -115,12 +155,14 @@ var myList = new Vue({
                 alert('댓글을 입력해주세요.');
             }
         },
-        deleteList: function (pw) {
+        
+        /* 메모 삭제하기 */
+        deleteList: function (myNickname) {
             //console.log(app.newUser);
             var formData = myList.toFormData(myList.clickedUser);
             console.log(myList.clickedUser);
 
-            axios.post("http://fotrise3.cafe24.com/list.php?action=delete&password=" + this.password, formData)
+            axios.post("http://fotrise3.cafe24.com/list.php?action=delete&nick=" + myNickname, formData)
                 .then(function (response) {
                     myList.clickedUser = {};
                     if (response.data.error) {
@@ -130,11 +172,14 @@ var myList = new Vue({
                     }
                 });
         },
+
+        /* 선택된 리스트 */
         selectUser: function (list) {
             myList.clickedUser = list;
             console.log(list);
         },
 
+        /* form 데이터 저장 */
         toFormData: function (obj) {
             var form_data = new FormData();
             for (var key in obj) {
@@ -143,6 +188,7 @@ var myList = new Vue({
             return form_data;
         },
 
+        /* 메모 리스트 활성/비활성화 */
         activate: function (el) {
             if (this.active_el == el) {
                 this.active_el = -1;
@@ -152,33 +198,21 @@ var myList = new Vue({
                 this.newComment.text = "";
                 console.log(this.active_el);
             }
-            /*if(this.inActive == false) {
-                this.inActive = true;
-            }
-            else {
-                this.inActive = false;
-            }*/
         },
 
-        inputUser: function () {
-            if (this.isName1 == "") {
-                this.userInputAlert = true;
-            } else {
-                localStorage.setItem('localName', this.isName1);
-                this.isName = localStorage.getItem('localName');
-                this.isName1 = "";
-                this.userInputAlert = false;
-                myList.getTestList();
-            }
-        },
-
+        /* 로그아웃 */
         logOut: function () {
-            this.isName = "";
+            this.isLogged = "";
+            this.myID = "";
+            this.myNickname = "";
+            this.myPw = "";
+            this.sessions = [];
             setTimeout(function () {
                 location.reload();
             }, 100);
         },
 
+        /* 사이드메뉴 활성/비활성화 */
         sideMenu: function (status) {
             if (status == 'open') {
                 this.sideMenuActive = true;
@@ -187,11 +221,13 @@ var myList = new Vue({
             }
         },
 
+        /* 테마 변경하기 */
         changeTheme: function (color) {
             this.sideMenuActive = false;
             $('.my-list__wrap').css('background-color', color);
         },
 
+        /* 메모 리스트 새로고침 */
         pageRefresh: function () {
             $('.my-list__li').removeAttr('style').removeClass('list-animation');
             $('.my-list__wrap').scrollTop(0);
@@ -200,37 +236,3 @@ var myList = new Vue({
         }
     }
 });
-
-/*
-function setHeight(elm) {
-    var $thisParent = $(elm).closest('.my-list__li');
-    var thisActive = $thisParent.hasClass('active');
-    var listHeight = $(elm).siblings('.list-content').height();
-    var topHeight = $(elm).outerHeight();
-    if (thisActive == true) {
-        $thisParent.height('6rem');
-        $thisParent.removeClass('active');
-    } else {
-        $thisParent.height(topHeight + listHeight + 'px');
-        $thisParent.addClass('active');
-    }
-}*/
-
-/*
-function setHeight() {
-    $('.list-top').each(function () {
-        $(this).click(function () {
-            var $thisParent = $(this).closest('.my-list__li');
-            var listHeight = $(this).siblings('.list-content').height();
-            var topHeight = $(this).outerHeight();
-            var thisActive = $thisParent.hasClass('active');
-            if (thisActive == true) {
-                $thisParent.height('6rem');
-                $thisParent.removeClass('active');
-            } else {
-                $thisParent.height(topHeight + listHeight + 'px');
-                $thisParent.addClass('active');
-            }
-        });
-    });
-}*/
