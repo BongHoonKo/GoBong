@@ -4,7 +4,7 @@ Vue.component('item-list', {
 });
 
 var count = 0;
-var path = "resources/images/"
+var path = "resources/images/";
 
 var imgAlt = {
     testImg: {
@@ -13,6 +13,24 @@ var imgAlt = {
         zh: "듕귁"
     }
 }
+
+Vue.component('testLists',{
+    props: ['lists'],
+    template: "<li>{{item.msg}}</li>"
+})
+
+var vueTest = new Vue({
+    el: ".vueTest",
+    data: {
+        lists: [
+            {msg: "고봉훈"},
+            {msg: "최수영"},
+            {msg: "나상훈이"},
+            {msg: "박지은"},
+            {msg: "류혜민"}
+        ]
+    }
+});
 
 
 var app = new Vue({

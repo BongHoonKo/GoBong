@@ -66,6 +66,10 @@
             <i class="theme-color" v-for="color in bColor" :style="'background-color:' + color"
                @click="changeTheme(color);"></i>
         </div>
+        <br/>
+        <p @click="pageRefresh();sideMenu('close');">전체보기</p>
+        <br/>
+        <p @click="getMyList(myNickname);sideMenu('close');">내 게시물만 보기</p>
     </article>
 
     <!-- Header -->

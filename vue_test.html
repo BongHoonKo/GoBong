@@ -36,7 +36,15 @@
     </style>
 </head>
 <body>
-<div class="app">
+
+<div class="vueTest">
+    <ul>
+        <testLists v-for="item in lists" :lists="lists"></testLists>
+    </ul>
+</div>
+
+<!-- -->
+<div style="display: none;" class="app">
     <h1>{{LANG}}</h1>
     <select @change="changeLangs" v-model="selected" class="select-lang" style="color: #333; width:200px;">
         <option value="ko" selected>KOR</option>
@@ -78,13 +86,13 @@
 
 </div>
 <br/><br/><br/><br/><br/>
-<div class="app-2">
+<div style="display: none;" class="app-2">
     <p>{{ msg }}</p>
     <button @click="msg='ddddddd'">change</button>
 </div>
 
 <!-- -->
-<div class="watch">
+<div style="display: none;" class="watch">
     <p :class="{active : isActive && toggle}">질문하세요.</p>
     <input type="text" v-model="question"/>
     <p>{{answer}}</p>

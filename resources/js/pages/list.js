@@ -89,6 +89,30 @@ var myList = new Vue({
                 });
         },
 
+        /* 내가 쓴 데이터만 불러오기 */
+        getMyList: function(myNickname) {
+            axios.get("http://fotrise3.cafe24.com/list.php?action=readMyList&myNickname="+myNickname)
+                .then(function (response) {
+                    if (response.data.error) {
+                        console.log('Database error');
+                    } else {
+                        myList.lists = response.data.list;
+                        myList.comments = response.data.comment;
+                        var listLength = myList.lists.length;
+                        setTimeout(function () {
+                            for (var i = 0; i <= listLength; i++) {
+                                $('.my-list__li').addClass('list-animation');
+                                $('.my-list__li').eq(i).css({'animation-delay': i / 10 + 's'});
+                            }
+                            $('.my-list__ft').css('animation-name', 'buttonUp');
+                        }, 100);
+                        setTimeout(function () {
+                            $('.dimmer').fadeOut(200);
+                        }, 500);
+                    }
+                });
+        },
+
         /* 로그인 데이터 불러오기 */
         login: function () {
             var formData = myList.toFormData(myList.loginForm);

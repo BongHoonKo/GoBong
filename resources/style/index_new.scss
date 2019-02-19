@@ -1,0 +1,12 @@
+//utils
+@import "utils/_mixin";
+@import "utils/_var";
+
+// base
+@import "base/font.css";
+@import "base/_reset-new";
+
+//pages
+@import "pages/_common-new";
+@import "pages/_index-new";
+@import "pages/_work-new";
