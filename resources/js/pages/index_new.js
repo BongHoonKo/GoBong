@@ -14,6 +14,20 @@ $(function(){
             $('.port-back__txt').stop().fadeIn(200);
         },100)
     });*/
+
+    /* animation offset */
+    $(document).scroll(function(){
+        var scrollTop = $(this).scrollTop();
+        /*console.log(scrollTop);*/
+        $('.port-content').each(function(){
+            var contentOffset = $(this).offset();
+            console.log(contentOffset.top);
+            if(scrollTop >= contentOffset.top - 500) {
+                $(this).addClass('fadein');
+            }
+        });
+    });
+
 });
 
 

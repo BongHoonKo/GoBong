@@ -75,3 +75,9 @@
   -o-transition-duration: #{$ms}ms;
   transition-duration: #{$ms}ms;
 }
+
+@mixin animationDefault($sec) {
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-duration: #{$sec}s;
+}

@@ -4,9 +4,9 @@
 .port-top__wrap {
   width: 100%;
   height: 100%;
-  overflow-y: auto;
   background-color: $back-color;
   -ms-overflow-style: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -21,20 +21,6 @@
   margin-right: auto;
 }
 
-// Layout (공용)
-/*.layout {
-  padding-left: 30px;
-  padding-right: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  @media all and (min-width: 1600px) {
-    width: 1600px;
-  }
-  @media all and (min-width: 1200px) {
-    width: 1200px;
-  }
-}*/
-
 .container {
   @media all and (min-width: 1600px) {
     width: 1600px;
@@ -45,21 +31,17 @@
 .portfolio__hd {
   position: fixed;
   top: 0;
-  left: 50%;
-  max-width: 1920px;
+  left: 0;
+  width: 100%;
   padding: 15px 30px;
-  background-color: rgba(255,255,255,0.5);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.75);
   z-index: 50;
   @include clearfix;
 
   // 헤더 - 로고
   .port-logo {
     float: left;
+
     img {
       height: 50px;
     }
@@ -69,12 +51,14 @@
   .port-top__nav {
     float: right;
     @include clearfix;
+
     .port-top__li {
       line-height: 50px;
       float: left;
       font-size: 17px;
       font-weight: normal;
       cursor: pointer;
+
       &:not(:last-of-type) {
         margin-right: 50px;
       }
@@ -86,11 +70,11 @@
 .port-home {
   height: 100%;
   max-height: 1080px;
-  padding: 80px 30px;
+  padding-top: 80px;
   margin-bottom: 120px;
   background-image: url('../../resources/images/gobong-1.png');
   background-position: right 30px bottom;
-  background-size: 650px;
+  background-size: 630px;
   background-repeat: no-repeat;
   position: relative;
   @media all and (max-height: 900px) {
@@ -100,20 +84,44 @@
     height: 800px;
   }
 
+  .port-home__dimmer {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    animation-delay: 0.5s;
+    @include animationDefault(1.0);
+  }
+
+  .port-home__sub,
+  .port-home__title {
+    animation-name: textAnimation;
+    @include animationDefault(0.8);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
   .port-home__txt {
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 30px;
+    z-index: 2;
   }
+
   .port-home__title {
-    font-size: 65px;
+    font-size: 80px;
     font-weight: 800;
     line-height: 1em;
   }
+
   .port-home__sub {
     font-size: 22px;
     font-weight: 800;
     text-indent: 5px;
+    animation-delay: 0.2s;
   }
 
   .home-back {
@@ -122,7 +130,7 @@
     position: absolute;
     bottom: -1px;
     left: 0;
-    background: linear-gradient(transparent,$back-color);
+    background: linear-gradient(transparent, $back-color);
   }
 }
 
@@ -137,6 +145,7 @@
     text-align: center;
     margin-bottom: 15px;
     letter-spacing: 0.25em;
+
     &::after {
       content: "";
       width: 15px;
@@ -164,46 +173,60 @@
 
   // ABOUT
   .port-about {
-    .port-about__list {}
-      .port-about__li {
-        text-align: center;
-        .port-about__img {
-          width: 50%;
-          max-width: 200px;
-          margin-bottom: 20px;
-          opacity: 0.9;
-        }
-        .port-about__txt {
-          font-size: 15px;
-          font-weight: normal;
-          letter-spacing: -0.025em;
-          line-height: 1.65;
-          max-width: 80%;
-          margin: 0 auto;
-        }
+    .port-about__list {
+    }
+
+    .port-about__li {
+      text-align: center;
+
+      .port-about__img {
+        width: 50%;
+        max-width: 200px;
+        margin-bottom: 20px;
+        opacity: 0.9;
       }
+
+      .port-about__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .port-about__txt {
+        font-size: 15px;
+        font-weight: normal;
+        letter-spacing: -0.025em;
+        line-height: 1.65;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+    }
 
     .port-about__box {
       &.port-ability,
       &.port-profile {
         margin-bottom: 120px;
       }
+
       .port-profile__box {
         background-color: #fafafa;
-        box-shadow: 15px 15px 50px rgba(0,0,0,0.1);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
         padding-top: 30px;
         padding-bottom: 30px;
         @include clearfix;
+
         .port-profile__img {
           width: 300px;
           float: left;
         }
+
         .profile-list__wrap {
           width: calc(100% - 300px);
           float: left;
           padding-left: 50px;
           padding-top: 20px;
         }
+
         .profile-list__subject {
           display: block;
           font-size: 18px;
@@ -212,24 +235,33 @@
           position: static;
           line-height: 1;
         }
+
         .port-profile__list {
           margin-bottom: 30px;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
         }
+
         .port-profile__li {
           width: 100%;
           margin-bottom: 7px;
           @include clearfix;
+
           .profile-list__title,
           .profile-list__txt {
             font-size: 15px;
             font-weight: normal;
             margin: 0;
           }
+
           .profile-list__title {
             display: inline-block;
             width: 100px;
             font-style: normal;
           }
+
           .profile-list__txt {
             display: inline-block;
             vertical-align: top;
@@ -240,22 +272,27 @@
       .profile-skill__li {
         text-align: center;
         margin-bottom: 50px;
+
         &:nth-of-type(4n) {
           clear: both;
         }
+
         .c100 {
           float: none;
           margin: 0 auto;
+
           span {
             color: $black;
           }
         }
       }
+
       .profile-skill__title {
         font-size: 20px;
         font-weight: bold;
         margin-top: 10px;
       }
+
       .profile-skill__txt {
         width: 80%;
         margin: 0 auto;
@@ -269,18 +306,33 @@
 
   // WORKS
   .port-works {
-    .port-works__list {}
-    .port-works__li {
+    .port-works__list {
+    }
+
+    .port-works__a {
+      color: $black;
       margin-bottom: 30px;
+      display: block;
+
+      &:hover {
+        .port-works__img {
+          opacity: 0.75;
+          transition-duration: 0.3s;
+        }
+      }
+
       .port-works__img {
         border: 1px solid #efefef;
+        transition-duration: 0.3s;
       }
+
       .port-works__title {
         font-size: 20px;
         font-weight: 900;
         margin-top: 10px;
         margin-bottom: 5px;
       }
+
       .port-works__txt {
         font-size: 15px;
         font-weight: normal;
@@ -293,19 +345,49 @@
   // CONTACT
   .port-contact {
     text-align: center;
+    margin-bottom: 30px;
+
     .port-contact__list {
+      margin-bottom: 15px;
       @include clearfix;
     }
+
     .port-contact__li {
       text-align: center;
+
       img {
         height: 35px;
         margin-bottom: 10px;
       }
+
       .port-contact__txt {
         font-size: 15px;
         font-weight: normal;
         letter-spacing: -0.025em;
+      }
+    }
+
+    .port-contact__wrap {
+      input, textarea {
+        width: 100%;
+        display: block;
+        padding: 15px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: normal;
+        letter-spacing: -0.025em;
+        line-height: 1.65;
+        border: 1px solid #aeaeae;
+      }
+
+      textarea {
+        height: 300px;
+      }
+
+      .port-contact__btn {
+        border: 1px solid #aeaeae;
+        font-size: 15px;
+        padding: 3px 10px;
       }
     }
   }
