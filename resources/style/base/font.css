@@ -44,8 +44,8 @@
   font-style: normal;
   font-weight: 300;
   src: url(../../fonts/NanumSquareL.eot) format('eot'),
-       url(../../fonts/NanumSquareL.woff) format('woff'),
-       url(../../fonts/NanumSquareL.ttf) format('truetype');
+  url(../../fonts/NanumSquareL.woff) format('woff'),
+  url(../../fonts/NanumSquareL.ttf) format('truetype');
 }
 
 @font-face {
@@ -53,8 +53,8 @@
   font-style: normal;
   font-weight: 500;
   src: url(../../fonts/NanumSquareR.eot) format('eot'),
-       url(../../fonts/NanumSquareR.woff) format('woff'),
-       url(../../fonts/NanumSquareR.ttf) format('truetype');
+  url(../../fonts/NanumSquareR.woff) format('woff'),
+  url(../../fonts/NanumSquareR.ttf) format('truetype');
 }
 
 @font-face {
@@ -62,8 +62,8 @@
   font-style: normal;
   font-weight: 700;
   src: url(../../fonts/NanumSquareB.eot) format('eot'),
-       url(../../fonts/NanumSquareB.woff) format('woff'),
-       url(../../fonts/NanumSquareB.ttf) format('truetype');
+  url(../../fonts/NanumSquareB.woff) format('woff'),
+  url(../../fonts/NanumSquareB.ttf) format('truetype');
 }
 
 @font-face {
@@ -71,7 +71,13 @@
   font-style: normal;
   font-weight: 900;
   src: url(../../fonts/NanumSquareEB.eot) format('eot'),
-       url(../../fonts/NanumSquareEB.woff) format('woff'),
-       url(../../fonts/NanumSquareEB.ttf) format('truetype');
+  url(../../fonts/NanumSquareEB.woff) format('woff'),
+  url(../../fonts/NanumSquareEB.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

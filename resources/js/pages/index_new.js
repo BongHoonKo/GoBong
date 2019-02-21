@@ -1,5 +1,5 @@
 $(function(){
-    var portWork = new Swiper('.port-work__list',{
+    /*var portWork = new Swiper('.port-work__list',{
         loop: true,
         pagination: {
             el: '.port-work__pagination',
@@ -13,12 +13,12 @@ $(function(){
             portfolio.backTxt = activeTitle;
             $('.port-back__txt').stop().fadeIn(200);
         },100)
-    });
+    });*/
 });
 
 
 var portfolio = new Vue({
-    el: '.wrap',
+    el: '.port__wrap',
     data: {
         mainMenuActive: false,
         backTxt: "KSTAR ver 3.0",
