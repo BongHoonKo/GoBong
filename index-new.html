@@ -34,12 +34,12 @@
                 <h1 class="port-logo">
                     <img src="resources/images/my_logo_1.png" alt="로고"/>
                 </h1>
-                <ul class="port-top__nav">
-                    <li class="port-top__li font-sm">HOME</li>
-                    <li class="port-top__li font-sm">ABOUT</li>
-                    <li class="port-top__li font-sm">WORKS</li>
-                    <li class="port-top__li font-sm">CONTACT</li>
-                </ul>
+                <nav class="port-top__nav">
+                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">HOME</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">ABOUT</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">WORKS</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">CONTACT</a>
+                </nav>
                 <button class="port-menu__btn"></button>
             </div>
         </header>
@@ -128,7 +128,7 @@
                 <h3 class="port-con__title font-gt">WORKS</h3>
                 <span class="port-con__sub font-xs">- Website Works -</span>
                 <nav class="port-works__list row">
-                    <a href="#" class="port-works__a col-md-4" v-for="item in workList">
+                    <a href="javascript:void(0);" class="port-works__a col-md-4" v-for="item in workList" @click="popupActive">
                         <img class="port-works__img" :src="'resources/images/'+item.conImg" :alt="item.conAlt"/>
                         <h4 class="port-works__title font-md">{{item.conTitle}}</h4>
                         <p class="port-works__txt font-xs">{{item.conSubTitle}}</p>
@@ -160,11 +160,19 @@
                             <input class="font-xs" type="text" name="name" placeholder="이름 or 회사명" autocomplete="off"/>
                             <input class="font-xs" type="text" name="contact" placeholder="연락처" autocomplete="off"/>
                             <textarea class="font-xs" name="msg"></textarea>
-                            <button class="port-contact__btn font-xs" type="submit">SUBMIT</button>
+                            <button class="port-contact__btn font-xs" type="submit" tabindex="0">SUBMIT</button>
                         </form>
                     </div>
                 </article>
             </section>
+        </article>
+
+        <!-- Work Detail Popup -->
+        <article class="port-detail__popup">
+            <div class="port-detail__dimmer" @click="popupRemove"></div>
+            <div class="port-detail__content">
+                <a class="detail-close__btn" href="javascript:void(0)" @click="popupRemove"></a>
+            </div>
         </article>
 
         <!-- FOOTER -->

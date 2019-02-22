@@ -74,6 +74,7 @@ var portfolio = new Vue({
     el: '.port__wrap',
     data: {
         mainMenuActive: false,
+        detailPopup: false,
         workList: {
             Kstar3_0: {
                 conTitle: "KSTAR ver 3.0",
@@ -226,6 +227,14 @@ var portfolio = new Vue({
     methods: {
         moveTop: function() {
             $('html,body').animate({'scrollTop': '0'}, 300);
+        },
+        popupActive: function() {
+            $('body').addClass('no-scrolling');
+            $('.port-detail__popup').fadeIn(200).addClass('active').css('display','flex');
+        },
+        popupRemove: function() {
+            $('body').removeClass('no-scrolling');
+            $('.port-detail__popup').fadeOut(200).removeClass('active');
         }
     }
 });
