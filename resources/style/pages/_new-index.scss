@@ -27,35 +27,75 @@
   }
 }
 
+.top__btn {
+  width: 60px;
+  height: 60px;
+  background-image: url('../../resources/images/btn-top.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  z-index: 50;
+  @media all and (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
 // 헤더
 .portfolio__hd {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 15px 30px;
-  background-color: rgba(255, 255, 255, 0.75);
+  padding: 15px 0;
   z-index: 50;
+  transition-duration: 0.5s;
+  @media all and (max-width: 768px) {
+    padding: 7.5px 0;
+  }
   @include clearfix;
+
+  &.scrolling {
+    background-color: rgba(255, 255, 255, 0.75);
+    transition-duration: 0.5s;
+  }
 
   // 헤더 - 로고
   .port-logo {
     float: left;
+    padding-left: 15px;
+    @media all and (max-width: 991px) {
+      padding: 0;
+    }
 
     img {
       height: 50px;
+      @media all and (max-width: 768px) {
+        height: 35px;
+      }
     }
   }
 
   // Top 네비
   .port-top__nav {
     float: right;
+    padding-right: 15px;
     @include clearfix;
+    @media all and (max-width: 991px) {
+      padding: 0;
+    }
+    @media all and (max-width: 768px) {
+      display: none;
+    }
 
     .port-top__li {
       line-height: 50px;
       float: left;
-      font-size: 17px;
       font-weight: normal;
       cursor: pointer;
 
@@ -64,6 +104,32 @@
       }
     }
   }
+
+  .port-menu__btn {
+    width: 35px;
+    height: 35px;
+    background-image: url('../../resources/images/ico-menu-2.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: right center;
+    float: right;
+    display: none;
+    @media all and (max-width: 768px) {
+      display: block;
+    }
+  }
+}
+
+.port-home__dimmer {
+  width: 100%;
+  height: 100%;
+  background-color: $back-color;
+  animation-delay: 0.5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  @include animationDefault(1.0);
 }
 
 // HOME
@@ -73,28 +139,38 @@
   padding-top: 80px;
   margin-bottom: 120px;
   background-image: url('../../resources/images/gobong-1.png');
-  background-position: right 30px bottom;
+  background-position: right bottom;
   background-size: 630px;
   background-repeat: no-repeat;
   position: relative;
+  transition-duration: 0.5s;
+  animation-name: backImg;
+  animation-delay: 0.5s;
+  @include animationDefault(0.8);
   @media all and (max-height: 900px) {
     background-size: 530px;
   }
   @media all and (max-height: 800px) {
     height: 800px;
   }
-
-  .port-home__dimmer {
-    width: 100%;
-    height: 100%;
-    background-color: $white;
-    animation-delay: 0.5s;
-    @include animationDefault(1.0);
+  @media all and (max-width: 991px) {
+    background-size: 500px;
+  }
+  @media all and (max-width: 768px) {
+    background-size: 60%;
+    background-position: right bottom;
+    height: 620px;
+  }
+  @media all and (max-width: 500px) {
+    background-size: 300px;
+  }
+  @media all and (max-width: 320px) {
+    background-size: 270px;
   }
 
   .port-home__sub,
   .port-home__title {
-    animation-name: textAnimation;
+    animation-name: upAnimation;
     @include animationDefault(0.8);
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
@@ -109,16 +185,25 @@
     top: 30%;
     left: 30px;
     z-index: 2;
+    @media all and (max-width: 991px) {
+      top: 22.5%;
+    }
+    @media all and (max-width: 768px) {
+      top: 18%;
+      left: 15px;
+    }
   }
 
   .port-home__title {
     font-size: 80px;
     font-weight: 800;
     line-height: 1em;
+    @media all and (max-width: 768px) {
+      font-size: 50px;
+    }
   }
 
   .port-home__sub {
-    font-size: 22px;
     font-weight: 800;
     text-indent: 5px;
     animation-delay: 0.2s;
@@ -140,7 +225,6 @@
 
   .port-con__title {
     width: 100%;
-    font-size: 32px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 15px;
@@ -159,7 +243,6 @@
 
   .port-con__sub {
     display: block;
-    font-size: 15px;
     font-weight: normal;
     text-align: center;
     margin-bottom: 50px;
@@ -169,6 +252,9 @@
   .port-about,
   .port-works {
     margin-bottom: 150px;
+    @media all and (max-width: 768px) {
+      margin-bottom: 75px;
+    }
   }
 
   // ABOUT
@@ -178,6 +264,9 @@
 
     .port-about__li {
       text-align: center;
+      @media all and (max-width: 768px) {
+        margin-bottom: 45px;
+      }
 
       .port-about__img {
         width: 50%;
@@ -187,18 +276,22 @@
       }
 
       .port-about__title {
-        font-size: 20px;
         font-weight: bold;
         margin-bottom: 5px;
       }
 
       .port-about__txt {
-        font-size: 15px;
         font-weight: normal;
         letter-spacing: -0.025em;
         line-height: 1.65;
         max-width: 80%;
         margin: 0 auto;
+        @media all and (max-width: 991px) {
+          max-width: 100%;
+        }
+        @media all and (max-width: 768px) {
+          max-width: 85%;
+        }
       }
     }
 
@@ -206,18 +299,31 @@
       &.port-ability,
       &.port-profile {
         margin-bottom: 120px;
+        @media all and (max-width: 768px) {
+          margin-bottom: 60px;
+        }
       }
 
       .port-profile__box {
         background-color: #fafafa;
         box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
-        padding-top: 30px;
-        padding-bottom: 30px;
+        padding: 30px;
         @include clearfix;
+        @media all and (max-width: 768px) {
+          width: calc(100% - 30px);
+          margin-left: 15px;
+          padding: 15px;
+        }
 
         .port-profile__img {
           width: 300px;
           float: left;
+          @media all and (max-width: 991px) {
+            float: none;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 30px;
+          }
         }
 
         .profile-list__wrap {
@@ -225,11 +331,15 @@
           float: left;
           padding-left: 50px;
           padding-top: 20px;
+          @media all and (max-width: 991px) {
+            width: 100%;
+            float: none;
+            padding: 0;
+          }
         }
 
         .profile-list__subject {
           display: block;
-          font-size: 18px;
           font-weight: bold;
           margin-bottom: 15px;
           position: static;
@@ -251,20 +361,25 @@
 
           .profile-list__title,
           .profile-list__txt {
-            font-size: 15px;
             font-weight: normal;
             margin: 0;
+            vertical-align: top;
           }
 
           .profile-list__title {
             display: inline-block;
             width: 100px;
             font-style: normal;
+            @media all and (max-width: 480px) {
+              width: 25%;
+            }
           }
 
           .profile-list__txt {
             display: inline-block;
-            vertical-align: top;
+            @media all and (max-width: 480px) {
+              width: 70%;
+            }
           }
         }
       }
@@ -272,8 +387,10 @@
       .profile-skill__li {
         text-align: center;
         margin-bottom: 50px;
+        opacity: 0;
+        @include animationDefault(1.5);
 
-        &:nth-of-type(4n) {
+        &:nth-of-type(3n+1) {
           clear: both;
         }
 
@@ -288,7 +405,6 @@
       }
 
       .profile-skill__title {
-        font-size: 20px;
         font-weight: bold;
         margin-top: 10px;
       }
@@ -296,7 +412,6 @@
       .profile-skill__txt {
         width: 80%;
         margin: 0 auto;
-        font-size: 15px;
         font-weight: normal;
         letter-spacing: -0.025em;
         line-height: 1.65;
@@ -327,14 +442,12 @@
       }
 
       .port-works__title {
-        font-size: 20px;
         font-weight: 900;
         margin-top: 10px;
         margin-bottom: 5px;
       }
 
       .port-works__txt {
-        font-size: 15px;
         font-weight: normal;
         letter-spacing: -0.025em;
         line-height: 1.65;
@@ -354,6 +467,9 @@
 
     .port-contact__li {
       text-align: center;
+      @media all and (max-width: 320px) {
+        padding: 0 5px;
+      }
 
       img {
         height: 35px;
@@ -361,7 +477,6 @@
       }
 
       .port-contact__txt {
-        font-size: 15px;
         font-weight: normal;
         letter-spacing: -0.025em;
       }
@@ -373,20 +488,22 @@
         display: block;
         padding: 15px;
         margin-bottom: 10px;
-        font-size: 15px;
         font-weight: normal;
         letter-spacing: -0.025em;
         line-height: 1.65;
         border: 1px solid #aeaeae;
+        @media all and (max-width: 768px) {
+          padding: 10px;
+        }
       }
 
       textarea {
         height: 300px;
+        resize: none;
       }
 
       .port-contact__btn {
         border: 1px solid #aeaeae;
-        font-size: 15px;
         padding: 3px 10px;
       }
     }

@@ -10,7 +10,18 @@
   @include animationDefault(1);
 }
 
-@keyframes textAnimation {
+.upanimation {
+  animation-name: upAnimation;
+  @include animationDefault(0.5);
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+@keyframes upAnimation {
   from {
     opacity: 0;
     -webkit-transform: translateY(100%);
@@ -44,5 +55,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes backImg {
+  from {
+    background-position: right bottom;
+  }
+  to {
+    background-position: right 30px bottom;
   }
 }
