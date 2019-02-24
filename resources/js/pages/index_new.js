@@ -22,7 +22,7 @@ $(function () {
         $('.port-content').each(function () {
             var contentOffset = $(this).offset();
             /* console.log(contentOffset.top);*/
-            if (scrollTop >= contentOffset.top - 400) {
+            if (scrollTop >= contentOffset.top - 350) {
                 $(this).addClass('fadein');
                 if ($(this).hasClass('port-about__box') == true) {
                     $(this).find('.port-about__li').addClass('upanimation');
@@ -37,16 +37,23 @@ $(function () {
             }
         });
 
+        // Top Nav Background Toggle
         if (scrollTop !== 0) {
             $('.portfolio__hd').addClass('scrolling');
         } else {
             $('.portfolio__hd').removeClass('scrolling')
         }
 
+        // TOP Button
         if (scrollTop >= 100) {
             $('.top__btn').fadeIn(200);
         } else {
             $('.top__btn').fadeOut(200);
+        }
+
+        // msie detection
+        if ($.browser.msie) {
+            $('body').addClass('msie');
         }
     });
 
@@ -57,7 +64,7 @@ $(function () {
     });
 
     /* 메인 네비 이벤트 */
-    $('.port-top__nav .port-top__li').click(function () {
+    $('.port-top__nav .port-top__li, .port-mobile__list li').click(function () {
         var thisText = $(this).text().toLowerCase();
         if (thisText == 'home') {
             $('html,body').animate({'scrollTop': '0'}, 300);
@@ -65,6 +72,7 @@ $(function () {
             var thisOffset = $('.port-' + thisText).offset();
             $('html,body').animate({'scrollTop': thisOffset.top - 100}, 500);
         }
+        portfolio.mobileMenuActive = false;
     });
 });
 
@@ -74,6 +82,7 @@ var portfolio = new Vue({
     data: {
         mainMenuActive: false,
         detailPopup: false,
+        mobileMenuActive: false,
         portKey: "",
         workList: {
             Kstar3_0: {
@@ -88,7 +97,9 @@ var portfolio = new Vue({
                 conGauge: "100%",
                 conLang: "HTML / CSS / jQuery / Sass",
                 conDetailImg: "kstar3-top.png",
-                conMobile: "kstar2.5Mobile_1.jpg"
+                conMobile: "kstar2.5Mobile_1.jpg",
+                conFont: "font_noto_sans.png",
+                conBottom: "kstar3-bottom.jpg"
             },
             Condeal: {
                 conTitle: "Contenst Deal Intro",
@@ -103,7 +114,9 @@ var portfolio = new Vue({
                 conGauge: "약 50%",
                 conLang: "HTML / CSS / jQuery / Sass / Vue",
                 conDetailImg: "condeal-top.png",
-                conMobile: "condeal_mobile.jpg"
+                conMobile: "condeal_mobile.jpg",
+                conFont: "font_noto_sans.png",
+                conBottom: "condeal-bottom.jpg"
             },
             KstarDay: {
                 conTitle: "KSTAR SponsorDay",
@@ -118,7 +131,9 @@ var portfolio = new Vue({
                 conGauge: "100%",
                 conLang: "HTML / CSS / jQuery / Sass",
                 conDetailImg: "kstarday-top.png",
-                conMobile: "kstarday_mobile.jpg"
+                conMobile: "kstarday_mobile.jpg",
+                conFont: "font_noto_sans.png",
+                conBottom: "kstarday-bottom.jpg"
             },
             Kstar2_0: {
                 conTitle: "KSTAR ver 2.0",
@@ -133,7 +148,9 @@ var portfolio = new Vue({
                 conGauge: "약 80%",
                 conLang: "HTML / CSS / jQuery / Sass",
                 conDetailImg: "kstar2-top.png",
-                conMobile: "kstar2.0Mobile.jpg"
+                conMobile: "kstar2.0Mobile.jpg",
+                conFont: "font_noto_sans.png",
+                conBottom: "kstar2-bottom.jpg"
             },
             StarPay: {
                 conTitle: "STARPAY Main",
@@ -147,7 +164,9 @@ var portfolio = new Vue({
                 conGauge: "약 10% (메인 페이지만 진행)",
                 conLang: "HTML / CSS / jQuery / Sass",
                 conDetailImg: "starpay-top.png",
-                conMobile: "starpay_mobile.jpg"
+                conMobile: "starpay_mobile.jpg",
+                conFont: "font_noto_sans.png",
+                conBottom: "starpay-bottom.jpg"
             },
             StarCoin: {
                 conTitle: "STARCOIN Main",
@@ -160,7 +179,9 @@ var portfolio = new Vue({
                 conGauge: "약 10% (메인 페이지만 진행)",
                 conLang: "HTML / CSS / jQuery / Sass",
                 conDetailImg: "starcoin-top.png",
-                conMobile: "starcoin_mobile.jpg"
+                conMobile: "starcoin_mobile.jpg",
+                conFont: "font_noto_sans.png",
+                conBottom: "starcoin-bottom.jpg"
             },
             Opus: {
                 conTitle: "OPUS DESIGN",
@@ -176,7 +197,9 @@ var portfolio = new Vue({
                 conGauge: "100%",
                 conLang: "HTML / CSS / jQuery / PHP / mySQL",
                 conDetailImg: "opus-top.png",
-                conMobile: "opus_mobile.jpg"
+                conMobile: "opus_mobile.jpg",
+                conFont: "font_nanum_square.png",
+                conBottom: "opus-bottom.jpg"
             },
             Raon: {
                 conTitle: "RAON",
@@ -191,19 +214,21 @@ var portfolio = new Vue({
                 conGauge: "약 90% (게시판 제외)",
                 conLang: "HTML / CSS / jQuery",
                 conDetailImg: "raon-top.png",
-                conMobile: "raon_mobile.jpg"
+                conMobile: "raon_mobile.jpg",
+                conFont: "font_nanum_square.png",
+                conBottom: "raon-bottom.jpg"
             }
         },
 
         abilityList: [
             {
                 abTitle: "Coding",
-                abTxt: "HTML5, CSS3, JavaScript, jQuery를 이용하여 디자인된 웹페이지를 코딩하여 브라우저에 구현시키는 프론트엔드 개발이 가능합니다.",
+                abTxt: "HTML5, CSS3, JavaScript, jQuery 등을 이용하여 디자인된 웹페이지를 코딩하여 브라우저에 구현시키는 프론트엔드 개발이 가능합니다.",
                 abImg: "ico-coding.png"
             },
             {
                 abTitle: "Responsive",
-                abTxt: "12 Column 그리드 시스템으로 깔끔한 웹페이지 디자인 및 포토샵, 일러스트레이터를 이용하여 웹페이지에 필요한 이미지 작업이 가능합니다.",
+                abTxt: "다양한 사이즈의 스마트폰, 테블릿, PC에 맞게 레이아웃과 디자인이 변하고 움직이는 반응형 웹(미디어쿼리) 제작가능합니다.",
                 abImg: "ico-responsive.png"
             },
             {
@@ -271,7 +296,8 @@ var portfolio = new Vue({
         popupActive: function (key) {
             $('body').addClass('no-scrolling');
             $('.port-detail__popup').fadeIn(200).addClass('active').css('display', 'flex');
-            portfolio.portKey = eval('portfolio.workList.' + key );
+            $('.port-detail__content').scrollTop(0);
+            portfolio.portKey = eval('portfolio.workList.' + key);
         },
         popupRemove: function () {
             $('body').removeClass('no-scrolling');

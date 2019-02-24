@@ -38,11 +38,59 @@
   right: 30px;
   display: none;
   z-index: 50;
-  @media all and (max-width: 768px) {
+  /*@media all and (max-width: 768px) {
     width: 45px;
     height: 45px;
     bottom: 15px;
     right: 15px;
+  }*/
+  @include respond-to(768) {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+// 모바일 네비
+.port-mobile__nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;
+  transition-duration: 0.3s;
+
+  .port-mobile__btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    background-image: url('../../resources/images/ico-close-wh.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .port-mobile__list {
+    width: 100%;
+    text-align: center;
+
+    li {
+      color: $white;
+      padding: 15px 0;
+      cursor: pointer;
+    }
+  }
+
+  &.active {
+    top: 0;
+    transition-duration: 0.3s;
   }
 }
 
@@ -52,12 +100,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 15px 0;
   z-index: 50;
   transition-duration: 0.5s;
-  @media all and (max-width: 768px) {
-    padding: 7.5px 0;
-  }
   @include clearfix;
 
   &.scrolling {
@@ -65,17 +109,21 @@
     transition-duration: 0.5s;
   }
 
+  .container {
+    padding: 0;
+  }
+
   // 헤더 - 로고
   .port-logo {
     float: left;
-    padding-left: 15px;
-    @media all and (max-width: 991px) {
-      padding: 0;
+    padding: 15px;
+    @include respond-to(768) {
+      padding: 7.5px 15px;
     }
 
     img {
       height: 50px;
-      @media all and (max-width: 768px) {
+      @include respond-to(768) {
         height: 35px;
       }
     }
@@ -86,10 +134,10 @@
     float: right;
     padding-right: 15px;
     @include clearfix;
-    @media all and (max-width: 991px) {
+    @include respond-to(991) {
       padding: 0;
     }
-    @media all and (max-width: 768px) {
+    @include respond-to(768) {
       display: none;
     }
 
@@ -107,15 +155,17 @@
   }
 
   .port-menu__btn {
-    width: 35px;
-    height: 35px;
+    width: 39px;
+    height: 39px;
     background-image: url('../../resources/images/ico-menu-2.png');
     background-size: 30px;
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: right 15px center;
+    padding: 7.5px 15px;
     float: right;
     display: none;
-    @media all and (max-width: 768px) {
+    box-sizing: content-box;
+    @include respond-to(768) {
       display: block;
     }
   }
@@ -154,18 +204,18 @@
   @media all and (max-height: 800px) {
     height: 800px;
   }
-  @media all and (max-width: 991px) {
+  @include respond-to(991) {
     background-size: 500px;
   }
-  @media all and (max-width: 768px) {
+  @include respond-to(768) {
     background-size: 60%;
     background-position: right bottom;
     height: 620px;
   }
-  @media all and (max-width: 500px) {
+  @include respond-to(500) {
     background-size: 300px;
   }
-  @media all and (max-width: 320px) {
+  @include respond-to(320) {
     background-size: 270px;
   }
 
@@ -186,10 +236,10 @@
     top: 30%;
     left: 30px;
     z-index: 2;
-    @media all and (max-width: 991px) {
+    @include respond-to(991) {
       top: 22.5%;
     }
-    @media all and (max-width: 768px) {
+    @include respond-to(768) {
       top: 18%;
       left: 15px;
     }
@@ -199,7 +249,7 @@
     font-size: 80px;
     font-weight: 800;
     line-height: 1em;
-    @media all and (max-width: 768px) {
+    @include respond-to(768) {
       font-size: 50px;
     }
   }
@@ -253,7 +303,7 @@
   .port-about,
   .port-works {
     margin-bottom: 150px;
-    @media all and (max-width: 768px) {
+    @include respond-to(768) {
       margin-bottom: 75px;
     }
   }
@@ -265,7 +315,7 @@
 
     .port-about__li {
       text-align: center;
-      @media all and (max-width: 768px) {
+      @include respond-to(768) {
         margin-bottom: 45px;
       }
 
@@ -287,10 +337,10 @@
         line-height: 1.65;
         max-width: 80%;
         margin: 0 auto;
-        @media all and (max-width: 991px) {
+        @include respond-to(991) {
           max-width: 100%;
         }
-        @media all and (max-width: 768px) {
+        @include respond-to(768) {
           max-width: 85%;
         }
       }
@@ -300,7 +350,7 @@
       &.port-ability,
       &.port-profile {
         margin-bottom: 120px;
-        @media all and (max-width: 768px) {
+        @include respond-to(768) {
           margin-bottom: 60px;
         }
       }
@@ -310,7 +360,7 @@
         box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
         padding: 30px;
         @include clearfix;
-        @media all and (max-width: 768px) {
+        @include respond-to(768) {
           width: calc(100% - 30px);
           margin-left: 15px;
           padding: 15px;
@@ -319,7 +369,7 @@
         .port-profile__img {
           width: 300px;
           float: left;
-          @media all and (max-width: 991px) {
+          @include respond-to(991) {
             float: none;
             display: block;
             margin: 0 auto;
@@ -332,7 +382,7 @@
           float: left;
           padding-left: 50px;
           padding-top: 20px;
-          @media all and (max-width: 991px) {
+          @include respond-to(991) {
             width: 100%;
             float: none;
             padding: 0;
@@ -371,14 +421,14 @@
             display: inline-block;
             width: 100px;
             font-style: normal;
-            @media all and (max-width: 480px) {
+            @include respond-to(480) {
               width: 25%;
             }
           }
 
           .profile-list__txt {
             display: inline-block;
-            @media all and (max-width: 480px) {
+            @include respond-to(480) {
               width: 70%;
             }
           }
@@ -468,7 +518,7 @@
 
     .port-contact__li {
       text-align: center;
-      @media all and (max-width: 320px) {
+      @include respond-to(320) {
         padding: 0 5px;
       }
 
@@ -493,7 +543,7 @@
         letter-spacing: -0.025em;
         line-height: 1.65;
         border: 1px solid #aeaeae;
-        @media all and (max-width: 768px) {
+        @include respond-to(768) {
           padding: 10px;
         }
       }
@@ -546,10 +596,9 @@
   .port-detail__content {
     width: calc(100% - 30px);
     max-width: 1200px;
-    margin: 0 auto;
     height: 90%;
     overflow-y: auto;
-    padding: 110px 0;
+    padding-top: 110px;
     background-color: $back-color;
     transition-duration: 0.5s;
     -webkit-transform: translateY(120%);
@@ -559,6 +608,14 @@
     transform: translateY(120%);
     position: relative;
     z-index: 2;
+    &::after {
+      content: "";
+      display: block;
+      height: 30px;
+    }
+    @include respond-to(991) {
+      padding-top: 30px;
+    }
 
     .detail-close__btn {
       width: 35px;
@@ -569,7 +626,7 @@
       position: absolute;
       top: 15px;
       right: 15px;
-      @media all and (max-width: 768px) {
+      @include respond-to(768) {
         width: 20px;
         height: 20px;
       }
@@ -581,25 +638,80 @@
       padding: 0 50px;
       /*background-image: url('../../resources/images/opus-top.png');*/
       background-repeat: no-repeat;
-      background-position: right -90px center;
+      background-position: right -90px top -35px;
       background-size: 800px;
       margin-bottom: 35px;
+      @include respond-to(1200) {
+        background-size: 650px;
+      }
+      @include respond-to(1050) {
+        background-size: 550px;
+        background-position: right -90px top;
+      }
+      @include respond-to(991) {
+        background-image: none !important;
+        height: auto;
+        text-align: center;
+        margin-bottom: 70px;
+        padding: 0 30px;
+      }
+      @include respond-to(450) {
+        padding: 0 15px;
+      }
+
+      .detail-top__img {
+        display: none;
+        width: 80%;
+        margin: 0 auto;
+        @include respond-to(991) {
+          display: block;
+        }
+      }
+
       .detail-top__title {
         font-size: 50px;
         font-weight: 900;
         margin-bottom: 30px;
         padding-top: 8px;
         letter-spacing: -0.025em;
+
+        &::after {
+          content: "";
+          width: 30px;
+          height: 3px;
+          display: block;
+          margin-top: 5px;
+          margin-left: 3px;
+          background-color: $highlight-color;
+          @include respond-to(450) {
+            margin-left: auto;
+            margin-right: auto;
+            width: 15px;
+          }
+        }
+
+        @include respond-to(450) {
+          font-size: 38px;
+          margin-bottom: 20px;
+        }
       }
+
       .detail-top__txt {
         letter-spacing: -0.025em;
         margin-bottom: 35px;
         max-width: 450px;
+        line-height: 1.65;
+        @include respond-to(991) {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
+
       .detail-top__date {
         display: block;
         margin-top: 5px;
       }
+
       .detail-top__a {
         display: block;
         width: 150px;
@@ -611,37 +723,91 @@
         background-color: #1b3389;
         color: $white;
         text-align: center;
+        @include respond-to(991) {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
 
     .port-detail__body {
       width: 100%;
       padding: 0 50px;
+      @include respond-to(991) {
+        padding: 0 30px;
+      }
+      @include respond-to(450) {
+        padding: 0 15px;
+      }
 
       .detail-info__list {
         width: 750px;
         margin: 0 auto;
         margin-bottom: 10px;
         @include clearfix;
+        @include respond-to(991) {
+          width: 100%;
+        }
       }
+
       .detail-info__li {
         width: 33.333%;
         float: left;
         padding: 0 15px;
+        @include respond-to(450) {
+          padding: 0 5px;
+        }
+
         .detail-info__title {
           font-weight: 900;
           border-bottom: 3px solid $black;
           padding: 5px 0;
         }
-        .detail-info__txt {}
+
+        .detail-info__txt {
+        }
       }
+
       .detail-info {
         width: 750px;
         margin: 0 auto;
         padding: 0 15px;
         line-height: 1.65;
         margin-bottom: 100px;
+        @include respond-to(991) {
+          width: 85%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        @include respond-to(768) {
+          margin-bottom: 50px;
+        }
+        @include respond-to(450) {
+          width: 100%;
+          padding: 0 5px;
+        }
       }
+
+      .detail-mobile__img {
+        margin-bottom: 20px;
+      }
+
+      .detail-font__img {
+        display: block;
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        @include respond-to(768) {
+          width: 100%;
+        }
+      }
+
+      .detail-bottom__img {
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 0 30px rgba(0,0,0,0.35);
+      }
+
     }
   }
 }

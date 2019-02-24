@@ -81,3 +81,10 @@
   animation-iteration-count: 1;
   animation-duration: #{$sec}s;
 }
+
+// Responsive
+@mixin respond-to($width) {
+  @media all and (max-width: #{$width}px) {
+    @content;
+  }
+}
