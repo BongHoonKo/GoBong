@@ -35,10 +35,10 @@
                     <img src="resources/images/my_logo_1.png" alt="로고"/>
                 </h1>
                 <nav class="port-top__nav">
-                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">HOME</a>
-                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">ABOUT</a>
-                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">WORKS</a>
-                    <a href="javascript:void(0)" class="port-top__li font-sm" tabindex="1">CONTACT</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm">HOME</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm">ABOUT</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm">WORKS</a>
+                    <a href="javascript:void(0)" class="port-top__li font-sm">CONTACT</a>
                 </nav>
                 <button class="port-menu__btn"></button>
             </div>
@@ -128,7 +128,8 @@
                 <h3 class="port-con__title font-gt">WORKS</h3>
                 <span class="port-con__sub font-xs">- Website Works -</span>
                 <nav class="port-works__list row">
-                    <a href="javascript:void(0);" class="port-works__a col-md-4" v-for="item in workList" @click="popupActive">
+                    <a href="javascript:void(0);" class="port-works__a col-md-4" v-for="(item,key) in workList"
+                       @click="popupActive(key)">
                         <img class="port-works__img" :src="'resources/images/'+item.conImg" :alt="item.conAlt"/>
                         <h4 class="port-works__title font-md">{{item.conTitle}}</h4>
                         <p class="port-works__txt font-xs">{{item.conSubTitle}}</p>
@@ -170,9 +171,39 @@
         <!-- Work Detail Popup -->
         <article class="port-detail__popup">
             <div class="port-detail__dimmer" @click="popupRemove"></div>
-            <div class="port-detail__content">
+            <section class="port-detail__content">
                 <a class="detail-close__btn" href="javascript:void(0)" @click="popupRemove"></a>
-            </div>
+                <article class="port-detail__top" :style="'background-image: url(resources/images/'+portKey.conDetailImg+');'">
+                    <h4 class="detail-top__title">{{portKey.conTitle}}</h4>
+                    <p class="detail-top__txt font-sm">
+                        {{portKey.conSubTitle}}
+                        <span class="detail-top__date font-xs">Realese Date : {{portKey.conDate}}</span>
+                    </p>
+                    <a class="detail-top__a font-xs" :href="portKey.conLink" target="_blank">바로가기 ></a>
+                </article>
+                <article class="port-detail__body">
+                    <ul class="detail-info__list">
+                        <li class="detail-info__li">
+                            <p class="detail-info__title font-sm">클라이언트</p>
+                            <p class="detail-info__txt font-xs">{{portKey.conClient}}</p>
+                        </li>
+                        <li class="detail-info__li">
+                            <p class="detail-info__title font-sm">참여율</p>
+                            <p class="detail-info__txt font-xs">{{portKey.conGauge}}</p>
+                        </li>
+                        <li class="detail-info__li">
+                            <p class="detail-info__title font-sm">사용언어</p>
+                            <p class="detail-info__txt font-xs">
+                                {{portKey.conLang}}
+                            </p>
+                        </li>
+                    </ul>
+                    <p class="detail-info font-xs">
+                        {{portKey.conTxt}}
+                    </p>
+                    <img :src="'resources/images/'+ portKey.conMobile"/>
+                </article>
+            </section>
         </article>
 
         <!-- FOOTER -->
