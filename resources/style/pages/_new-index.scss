@@ -534,6 +534,9 @@
     }
 
     .port-contact__wrap {
+      label {
+        display: none;
+      }
       input, textarea {
         width: 100%;
         display: block;

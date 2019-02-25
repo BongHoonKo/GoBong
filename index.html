@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="uft-8"/>
-    <title>GoBong</title>
+    <title>웹 퍼블리셔 고봉훈 포트폴리오</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
 <body>
 <div class="port-top__wrap">
     <section class="port__wrap">
-        <a href="javascript:void(0)" class="top__btn" @click="moveTop"></a>
+        <a href="javascript:void(0)" class="top__btn txt-hidden" @click="moveTop">맨 위로 이동</a>
         <!-- 모바일 네비 -->
         <article class="port-mobile__nav" :class="{active : mobileMenuActive}">
             <button class="port-mobile__btn" @click="mobileMenuActive = false"></button>
@@ -81,7 +81,7 @@
                     <span class="port-con__sub font-xs">- ABILITY -</span>
                     <ul class="port-about__list row">
                         <li class="port-about__li col-sm-4" v-for="item in abilityList">
-                            <img class="port-about__img" :src="'resources/images/'+ item.abImg"/>
+                            <img class="port-about__img" :src="'resources/images/'+ item.abImg" alt=""/>
                             <p class="port-about__title font-md">{{item.abTitle}}</p>
                             <p class="port-about__txt font-xs">{{item.abTxt}}</p>
                         </li>
@@ -92,7 +92,7 @@
                 <article class="port-about__box port-profile row port-content">
                     <span class="port-con__sub font-xs">- PROFILE -</span>
                     <div class="port-profile__box col-lg-8 col-xs-12 col-lg-offset-2">
-                        <img class="port-profile__img" src="resources/images/gobong.jpg"/>
+                        <img class="port-profile__img" src="resources/images/gobong.jpg" alt="프로필 이미지"/>
                         <div class="profile-list__wrap">
                             <!-- 기본정보 -->
                             <sub class="profile-list__subject font-sm">기본정보</sub>
@@ -154,24 +154,27 @@
                 <span class="port-con__sub font-xs">- How To Contact -</span>
                 <ul class="port-contact__list row">
                     <li class="port-contact__li col-md-2 col-md-offset-3 col-xs-4">
-                        <img src="resources/images/ico-phone.png"/>
+                        <img src="resources/images/ico-phone.png" alt="핸드폰 번호"/>
                         <p class="port-contact__txt font-xs">010-3303-9838</p>
                     </li>
                     <li class="port-contact__li col-md-2 col-xs-4">
-                        <img src="resources/images/ico-mail.png"/>
+                        <img src="resources/images/ico-mail.png" alt="이메일 주소"/>
                         <p class="port-contact__txt font-xs">fotrise@naver.com</p>
                     </li>
                     <li class="port-contact__li col-md-2 col-xs-4">
-                        <img src="resources/images/ico-kakao.png"/>
+                        <img src="resources/images/ico-kakao.png" alt="카카오톡 ID"/>
                         <p class="port-contact__txt font-xs">GoBong9838</p>
                     </li>
                 </ul>
                 <article class="port-contact__wrap row">
                     <div class="col-md-6 col-md-offset-3">
                         <form class="port-contact__form" method="post" action="submit.php">
-                            <input class="font-xs" type="text" name="name" placeholder="이름 or 회사명" autocomplete="off"/>
-                            <input class="font-xs" type="text" name="contact" placeholder="연락처" autocomplete="off"/>
-                            <textarea class="font-xs" name="msg"></textarea>
+                            <label for="input-name">이름 또는 회사명</label>
+                            <input id="input-name" class="font-xs" type="text" name="name" placeholder="이름 or 회사명" autocomplete="off"/>
+                            <label for="input-contact">연락처</label>
+                            <input id="input-contact" class="font-xs" type="text" name="contact" placeholder="연락처" autocomplete="off"/>
+                            <label for="input-description">내용</label>
+                            <textarea id="input-description" class="font-xs" name="msg"></textarea>
                             <button class="port-contact__btn font-xs" type="submit" tabindex="0">SUBMIT</button>
                         </form>
                     </div>
@@ -183,7 +186,7 @@
         <article class="port-detail__popup">
             <div class="port-detail__dimmer" @click="popupRemove"></div>
             <section class="port-detail__content">
-                <a class="detail-close__btn" href="javascript:void(0)" @click="popupRemove"></a>
+                <a class="detail-close__btn txt-hidden" href="javascript:void(0)" @click="popupRemove">상세 팝업 끄기</a>
                 <article class="port-detail__top"
                          :style="'background-image: url(resources/images/'+portKey.conDetailImg+');'">
                     <img class="detail-top__img" :src="'resources/images/' + portKey.conDetailImg" alt=""/>
@@ -214,9 +217,9 @@
                     <p class="detail-info font-xs">
                         {{portKey.conTxt}}
                     </p>
-                    <img class="detail-mobile__img" :src="'resources/images/'+ portKey.conMobile"/>
-                    <img class="detail-font__img" :src="'resources/images/'+ portKey.conFont"/>
-                    <img class="detail-bottom__img" :src="'resources/images/' + portKey.conBottom"/>
+                    <img class="detail-mobile__img" :src="'resources/images/'+ portKey.conMobile" alt="모바일 이미지"/>
+                    <img class="detail-font__img" :src="'resources/images/'+ portKey.conFont" alt="사용된 폰트" :alt="portKey.conFontAlt"/>
+                    <img class="detail-bottom__img" :src="'resources/images/' + portKey.conBottom" alt="PC 이미지"/>
                 </article>
             </section>
         </article>
