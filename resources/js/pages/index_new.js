@@ -307,6 +307,7 @@ var portfolio = new Vue({
             $('.port-detail__popup').fadeIn(200).addClass('active').css('display', 'flex');
             $('.port-detail__content').scrollTop(0);
             portfolio.portKey = eval('portfolio.workList.' + key);
+            $('.port-detail__content .detail-close__btn').focus();
         },
         popupRemove: function () {
             $('body').removeClass('no-scrolling');

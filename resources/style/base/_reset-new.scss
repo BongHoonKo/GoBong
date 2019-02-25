@@ -47,6 +47,10 @@ a:link {
   text-decoration: none;
 }
 
+a:active {
+  outline: auto;
+}
+
 img {
   border: 0;
   vertical-align: middle;
@@ -70,9 +74,6 @@ button {
   cursor: pointer;
   border: 0;
   background: none;
-  &:focus {
-    outline: none;
-  }
 }
 
 strong {
