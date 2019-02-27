@@ -22,7 +22,7 @@ $(function () {
         $('.port-content').each(function () {
             var contentOffset = $(this).offset();
             /* console.log(contentOffset.top);*/
-            if (scrollTop >= contentOffset.top - 350) {
+            if (scrollTop >= contentOffset.top - 450) {
                 $(this).addClass('fadein');
                 if ($(this).hasClass('port-about__box') == true) {
                     $(this).find('.port-about__li').addClass('upanimation');
