@@ -313,8 +313,18 @@ var portfolio = new Vue({
             $('html,body').animate({'scrollTop': '0'}, 300);
         },
         popupActive: function (key) {
+            function isIE() {
+                var myNav = navigator.userAgent.toLowerCase();
+                return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+            }
+            if(isIE() == 9) {
+                $('.port-detail__popup').css({'display':'block','opacity':1,'transform':'none'});
+                $('.port-detail__content').css({'display':'block','top':'50%','left':'50%','transform':'translateX(-50%) translateY(-50%)'});
+            }
+            else {
+                $('.port-detail__popup').fadeIn(200).addClass('active').css('display', 'flex');
+            }
             $('body').addClass('no-scrolling');
-            $('.port-detail__popup').fadeIn(200).addClass('active').css('display', 'flex');
             $('.port-detail__content').scrollTop(0);
             portfolio.portKey = eval('portfolio.workList.' + key);
             $('.port-detail__content .detail-close__btn').focus();
