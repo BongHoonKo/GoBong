@@ -122,6 +122,7 @@
     }
 
     img {
+      width: auto;
       height: 50px;
       @include respond-to(768) {
         height: 35px;
@@ -321,6 +322,7 @@
 
       .port-about__img {
         width: 50%;
+        height: auto;
         max-width: 200px;
         margin-bottom: 20px;
         opacity: 0.9;
@@ -368,6 +370,7 @@
 
         .port-profile__img {
           width: 300px;
+          height: auto;
           float: left;
           @include respond-to(991) {
             float: none;
@@ -523,6 +526,7 @@
       }
 
       img {
+        width: auto;
         height: 35px;
         margin-bottom: 10px;
       }
