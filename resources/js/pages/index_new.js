@@ -74,6 +74,16 @@ $(function () {
         }
         portfolio.mobileMenuActive = false;
     });
+
+    function isIE() {
+        var myNav = navigator.userAgent.toLowerCase();
+        return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+    }
+    if(isIE() == 9) {
+        $('.port-content, .port-home__title, .port-home__sub, .port-about__li, .profile-skill__li').css({'opacity':1,transform:'none'});
+        $('.port-home__dimmer').css({'background-color':'none','opacity':0});
+        $('.port-home').css('background-position','right 30px bottom');
+    }
 });
 
 
