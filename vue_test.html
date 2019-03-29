@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8"/>
+    <title>GoBong</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#6B58A7">
+    <link href="favicon.png" rel="shortcut icon">
+    <!--<meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+    <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+    <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+    <meta name="author" content="KSTAR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KSTAR">
+    <meta property="og:description" content="KSTAR">
+    <meta property="og:url" content="https://www.kstar.tv">
+    <link rel="canonical" href="https://www.kstar.tv">-->
+    <link rel="stylesheet" href="resources/style/vendor/swiper.css"/>
+    <link rel="stylesheet" href="resources/style/index.css"/>
+    <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="resources/js/vendor/swiper.js"></script>
+    <style>
+        * {
+            color: #fff;
+        }
+
+        input {
+            color: #333;
+        }
+
+        select option {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="vueTest">
+    <ul>
+        <testLists v-for="item in lists" :lists="lists"></testLists>
+    </ul>
+</div>
+
+<!-- -->
+<div style="display: none;" class="app">
+    <h1>{{LANG}}</h1>
+    <select @change="changeLangs" v-model="selected" class="select-lang" style="color: #333; width:200px;">
+        <option value="ko" selected>KOR</option>
+        <option value="en">ENG</option>
+        <option value="zh">CHI</option>
+    </select>
+    {{rawHTML}}
+    <p :title="title" v-if="seen">{{ msg }}</p>
+    <span v-html="rawHTML"></span>
+    <ul>
+        <item-list v-for="list in items" :items="list"></item-list>
+    </ul>
+
+    <input type="text" v-model="msg"/>
+    <button @click="reverseText">Click</button>
+    <input class="inputs" type="text"/>
+    <button @click="pushItem">Push</button>
+    <button :disabled="isDisabled" @click="unshiftItem">{{ isDisabled ? 'Disabled' : 'Unshift' }}</button>
+
+    <a href="#" :href="href" target="_blank">LINK</a>
+    <img :src="imgSrc" :alt="imgAlt"/>
+
+
+    <!-- -->
+
+    <ul class="database">
+        <li v-for="user in users">
+            <span>{{user.wr_id}} // </span>
+            <span v-for="user1 in users1">
+                <span>{{user1.wr_subject}}</span>
+            </span>
+            <img :src="'http://fotrise3.cafe24.com/admin/data/file/test_board/'+ user.bf_file"/>
+        </li>
+    </ul>
+
+    <!--  -->
+    <p>Method : {{methodTest()}}</p>
+    <p>Computed : {{computedTest}} {{fullName}}</p>
+
+</div>
+<br/><br/><br/><br/><br/>
+<div style="display: none;" class="app-2">
+    <p>{{ msg }}</p>
+    <button @click="msg='ddddddd'">change</button>
+</div>
+
+<!-- -->
+<div style="display: none;" class="watch">
+    <p :class="{active : isActive && toggle}">질문하세요.</p>
+    <input type="text" v-model="question"/>
+    <p>{{answer}}</p>
+
+    <my-comp class="jieun" :class="[isActive ? 'active' : 'deactive']"></my-comp>
+    <p :style="fontStyle">G</p>
+
+    <h1 v-if="ok">YES</h1>
+    <h1 v-else>No</h1>
+
+    <template v-if="ok == 'ok'">
+        <h1>Title</h1>
+        <h2>SubTitle</h2>
+        <p>Text</p>
+    </template>
+    <template v-else-if="ok == 'maybe'">
+        <h1>GoBong</h1>
+    </template>
+    <template v-else>
+        <h1>1</h1>
+        <h2>2</h2>
+        <p>3</p>
+    </template>
+
+    <template v-if="loginType === 'username'">
+        <label>사용자 이름</label>
+        <input placeholder="사용자 이름을 입력하세요" key="us">
+    </template>
+    <template v-else>
+        <label>이메일</label>
+        <input placeholder="이메일 주소를 입력하세요" key="em">
+    </template>
+    <button @click="changeType()">change</button>
+
+    <p v-for="(item,index) in items">
+        {{item.msg}} - {{index}}
+    </p>
+    <p v-for="(val,key,index) in obj">
+        {{index}} : {{key}} : {{val}}
+    </p>
+</div>
+
+<script src="resources/js/vendor/vue.js"></script>
+<script type="text/javascript" src="resources/js/pages/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+<script src="resources/js/pages/vueTest.js"></script>
+</body>
+</html>

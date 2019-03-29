@@ -10,6 +10,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 *, body {
+  color: $black;
   font-family: $nanumS;
   margin: 0;
   padding: 0;
@@ -20,8 +21,18 @@ footer, header, hgroup, menu, nav, section {
 }
 
 html, body {
-  font-size: 14px;
-  background-color: #02020b;
+  font-size: 15px;
+  background-color: $back-color;
+  width: 100%;
+  height: 100%;
+  &.no-scrolling {
+    overflow: hidden;
+  }
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 br {
@@ -34,6 +45,10 @@ a:focus,
 a:active,
 a:link {
   text-decoration: none;
+}
+
+a:active {
+  outline: auto;
 }
 
 img {
@@ -59,9 +74,6 @@ button {
   cursor: pointer;
   border: 0;
   background: none;
-  &:focus {
-    outline: none;
-  }
 }
 
 strong {
@@ -94,27 +106,7 @@ b {
   color:  #aaaaaa;
 }
 
-
-.hidden_tit {
-  position: absolute;
-  left: -9999px;
-}
-
-//@media screen and (max-width: 999px) {
-//  *, body {
-//    font-size: 14px;
-//  }
-//}
-//@media screen and (max-width: 420px) {
-//  *, body {
-//    font-size: 13px;
-//  }
-//}
-
-.no-scroll {
-  overflow: hidden;
-}
-button{
+button {
   border: 0;
   padding: 0;
   background: transparent;
@@ -122,22 +114,41 @@ button{
   *overflow: visible;
 }
 
-
-/**/
-@media screen and (max-width: 450px){
-  html,body{
-    font-size: 13px;
-  }
+.txt-hidden {
+  text-indent: -9999px;
 }
 
-@media screen and (max-width: 400px){
-  html,body{
+// font-size
+.font-xs {
+  font-size: 15px;
+  @media all and (max-width: 450px) {
     font-size: 12px;
   }
-}
-
-@media screen and (max-width: 320px){
-  html,body{
+  @media all and (max-width: 320px) {
     font-size: 11px;
+  }
+}
+.font-sm {
+  font-size: 18px;
+  @media all and (max-width: 450px) {
+    font-size: 15px;
+  }
+}
+.font-md {
+  font-size: 20px;
+  @media all and (max-width: 450px) {
+    font-size: 17px;
+  }
+}
+.font-lg {
+  font-size: 22px;
+  @media all and (max-width: 450px) {
+    font-size: 20px;
+  }
+}
+.font-gt {
+  font-size: 32px;
+  @media all and (max-width: 450px) {
+    font-size: 30px;
   }
 }

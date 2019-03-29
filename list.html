@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8"/>
+    <title>GoBong</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#6B58A7">
+    <link href="favicon.png" rel="shortcut icon">
+    <!--<meta name="naver-site-verification" content="5a3760839632bf2accaa65c28ee953451801fbbc"/>
+    <meta name="description" content="콘서트예매, MD상품을 손쉽게 구매하는 종합몰">
+    <meta name="keywords" content="KSTAR, 케이스타, 블록체인, 암호화폐 결제">
+    <meta name="author" content="KSTAR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KSTAR">
+    <meta property="og:description" content="KSTAR">
+    <meta property="og:url" content="https://www.kstar.tv">
+    <link rel="canonical" href="https://www.kstar.tv">-->
+    <link rel="stylesheet" href="resources/style/vendor/swiper.css"/>
+    <link rel="stylesheet" href="resources/style/list.css"/>
+    <script type="text/javascript" src="resources/js/vendor/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<div class="top-dimmer"></div>
+<div class="dimmer"></div>
+<section class="my-list__wrap">
+    <div class="user-input" v-if="isLogged != 'YES'">
+        <div class="user-input__wrap">
+            <div class="user-input__top">
+                <img class="user-input__logo" src="resources/images/memo_white.png" alt=""/>
+                <h1 class="user-input__title">MEMO</h1>
+            </div>
+                <!--<p class="user-input__txt">이름을 입력해주세요.</p>-->
+                <input class="user-input__input input-id" type="text" name="loginId" v-model="loginForm.id"/>
+                <input class="user-input__input input-pw" type="password" name="loginPw" v-model="loginForm.pw"/>
+                <!--<p class="user-input__alert" v-if="userInputAlert">입력값이 없음!</p>-->
+                <button class="user-input__btn" @click="login()">로그인</button>
+                <a class="sign-up__btn" href="#" @click="signUpFormActive = true">간단 회원가입</a>
+        </div>
+    </div>
+
+    <div class="sign-up__wrap" :class="{active : signUpFormActive}">
+        <i class="form-close__btn" @click="signUpFormActive = false"></i>
+        <form class="sign-up__form" method="POST" action="http://fotrise3.cafe24.com/list.php?action=signup">
+
+            <label for="sign-id">ID</label>
+            <input id="sign-id" class="sign-up__input" type="text" name="signId"/>
+            <label for="sign-nickname">Nickname</label>
+            <input id="sign-nickname" class="sign-up__input" type="text" name="signNickname"/>
+            <label for="sign-pw">Password</label>
+            <input id="sign-pw" class="sign-up__input" type="password" name="signPw"/>
+
+            <button class="sign-up__btns" type="submit">회원가입</button>
+        </form>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="sidemenu__dimmer" :class="{active : sideMenuActive}" @click="sideMenu('close');"></div>
+    <article class="my-list__sidemenu" :class="{active : sideMenuActive}">
+        <div class="user-box">
+            <p>{{myNickname}}</p>
+            <button @click="logOut">로그아웃</button>
+        </div>
+        <div class="color-box">
+            <i class="theme-color" v-for="color in bColor" :style="'background-color:' + color"
+               @click="changeTheme(color);"></i>
+        </div>
+        <br/>
+        <p @click="pageRefresh();sideMenu('close');">전체보기</p>
+        <br/>
+        <p @click="getMyList(myNickname);sideMenu('close');">내 게시물만 보기</p>
+    </article>
+
+    <!-- Header -->
+    <header class="my-list__hd">
+        <img class="list-menu__btn" src="resources/images/ico_menu.png" alt="메뉴버튼" @click="sideMenu('open');"/>
+        <h1 class="my-list__title">MEMO</h1>
+        <img class="list-refresh__btn" src="resources/images/ico_refresh.png" alt="새로고침" @click="pageRefresh()"/>
+    </header>
+
+    <!-- List -->
+    <article class="my-list__body">
+        <ul class="my-list__list">
+            <li class="my-list__li" v-for="list in lists">
+                <div class="list-top" @click="activate(list.id)" :class="{ active : active_el == list.id }">
+                    <h2 class="list__title">{{list.title}}</h2>
+                    <h3 class="list__date">
+                        {{list.user}} / {{list.created}}
+                    </h3>
+                </div>
+                <div class="list-bottom" :class="{ active : active_el == list.id }">
+                    <div class="list-content">
+                        <p class="list__txt">{{list.description}}</p>
+                        <div class="list-content__btns">
+                            <button class="list-content__btn modify__btn">수정</button>
+                            <button class="list-content__btn delete__btn" @click="selectUser(list);deleteModal=true">
+                                삭제
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comment-box" :class="{ active : active_el == list.id }">
+                        <div class="comment__form">
+                            <input class="comment__input" type="text" v-model="newComment.text"
+                                   placeholder="댓글을 입력하세요."/>
+                            <button class="comment__btn" @click="commentList(myNickname,list.id)">등록</button>
+                        </div>
+                        <div class="comment-txt__box" v-if="list.id == comment.test_id" v-for="comment in comments">
+                            <p class="comment__txt">{{comment.text}}</p>
+                            <p class="comment__date">{{comment.user}} / {{comment.created}}</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </article>
+
+    <!-- Footer -->
+    <footer class="my-list__ft">
+        <button class="my-list__btn" @click="seen = true"></button>
+    </footer>
+
+    <!-- 글 삭제 모달 -->
+    <section class="delete__modal" v-if="deleteModal">
+        <div class="modal__wrap">
+            <button class="ok__btn" @click="deleteList(myNickname);deleteModal=false;">삭제</button>
+            <button class="no__btn" @click="deleteModal=false;">취소</button>
+        </div>
+    </section>
+
+    <!-- 글 작성 Form -->
+    <section class="list-form__wrap" v-if="seen">
+        <div class="my-list__form">
+            <i class="form-close__btn" @click="seen = false"></i>
+            <input class="my-list__input" type="text" name="title" v-model="newList.title" placeholder="제목"/>
+            <textarea class="my-list__textarea" name="description" v-model="newList.description"
+                      placeholder="내용"></textarea>
+            <button class="my-list__submit" @click="createList(myNickname);">등록</button>
+        </div>
+    </section>
+</section>
+<script type="text/javascript" src="resources/js/vendor/swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container');
+</script>
+<script src="resources/js/vendor/vue.js"></script>
+
+<!-- IE에서 axios promise 가 undefined 뜨는 문제 해결 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>-->
+<script src="resources/js/pages/list.js"></script>
+</body>
+</html>
